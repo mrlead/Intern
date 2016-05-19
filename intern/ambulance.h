@@ -6,24 +6,23 @@
 
 class ambulance : public hospital, private_hospital
 {
+protected:
+	int col_car;
+	int col_fuel;
+	int destination_time;
 public:
-	//объявление для service
-	service *num;
-	service *time;
-	//конец объявления
-	//объявление для leaving_call
-	leaving_call *num;
-	leaving_call *patient;
-	leaving_call *place;
-	//конец объявления
-
-	ambulance();
+	ambulance()
+	{
+		col_car = NULL;
+		col_fuel = 500;
+		destination_time = NULL;
+	}
 	void get_info();
 	void set_info();
-	void get_car(int col_car);
-	void get_fuel(int col_fuel);
+	void get_car();
+	void get_fuel();
 	void send_car();
-	void accept_patient(char *patient);
-	~ambulance();
+	void accept_patient();
+	void clean();
 };
 
