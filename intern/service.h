@@ -21,12 +21,14 @@ protected:
 	int repair;
 	char *car;
 	char *null_str;
+	char *car_repair;
 public:
 	service()
 	{
 		time += 300;
 		time_s += 3;
 		car = new char[15];
+		car_repair = new char[15];
 		null_str = "";
 		strcpy(car, null_str);
 	}
@@ -94,7 +96,7 @@ void service::add_car()
 	if (n == 1)
 	{
 		cout << "Машина принята на обслуживание" << endl;
-		take_new_car();
+		car_repair = car;
 	}
 	else
 	{
