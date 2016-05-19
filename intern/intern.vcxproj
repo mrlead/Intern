@@ -19,29 +19,30 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="N:\Новая папка\ambulance.h" />
-    <ClInclude Include="N:\Новая папка\bro.h" />
-    <ClInclude Include="N:\Новая папка\cleaner.h" />
-    <ClInclude Include="N:\Новая папка\company.h" />
-    <ClInclude Include="N:\Новая папка\doctor.h" />
-    <ClInclude Include="N:\Новая папка\emergency.h" />
-    <ClInclude Include="N:\Новая папка\false.h" />
-    <ClInclude Include="N:\Новая папка\head_doctor.h" />
-    <ClInclude Include="N:\Новая папка\head_private_doctor.h" />
-    <ClInclude Include="N:\Новая папка\hospital.h" />
-    <ClInclude Include="N:\Новая папка\interns.h" />
-    <ClInclude Include="N:\Новая папка\leaving_call.h" />
-    <ClInclude Include="N:\Новая папка\min_health.h" />
-    <ClInclude Include="N:\Новая папка\patient.h" />
-    <ClInclude Include="N:\Новая папка\person.h" />
-    <ClInclude Include="N:\Новая папка\private_doctor.h" />
-    <ClInclude Include="N:\Новая папка\private_hospital.h" />
-    <ClInclude Include="N:\Новая папка\security.h" />
-    <ClInclude Include="N:\Новая папка\service.h" />
-    <ClInclude Include="N:\Новая папка\text.h" />
+    <ClInclude Include="ambulance.h" />
+    <ClInclude Include="bro.h" />
+    <ClInclude Include="cleaner.h" />
+    <ClInclude Include="company.h" />
+    <ClInclude Include="doctor.h" />
+    <ClInclude Include="emergency.h" />
+    <ClInclude Include="false.h" />
+    <ClInclude Include="head_doctor.h" />
+    <ClInclude Include="head_private_doctor.h" />
+    <ClInclude Include="hospital.h" />
+    <ClInclude Include="interns.h" />
+    <ClInclude Include="leaving_call.h" />
+    <ClInclude Include="manager.h" />
+    <ClInclude Include="min_health.h" />
+    <ClInclude Include="patient.h" />
+    <ClInclude Include="person.h" />
+    <ClInclude Include="private_doctor.h" />
+    <ClInclude Include="private_hospital.h" />
+    <ClInclude Include="security.h" />
+    <ClInclude Include="service.h" />
+    <ClInclude Include="text.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="N:\Новая папка\person.cpp" />
+    <ClCompile Include="person.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B2D64AE6-8778-486C-8B3D-8854ACF791DA}</ProjectGuid>

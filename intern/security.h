@@ -5,7 +5,6 @@
 #include <cstdio>
 #include <Windows.h>
 #include <vector>
-#include <string>
 #include <algorithm>
 #include <time.h>
 #include <cstring>
@@ -58,7 +57,7 @@ void security::get_name()
 	const int LENGHT = 30;
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
-	char *filename = "data_male_staff_se.txt";
+	char *filename = "data_base/data_male_staff_se.txt";
 	char input[LENGHT];
 	string str;
 	FILE *fp;
@@ -78,7 +77,7 @@ void security::get_name()
 
 		//Случайная строка
 		srand(time(NULL));
-		int index = 1 + rand() % 11;
+		int index = rand() % 11;
 		str = coll[index];
 		name = new char[str.length() + 1];
 		strcpy(name, str.c_str());
@@ -98,7 +97,7 @@ void security::get_status()
 	const int LENGHT = 30;
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
-	char *filename = "stat_staff_se.txt";
+	char *filename = "data_base/stat_staff_se.txt";
 	char input[LENGHT];
 	string str;
 	FILE *fp;
@@ -118,7 +117,7 @@ void security::get_status()
 
 		//Случайная строка
 		srand(time(NULL));
-		int index = 1 + rand() % 5;
+		int index = rand() % 5;
 		str = coll[index];
 		status = new char[str.length() + 1];
 		strcpy(status, str.c_str());
@@ -138,7 +137,7 @@ void security::get_age()
 	const int LENGHT = 30;
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
-	char *filename = "age_staff_se.txt";
+	char *filename = "data_base/age_staff_se.txt";
 	char input[LENGHT];
 	string str;
 	FILE *fp;
@@ -158,7 +157,7 @@ void security::get_age()
 
 		//Случайная строка
 		srand(time(NULL));
-		int index = 1 + rand() % 35;
+		int index = rand() % 35;
 		str = coll[index];
 		ag = new char[str.length() + 1];
 		strcpy(ag, str.c_str());

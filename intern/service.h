@@ -5,7 +5,6 @@
 #include <cstdio>
 #include <Windows.h>
 #include <vector>
-#include <string>
 #include <algorithm>
 #include <time.h>
 #include <cstring>
@@ -44,12 +43,17 @@ void service::clean()
 	strcpy(car, null_str);
 }
 
+void service::delete_car()
+{
+	clean();
+}
+
 void service::take_new_car()
 {
 	const int LENGHT = 15;
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
-	char *filename = "car.txt";
+	char *filename = "data_base/data_car.txt";
 	char input[LENGHT];
 	string str;
 	FILE *fp;
@@ -69,7 +73,7 @@ void service::take_new_car()
 
 		//Случайная строка
 		srand(time(NULL));
-		int index = 1 + rand() % 11;
+		int index = rand() % 5;
 		str = coll[index];
 		car = new char[str.length() + 1];
 		strcpy(car, str.c_str());
@@ -86,10 +90,11 @@ void service::take_new_car()
 
 void service::add_car()
 {
-	n = 1 + rand() % 2;
+	n = rand() % 2;
 	if (n == 1)
 	{
 		cout << "Машина принята на обслуживание" << endl;
+		take_new_car();
 	}
 	else
 	{
@@ -106,7 +111,7 @@ void service::repair_car()
 		time--;
 		Sleep(1000);
 		{
-			repair = 1 + rand() % 2;
+			repair = rand() % 2;
 			if (repair == 1)
 			{
 				cout << "Машина готова к использованию" << endl;
