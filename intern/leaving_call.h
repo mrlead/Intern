@@ -5,17 +5,68 @@
 
 class leaving_call 
 {
+protected:
+	char *destination;
+	char *null_str;
 public:
-	//ќбъ€вление дл€ false
-	false_call *price_f;
-	//конец объ€влени€
-	//ќбъ€вление дл€ emergency
-	emergency *time_e;
-	//конец объ€влени€
-
- 	leaving_call();
+ 	leaving_call()
+	{
+		null_str = "";
+		destination = new char[30];
+		strcpy(destination, null_str);
+	}
 	void get_place();
-	void get_num();
 	void get_patient();
-	~leaving_call();
+	void clean();
 };
+
+void leaving_call::clean()
+{
+	strcpy(destination, null_str);
+}
+
+void leaving_call::get_place()
+{
+	//создаЄм случайный адресс
+	const int LENGHT = 30;
+	vector<string> coll;
+	vector<string>::iterator it_deep, it_submit, pos;
+    char *filename = "data_base/destination.txt";
+	char input[LENGHT];
+	string str;
+	FILE *fp;
+
+	try
+	{
+		//„итаем содержимое файла в коллекцию
+		fopen_s(&fp, filename, "r");
+		while (!feof(fp))
+		{
+			//„итаем строку из файла источника
+			fgets(input, LENGHT, fp);
+			str = input;
+			coll.push_back(str);
+		}
+		fclose(fp);
+
+		//—лучайна€ строка
+		srand(time(NULL));
+		int index = rand() % 11;
+		str = coll[index];
+		destination = new char[str.length() + 1];
+		strcpy(destination, str.c_str());
+		str = "";
+		coll.clear();
+
+		fclose(fp);
+	}
+	catch (bad_alloc)
+	{
+		cout << "Ќе удалось выделить пам€ть под коллекцию" << endl;
+	}
+}
+
+void leaving_call::get_patient()
+{
+
+}

@@ -22,16 +22,18 @@ protected:
 	int send_time;
 	char *car_name;
 	int count;
+	char *null_str;
 public:
 	ambulance()
 	{
+		null_str = "";
 		col_car = NULL;
 		destination = new char[30];
 		car_name = new char[15];
 		send_time = NULL;
 		count = NULL;
+		strcpy(car_name, null_str);
 	}
-	void get_info();
 	void get_car();
 	void send_car();
 	void accept_patient();
@@ -39,9 +41,21 @@ public:
 	void display_param();
 };
 
+void ambulance::clean()
+{
+	col_car = NULL;
+	send_time = NULL;
+	count = NULL;
+	strcpy(car_name, null_str);
+}
 
 void ambulance::get_car()
 {
 	service *car = new service;
 	car->take_new_car();
+}
+
+void ambulance::send_car()
+{
+	
 }
