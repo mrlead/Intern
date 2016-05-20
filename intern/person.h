@@ -60,10 +60,10 @@ void person::get_name()
 	const int LENGHT = 30;
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
-    //char *filename = "data_base/data_female_staff_s.txt";
-	char *filename;
+    char *filename = "data_base/data_female_staff_s.txt";
+	/*char *filename;
 	filename = new char[80];
-	cin >> filename;
+	cin >> filename;*/
 	char input[LENGHT];
 	string str;
 	FILE *fp;
