@@ -19,7 +19,7 @@ void person::main_menu()
 	int key1, key2;
 	do
 	{
-		tex->menu_m_per();
+		//tex->menu_m_per();
 		key1 = _getch();
 		switch (key1)
 		{
@@ -29,7 +29,7 @@ void person::main_menu()
 			do
 			{
 				system("cls");
-				tex->menu_per();
+			//	tex->menu_per();
 				key2 = _getch();
 				system("cls");
 				switch (key2)

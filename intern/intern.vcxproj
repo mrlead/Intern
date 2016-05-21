@@ -29,6 +29,7 @@
     <ClInclude Include="head_doctor.h" />
     <ClInclude Include="head_private_doctor.h" />
     <ClInclude Include="hospital.h" />
+    <ClInclude Include="IniMethod.h" />
     <ClInclude Include="interns.h" />
     <ClInclude Include="leaving_call.h" />
     <ClInclude Include="manager.h" />
@@ -42,6 +43,7 @@
     <ClInclude Include="text.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="IniMethod.cpp" />
     <ClCompile Include="person.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -54,7 +56,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
