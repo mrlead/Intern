@@ -1,5 +1,6 @@
 #pragma once
 #include "hospital.h"
+#include "IniMethod.h"
 #include <iostream>
 #include "conio.h"
 #include <cstdio>
@@ -37,9 +38,11 @@ public:
 	void get_age();
 	void rus_loc();
 	virtual void display_param();
-	void main_menu();
+	void main_menu_staff();
 	void clean();
 };
+
+
 
 void person::clean()
 {
@@ -61,9 +64,6 @@ void person::get_name()
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
     char *filename = "data_base/data_female_staff_s.txt";
-	/*char *filename;
-	filename = new char[80];
-	cin >> filename;*/
 	char input[LENGHT];
 	string str;
 	FILE *fp;

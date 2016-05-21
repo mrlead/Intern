@@ -6,11 +6,10 @@
 #include <iostream>
 #include "conio.h"
 #include <Windows.h>
+#include <locale.h>
 
-void person::main_menu()
+void person::main_menu_staff()
 {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
 	person* sister = new person();
 	bro* medbro = new bro();
 	cleaner* cleane = new cleaner();
@@ -19,7 +18,7 @@ void person::main_menu()
 	int key1, key2;
 	do
 	{
-		//tex->menu_m_per();
+
 		key1 = _getch();
 		switch (key1)
 		{
@@ -29,7 +28,7 @@ void person::main_menu()
 			do
 			{
 				system("cls");
-			//	tex->menu_per();
+
 				key2 = _getch();
 				system("cls");
 				switch (key2)

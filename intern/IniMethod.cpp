@@ -4,7 +4,8 @@
 
 using namespace std;
 
-string GetIniString(string value, string section, string file) {
+string GetIniString(string value, string section, string file)
+{
 	string result = "0";
 
 	wchar_t *Nvalue = new wchar_t[value.size()+1];
@@ -38,7 +39,8 @@ string GetIniString(string value, string section, string file) {
 	return result;
 }
 
-void WriteIniString(string info, string value, string section, string file) {
+void WriteIniString(string info, string value, string section, string file)
+{
 	wchar_t *Nvalue = new wchar_t[value.size()+1];
 	mbstowcs(Nvalue, value.c_str(), value.size());
 	Nvalue[value.size()] = '\0';
@@ -62,7 +64,8 @@ void WriteIniString(string info, string value, string section, string file) {
 	delete []Nfile;
 }
 
-void DeleteIniSection(string section, string file) {
+void DeleteIniSection(string section, string file)
+{
 	wchar_t *Nsection = new wchar_t[section.size()+1];
 	mbstowcs(Nsection, section.c_str(), section.size());
 	Nsection[section.size()] = '\0';
@@ -76,7 +79,8 @@ void DeleteIniSection(string section, string file) {
 	delete []Nfile;
 }
 
-void SetIniSectionID(string sectionNew, string sectionOld, string file) {
+void SetIniSectionID(string sectionNew, string sectionOld, string file)
+{
 	wchar_t *Nbuffer = new wchar_t[2000+1];
 
 	wchar_t *NsectionOld = new wchar_t[sectionOld.size()+1];
