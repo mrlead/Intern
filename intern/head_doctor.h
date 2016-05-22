@@ -90,17 +90,6 @@ void head_doctor::get_info()
 
 void head_doctor::number()
 {
-	char yn;
-	do
-	{
-		cout << "ѕрисвоить доктору номер больницы, или выбрать случайное число(y/n)?: ";
-		cin >> yn;
-		if (yn = 'y')
-		{
-			sprintf(num, "%d", number);//присваиваем номер больницы к номеру боигады скорой помощи доктора
-		}
-		else
-		{
 			const int LENGHT = 30;
 			vector<string> coll;
 			vector<string>::iterator it_deep, it_submit, pos;
@@ -135,7 +124,5 @@ void head_doctor::number()
 			{
 				cout << "Ќе удалось выделить пам€ть под коллекцию" << endl;
 			}
-		}
-	} while (yn = 'n');
 }
 

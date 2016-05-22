@@ -11,6 +11,9 @@ public:
 	text() {}
 	void menu_create_staff();
 	void main_staff();
+	void remove_staff();
+	void main_health();
+	void main_hospital();
 };
 
 void text::main_staff()
@@ -34,13 +37,31 @@ void text::menu_create_staff()
 	cout << GetIniString("6", "create_staff", "ini_base/menu_list_rus.ini") << endl;
 }
 
-/*void text::menu_per()
+void text::remove_staff()
 {
-	cout << "---------Меню создания персонала---------" << endl;
-	cout << "'1' - Создать медсестру" << endl;
-	cout << "'2' - Создать медбрата" << endl;
-	cout << "'3' - Создать уборщицу" << endl;
-	cout << "'4' - Создать охранника" << endl;
-	cout << "'ESC' - Возврат" << endl;
+	setlocale(LC_ALL, "RUSSIAN");
+	cout << GetIniString("1", "remove_staff", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("2", "remove_staff", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("3", "remove_staff", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("4", "remove_staff", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("5", "remove_staff", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("6", "remove_staff", "ini_base/menu_list_rus.ini") << endl;
 }
-*/
+
+void text::main_health()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	cout << GetIniString("1", "min_health", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("2", "min_health", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("3", "min_health", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("4", "min_health", "ini_base/menu_list_rus.ini") << endl;
+}
+
+void text::main_hospital()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	cout << GetIniString("1", "hospital", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("2", "hospital", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("3", "hospital", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("4", "hospital", "ini_base/menu_list_rus.ini") << endl;
+}

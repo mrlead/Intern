@@ -1,5 +1,4 @@
 #include "person.h"
-#include "text.h"
 #include "head_doctor.h"
 #include <iostream>
 #include "conio.h"

@@ -14,20 +14,28 @@ class min_health
 protected:
 	char *name;
 	char *place;
+	char *null_str;
 public:
 	min_health()
 	{
+		null_str = "";
 		name = new char[60];
 		place = new char[40];
+		strcpy(name, null_str);
+		strcpy(place, null_str);
 	}
 	virtual void get_name();
 	void display_param();
 	virtual void get_place();
-	~min_health()
-	{
-		delete name, place;
-	}
+	void clean();
+	void main_menu_min_health();
 };
+
+void min_health::clean()
+{
+	strcpy(name, null_str);
+	strcpy(place, null_str);
+}
 
 void min_health::get_name()
 {
@@ -58,6 +66,8 @@ void min_health::get_name()
 		str = coll[index];
 		name = new char[str.length() + 1];
 		strcpy(name, str.c_str());
+		str = "";
+		coll.clear();
 
 		fclose(fp);
 	}
@@ -96,6 +106,8 @@ void min_health::get_place()
 		str = coll[index];
 		place = new char[str.length() + 1];
 		strcpy(place, str.c_str());
+		str = "";
+		coll.clear();
 
 		fclose(fp);
 	}
