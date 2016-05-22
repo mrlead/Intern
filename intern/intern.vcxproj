@@ -40,11 +40,11 @@
     <ClInclude Include="private_hospital.h" />
     <ClInclude Include="security.h" />
     <ClInclude Include="service.h" />
-    <ClInclude Include="text.h" />
+    <ClInclude Include="rus_localization.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IniMethod.cpp" />
-    <ClCompile Include="person.cpp" />
+    <ClCompile Include="all_staff.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B2D64AE6-8778-486C-8B3D-8854ACF791DA}</ProjectGuid>

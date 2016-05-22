@@ -75,18 +75,18 @@
     <ClInclude Include="service.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="text.h">
+    <ClInclude Include="IniMethod.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="IniMethod.h">
+    <ClInclude Include="rus_localization.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="person.cpp">
+    <ClCompile Include="IniMethod.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="IniMethod.cpp">
+    <ClCompile Include="all_staff.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>

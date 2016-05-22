@@ -1,6 +1,5 @@
 #pragma once
 #include "hospital.h"
-#include "IniMethod.h"
 #include <iostream>
 #include "conio.h"
 #include <cstdio>
