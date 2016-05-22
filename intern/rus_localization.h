@@ -14,5 +14,5 @@ public:
 	void main_staff();
 	void remove_staff();
 	void main_health();
-	//void main_hospital();
+	void main_hospital();
 };

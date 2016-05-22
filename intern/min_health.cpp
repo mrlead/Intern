@@ -1,6 +1,6 @@
 #pragma once
 #include "min_health.h"
-#include "person.h"
+#include "hospital.h"
 #include <iostream>
 #include "conio.h"
 #include <Windows.h>
@@ -159,8 +159,8 @@ void min_health::main_menu_min_health()
 		case'4':
 		{
 			system("cls");
-			person run;
-			run.main_menu_staff();
+			hospital run;
+			run.main_menu_hospital();
 		}
 		}
 	} while (key1 != 27);

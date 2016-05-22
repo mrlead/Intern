@@ -43,6 +43,7 @@
     <ClInclude Include="rus_localization.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="hospital.cpp" />
     <ClCompile Include="IniMethod.cpp" />
     <ClCompile Include="all_staff.cpp" />
     <ClCompile Include="main_file.cpp" />

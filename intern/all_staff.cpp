@@ -607,7 +607,6 @@ void person::main_menu_staff()
 	bro* medbro = new bro();
 	cleaner* cleane = new cleaner();
 	security* securit = new security();
-	//text* tex = new text();
 	text show;
 	int key1, key2, key3, key4;
 	do
@@ -624,7 +623,7 @@ void person::main_menu_staff()
 				system("cls");
 				show.menu_create_staff();
 				key2 = _getch();
-				system("cls");
+				//system("cls");
 				switch (key2)
 				{
 					system("cls");
@@ -722,7 +721,7 @@ void person::main_menu_staff()
 				cleane->display_param();
 				securit->display_param();
 				key4 = _getch();
-				switch (key4);
+				switch (key4)
 				{}
 			} while (key4 != 27);
 			break;
