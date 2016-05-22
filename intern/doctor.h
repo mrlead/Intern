@@ -1,4 +1,4 @@
-#include "person.h"
+//#include "person.h"
 #include "head_doctor.h"
 #include <iostream>
 #include "conio.h"

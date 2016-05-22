@@ -32,10 +32,10 @@ public:
 		strcpy(name, null_str);
 		strcpy(num, null_str);
 	}
-	virtual void get_info();
+	void get_info();
 	void clean();
-	void number();
-	virtual void display_param();
+	virtual void GetNumber();
+	void display_param();
 };
 
 void head_doctor::clean()
@@ -88,7 +88,7 @@ void head_doctor::get_info()
 	}
 }
 
-void head_doctor::number()
+void head_doctor::GetNumber()
 {
 			const int LENGHT = 30;
 			vector<string> coll;

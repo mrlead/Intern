@@ -10,7 +10,7 @@
 
 using namespace std;
 
-class hospital:public min_health
+class hospital :public min_health 
 {
 protected:
 	char *name;
@@ -38,17 +38,17 @@ public:
 		strcpy(head_docto, null_str);
 		strcpy(number_s, null_str);
 	}
-	virtual void get_name();
-	virtual void get_number();
-	virtual void display_param();
+	/*void get_name();
+	void get_number();
+	void display_param();
 	void get_head_doctor();
 	void get_room();
 	void get_place();
 	void get_cost();
-	void clean();
+	void clean();*/
 };
 
-void hospital::clean()
+/*void hospital::clean()
 {
 	number = NULL;
 	cost = NULL;
@@ -259,4 +259,4 @@ void hospital::display_param()
 	cout << "Главный врач: " << head_docto <<  endl;
 	cout << "Цена за вип-палату за сутки" << cost << endl;
 	cout << "Количество палат: " << room << "	Вип-палат: " << vip_room << endl;
-}
+}*/
