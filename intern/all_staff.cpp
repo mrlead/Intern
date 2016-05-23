@@ -69,8 +69,6 @@ void person::get_name(string)
 		fprintf(fo, name);
 		fclose(fo);
 
-		//p_name->get_name(name);
-
 	}
 	catch (bad_alloc)
 	{
@@ -159,22 +157,14 @@ void person::get_age()
 	}
 }
 
+char *name_per;
+
 void person::display_param()
 {
-	string nams;
-	ifstream myfile("intermediate_files/person_name.txt");
-	FILE *of;
-	if (myfile.is_open())
-	{
-		while (myfile.good())
-		{
-			getline(myfile, nams);
-		}
-		myfile.close();
-	}
-	strcpy(name, nams.c_str());
+	name_per = new char[30];
+	strcpy(name_per, name);
 	cout << endl;
-	cout << "ФИО: " << name << endl;
+	cout << "ФИО: " << name_per << endl;
 	cout << "Статус сотрудника: " << status << endl;
 	cout << "Возраст сотрудника: " << age << endl;
 	cout << "Должность: Медсестра" << endl;
@@ -303,7 +293,6 @@ void bro::get_age()
 		ag = new char[str.length() + 1];
 		strcpy(ag, str.c_str());
 		age = (short)strtoul(ag, NULL, 0);
-		/*num = strtod(str.c_str(), 0);*/
 		str = "";
 		coll.clear();
 
@@ -318,7 +307,6 @@ void bro::get_age()
 
 void bro::display_param()
 {
-	setlocale(LC_ALL, "RUSSIAN");
 	cout << endl;
 	cout << "ФИО: " << name << endl;
 	cout << "Стастус сотрудника: " << status << endl;

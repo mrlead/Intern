@@ -226,7 +226,7 @@ void hospital::main_menu_hospital()
 	int key1, key2;
 	do
 	{
-		//system("cls");
+		system("cls");
 		text_hosp->main_hospital();
 		key1 = _getch();
 		switch (key1)
@@ -254,15 +254,15 @@ void hospital::main_menu_hospital()
 			}
 		case'2':
 			{
-				//do
-				//{
+				do
+				{
 					system("cls");
 					medical->display_param();
-					//cout << "'ESC' - Назад" << endl;
-				//	key2 = _getch();
-				//	switch (key2)
-				//	{}
-			//	} while (key2 != 27);
+					cout << "'ESC' - Назад" << endl;
+					key2 = _getch();
+					switch (key2)
+					{}
+				} while (key2 != 27);
 				break;
 			}
 		case'3':
@@ -289,11 +289,6 @@ void hospital::main_menu_hospital()
 				person run;
 				run.main_menu_staff();
 			}
-		case'5':
-		{
-			min_health ret;
-			ret.main_menu_min_health();
-		}
 		}
 	} while (key1 != 27);
 }
