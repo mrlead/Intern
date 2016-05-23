@@ -33,7 +33,7 @@ public:
 		strcpy(status, null_str);
 		strcpy(ag, null_str);
 	}
-	void get_name();
+	void get_name(string);
 	void get_status();
 	void get_age();
 	void rus_loc();

@@ -32,7 +32,6 @@
     <ClInclude Include="IniMethod.h" />
     <ClInclude Include="interns.h" />
     <ClInclude Include="leaving_call.h" />
-    <ClInclude Include="manager.h" />
     <ClInclude Include="min_health.h" />
     <ClInclude Include="patient.h" />
     <ClInclude Include="person.h" />

@@ -160,7 +160,7 @@ void min_health::main_menu_min_health()
 		{
 			system("cls");
 			hospital run;
-			run.main_menu_hospital();
+			 run.main_menu_hospital();
 		}
 		}
 	} while (key1 != 27);

@@ -17,9 +17,12 @@ protected:
 	char *place;
 	char *null_str;
 	int r;
+	
 public:
+	char *name_hosp;
 	min_health()
 	{
+		name_hosp = new char[15];
 		r = NULL;
 		null_str = "";
 		name = new char[60];

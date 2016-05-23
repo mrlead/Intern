@@ -39,10 +39,11 @@ void hospital::get_name()
 
 		//Случайная строка
 		srand(time(NULL));
-		int index = rand()*coll.size() / RAND_MAX;
+		int index = rand() % 4;
 		str = coll[index];
-		name = new char[str.length() + 1];
-		strcpy(name, str.c_str());
+		name_hosp = new char[str.length() + 1];
+		strcpy(name_hosp, str.c_str());
+		//strcpy(name_hosp, name);
 
 		fclose(fp);
 	}
@@ -56,6 +57,7 @@ void hospital::get_number()
 {
 	do
 	{
+		cout << endl;
 		cout << "Введите номер больницы: ";
 		cin >> number;
 		if (number > 0 && number <= 100)
@@ -143,10 +145,10 @@ void hospital::get_room()
 	do
 	{
 		cout << "Вы хотите прировнять количество вип-палат к обычным палатам(y/n)? ";
-		cin >> yn;
-		if (yn == 'y')
+		if (_getch() == 'y')
 		{
 			vip_room = room;
+			
 		}
 		else
 		{
@@ -164,7 +166,8 @@ void hospital::get_room()
 				}
 			} while (!(vip_room > 0 && vip_room <= 100));
 		}
-	} while (yn == 'n');
+	} while (_getch() == 'n');
+	cout << "Успешно" << endl;
 }
 
 void hospital::get_head_doctor()
@@ -207,11 +210,11 @@ void hospital::get_head_doctor()
 
 void hospital::display_param()
 {
-	cout << "Больница: " << name << endl;
+	cout << "Больница: " << name_hosp << endl;
 	cout << "Номер: " << number << endl;
 	cout << "Адрес: " << place << endl;
 	cout << "Главный врач: " << head_docto << endl;
-	cout << "Цена за вип-палату за сутки" << cost << endl;
+	cout << "Цена за вип-палату за сутки: " << cost << endl;
 	cout << "Количество палат: " << room << "	Вип-палат: " << vip_room << endl;
 }
 
@@ -223,7 +226,7 @@ void hospital::main_menu_hospital()
 	int key1, key2;
 	do
 	{
-		system("cls");
+		//system("cls");
 		text_hosp->main_hospital();
 		key1 = _getch();
 		switch (key1)
@@ -251,14 +254,15 @@ void hospital::main_menu_hospital()
 			}
 		case'2':
 			{
-				do
-				{
+				//do
+				//{
 					system("cls");
 					medical->display_param();
-					key2 = _getch();
-					switch (key2)
-					{}
-				} while (key2 != 27);
+					//cout << "'ESC' - Назад" << endl;
+				//	key2 = _getch();
+				//	switch (key2)
+				//	{}
+			//	} while (key2 != 27);
 				break;
 			}
 		case'3':
@@ -285,6 +289,11 @@ void hospital::main_menu_hospital()
 				person run;
 				run.main_menu_staff();
 			}
+		case'5':
+		{
+			min_health ret;
+			ret.main_menu_min_health();
+		}
 		}
 	} while (key1 != 27);
 }

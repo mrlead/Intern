@@ -3,6 +3,7 @@
 #include "bro.h"
 #include "cleaner.h"
 #include "security.h"
+#include <fstream>
 #include <iostream>
 #include "conio.h"
 #include <Windows.h>
@@ -17,7 +18,7 @@
 void person::clean()
 {
 	age = NULL;
-	strcpy(name, null_str);
+	//strcpy(name, null_str);
 	strcpy(status, null_str);
 	strcpy(ag, null_str);
 }
@@ -28,12 +29,13 @@ void person::rus_loc()
 	SetConsoleOutputCP(1251);
 }
 
-void person::get_name()
+void person::get_name(string)
 {
 	const int LENGHT = 30;
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
 	char *filename = "data_base/data_female_staff_s.txt";
+	char *filename_s = "intermediate_files/person_name.txt";
 	char input[LENGHT];
 	string str;
 	FILE *fp;
@@ -59,8 +61,16 @@ void person::get_name()
 		strcpy(name, str.c_str());
 		str = "";
 		coll.clear();
+		
 
 		fclose(fp);
+		FILE *fo;
+		fopen_s(&fo, filename_s, "w");
+		fprintf(fo, name);
+		fclose(fo);
+
+		//p_name->get_name(name);
+
 	}
 	catch (bad_alloc)
 	{
@@ -151,6 +161,18 @@ void person::get_age()
 
 void person::display_param()
 {
+	string nams;
+	ifstream myfile("intermediate_files/person_name.txt");
+	FILE *of;
+	if (myfile.is_open())
+	{
+		while (myfile.good())
+		{
+			getline(myfile, nams);
+		}
+		myfile.close();
+	}
+	strcpy(name, nams.c_str());
 	cout << endl;
 	cout << "ФИО: " << name << endl;
 	cout << "Статус сотрудника: " << status << endl;
@@ -638,7 +660,7 @@ void person::main_menu_staff()
 					else
 					{
 						person::person();
-						sister->get_name();
+						sister->get_name(name);
 						sister->get_status();
 						sister->get_age();
 						cout << "Успешно" << endl;

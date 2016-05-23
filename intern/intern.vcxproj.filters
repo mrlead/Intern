@@ -51,9 +51,6 @@
     <ClInclude Include="leaving_call.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="manager.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="min_health.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
