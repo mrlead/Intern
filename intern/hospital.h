@@ -35,7 +35,7 @@ public:
 		strcpy(place, null_str);
 		strcpy(number_s, null_str);
 	}
-	void get_name();
+	virtual void get_name();
 	void get_number();
 	void display_param();
 	void get_room();

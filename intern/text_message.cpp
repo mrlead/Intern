@@ -77,4 +77,7 @@ void text::main_doct()
 	cout << GetIniString("3", "doctor", "ini_base/menu_list_rus.ini") << endl;
 	cout << GetIniString("4", "doctor", "ini_base/menu_list_rus.ini") << endl;
 	cout << GetIniString("5", "doctor", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("6", "doctor", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("7", "doctor", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("8", "doctor", "ini_base/menu_list_rus.ini") << endl;
 }

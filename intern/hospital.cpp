@@ -2,6 +2,7 @@
 #include "hospital.h"
 #include "person.h"
 #include "head_doctor.h"
+#include "doctor.h"
 
 void hospital::clean()
 {
@@ -241,8 +242,8 @@ void hospital::main_menu_hospital()
 					cout << "Успешно" << endl;
 					Sleep(1500);
 				}
-				break;
 			}
+			break;
 		case'4':
 			{
 				system("cls");
@@ -255,6 +256,13 @@ void hospital::main_menu_hospital()
 				system("cls");
 				head_doctor run;
 				run.main_head_doctor();
+			}
+			break;
+		case'6':
+			{
+				system("cls");
+				doctor run;
+				run.main_menu_doct();
 			}
 			break;
 		}
