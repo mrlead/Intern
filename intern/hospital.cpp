@@ -3,7 +3,6 @@
 #include "person.h"
 #include "head_doctor.h"
 #include "doctor.h"
-
 void hospital::clean()
 {
 	number = NULL;

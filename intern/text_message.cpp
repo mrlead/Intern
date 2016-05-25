@@ -79,5 +79,14 @@ void text::main_doct()
 	cout << GetIniString("5", "doctor", "ini_base/menu_list_rus.ini") << endl;
 	cout << GetIniString("6", "doctor", "ini_base/menu_list_rus.ini") << endl;
 	cout << GetIniString("7", "doctor", "ini_base/menu_list_rus.ini") << endl;
-	cout << GetIniString("8", "doctor", "ini_base/menu_list_rus.ini") << endl;
+}
+
+void text::main_patient()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	cout << GetIniString("1", "patient", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("2", "patient", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("3", "patient", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("4", "patient", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("5", "patient", "ini_base/menu_list_rus.ini") << endl;
 }

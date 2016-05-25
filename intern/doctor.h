@@ -1,3 +1,4 @@
+#pragma once
 #include "head_doctor.h"
 #include <iostream>
 #include "conio.h"
@@ -41,7 +42,7 @@ public:
 		rank_3 = new char[15];
 		rank_4 = new char[30];
 		default_rank = new char[15];
-		heal = new char[30];
+		heal = new char[60];
 		r = 1;
 		age = NULL;
 		strcpy(name, null_str);
@@ -53,13 +54,13 @@ public:
 		strcpy(rank_3, null_str);
 		strcpy(rank_4, null_str);
 	}
-	void get_name();
+	virtual void get_name();
 	void Heal();
 	void GetRank();
 	void get_number();
-	void get_age();
+	virtual void get_age();
 	void exam();
-	void display_param();
+	virtual void display_param();
 	void clean();
 	void get_status();
 	void main_menu_doct();

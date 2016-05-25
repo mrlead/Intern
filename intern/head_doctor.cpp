@@ -164,8 +164,9 @@ void head_doctor::main_head_doctor()
 			{
 				if (head_d->age != 0)
 				{
+					system("cls");
 					cout << "Для начала произведите очистку данных" << endl;
-					Sleep(900);
+					Sleep(1500);
 					system("cls");
 				}
 				else
@@ -175,21 +176,35 @@ void head_doctor::main_head_doctor()
 					head_d->get_age();
 					head_d->GetNumber();
 					head_d->get_status();
+					system("cls");
+					cout << "Успешно" << endl;
+					Sleep(1500);
 				}
 			}
 			break;
 		case'2':
 			{
-				do
+				if (head_d->age == 0)
 				{
 					system("cls");
-					head_d->display_param();
-					cout << "'ESC' - Назад" << endl;
-					key2 = _getch();
-					switch (key2)
+					cout << "\aСначала создайте врача" << endl;
+					Sleep(1500);
+					system("cls");
+				}
+				else
+				{
+					do
 					{
-					}
-				} while (key2 != 27);
+						system("cls");
+						head_d->display_param();
+						cout << "'ESC' - Назад" << endl;
+						key2 = _getch();
+						switch (key2)
+						{
+						}
+					} while (key2 != 27);
+					break;
+				}
 			}
 			break;
 		case'3':
@@ -197,7 +212,7 @@ void head_doctor::main_head_doctor()
 				if (head_d->age == 0)
 				{
 					system("cls");
-					cout << "Стирать ещё нечего" << endl;
+					cout << "\aСтирать ещё нечего" << endl;
 					Sleep(1500);
 					system("cls");
 				}

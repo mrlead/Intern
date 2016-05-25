@@ -1,4 +1,7 @@
+#pragma once
 #include "doctor.h"
+#include "patient.h"
+
 
 void doctor::clean()
 {
@@ -12,10 +15,12 @@ void doctor::clean()
 void doctor::get_name()
 {
 	//set_name
+	
 	const int LENGHT = 30;
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
-	char *filename = "data_base/doct_name.txt";
+	char *filename = new char[40];
+	filename = "data_base/doct_name.txt";
 	char input[LENGHT];
 	string str;
 	FILE *fp;
@@ -45,7 +50,8 @@ void doctor::get_name()
 	}
 	catch (bad_alloc)
 	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
+		cerr << "Не удалось выделить память под коллекцию" << endl;
+		Sleep(900);
 	}
 
 }
@@ -101,13 +107,15 @@ void doctor::get_number()
 	nums = 1 + rand() % 99;
 }
 
+patient* pat_n = new patient();
+
 void doctor::Heal()
 {
 	//метод лечения 
-	const int LENGHT = 30;
+	/*const int LENGHT = 30;
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
-	char *filename = "data_base/heal.txt";
+	char *filename = "data_base/health.txt";
 	char input[LENGHT];
 	string str;
 	FILE *fp;
@@ -137,7 +145,61 @@ void doctor::Heal()
 	catch (bad_alloc)
 	{
 		cout << "Не удалось выделить память под коллекцию" << endl;
+	}*/
+	//static patient* dis = new patient();
+
+	cout << "Диагноз: " << pat_n->disease << endl;
+
+	if (pat_n->disease == "Бешенство")
+	{
+		heal = "Уколы по 4 раза в день, 10 дней";
 	}
+	else
+		if (pat_n->disease == "Ветрянка")
+		{
+			heal = "Обмазывание зелёнкой, таблетки два раза в день, 10 дней";
+		}
+		else
+			if(pat_n->disease == "Гайморит")
+		{
+			heal = "Промывание носа, капли для носа, 7 дней";
+		}
+			else
+				if (pat_n->disease == "Гастрит желудка")
+				{
+					heal = "Строгая диета, капельница, 15 дней";
+				}
+				else
+					if(pat_n->disease == "Инсульт")
+				{
+					heal = "Капельница, 10 дней";
+				}
+					else
+						if (pat_n->disease == "Остеохондроз")
+						{
+							heal = "Массаж, 30 дней";
+						}
+						else
+							if (pat_n->disease == "Инфаркт Миокарда")
+							{
+								heal = "Успокаительное, капельница 14 дней";
+							}
+							else
+								if (pat_n->disease == "Корь")
+								{
+									heal = "Таблетки, и наблюдение у врача";
+								}
+								else
+									if (pat_n->disease == "Острый бронхит")
+									{
+										heal = "Уколы, приём таблеток, до выздоровления";
+									}
+									else
+										if (pat_n->disease == "Дальтонизм")
+										{
+											heal = "Лечение у психиатра";
+										}
+	cout << "Метод лечения: " << heal << endl;
 }
 
 void doctor::exam()
@@ -307,7 +369,8 @@ void doctor::main_menu_doct()
 			break;
 		case'4':
 			{
-				
+					system("cls");
+					pat_n->main_menu_pat();
 			}
 			break;
 		case'5':
@@ -325,11 +388,6 @@ void doctor::main_menu_doct()
 					doct->exam();
 					Sleep(3000);
 				}
-			}
-			break;
-		case'6':
-			{
-
 			}
 			break;
 		}
