@@ -18,7 +18,6 @@ protected:
 	int room, vip_room;
 	int number;
 	int cost;
-	char *head_docto;
 	char *number_s;
 	char *null_str;
 public:
@@ -27,7 +26,6 @@ public:
 		null_str = "";
 		name = new char[15];
 		place = new char[40];
-		head_docto = new char[30];
 		number_s = new char[5];
 		number = NULL;
 		cost = NULL;
@@ -35,13 +33,11 @@ public:
 		vip_room = NULL;
 		strcpy(name, null_str);
 		strcpy(place, null_str);
-		strcpy(head_docto, null_str);
 		strcpy(number_s, null_str);
 	}
 	void get_name();
 	void get_number();
 	void display_param();
-	void get_head_doctor();
 	void get_room();
 	void get_place();
 	void get_cost();

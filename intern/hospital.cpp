@@ -1,6 +1,7 @@
 #pragma once
 #include "hospital.h"
 #include "person.h"
+#include "head_doctor.h"
 
 void hospital::clean()
 {
@@ -10,7 +11,6 @@ void hospital::clean()
 	vip_room = NULL;
 	strcpy(name, null_str);
 	strcpy(place, null_str);
-	strcpy(head_docto, null_str);
 	strcpy(number_s, null_str);
 }
 
@@ -170,57 +170,18 @@ void hospital::get_room()
 	cout << "Успешно" << endl;
 }
 
-void hospital::get_head_doctor()
-{
-	const int LENGHT = 40;
-	vector<string> coll;
-	vector<string>::iterator it_deep, it_submit, pos;
-	char *filename = "data_base/name_hd.txt";
-	char input[LENGHT];
-	string str;
-	FILE *fp;
-
-	try
-	{
-		//Читаем содержимое файла в коллекцию
-		fopen_s(&fp, filename, "r");
-		while (!feof(fp))
-		{
-			//Читаем строку из файла источника
-			fgets(input, LENGHT, fp);
-			str = input;
-			coll.push_back(str);
-		}
-		fclose(fp);
-
-		//Случайная строка
-		srand(time(NULL));
-		int index = rand()*coll.size() / RAND_MAX;
-		str = coll[index];
-		head_docto = new char[str.length() + 1];
-		strcpy(head_docto, str.c_str());
-
-		fclose(fp);
-	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
-}
-
 void hospital::display_param()
 {
 	cout << "Больница: " << name_hosp << endl;
 	cout << "Номер: " << number << endl;
 	cout << "Адрес: " << place << endl;
-	cout << "Главный врач: " << head_docto << endl;
 	cout << "Цена за вип-палату за сутки: " << cost << endl;
 	cout << "Количество палат: " << room << "	Вип-палат: " << vip_room << endl;
 }
 
 void hospital::main_menu_hospital()
 {
-	hospital* medical = new hospital();
+	static hospital* medical = new hospital();
 	text* text_hosp = new text();
 
 	int key1, key2;
@@ -245,7 +206,6 @@ void hospital::main_menu_hospital()
 					medical->get_name();
 					medical->get_place();
 					medical->get_place();
-					medical->get_head_doctor();
 					medical->get_cost();
 					medical->get_room();
 					medical->get_number();
@@ -289,6 +249,14 @@ void hospital::main_menu_hospital()
 				person run;
 				run.main_menu_staff();
 			}
+			break;
+		case'5':
+			{
+				system("cls");
+				head_doctor run;
+				run.main_head_doctor();
+			}
+			break;
 		}
 	} while (key1 != 27);
 }

@@ -101,7 +101,7 @@ void min_health::display_param()
 
 void min_health::main_menu_min_health()
 {
-	min_health* health = new min_health();
+	static min_health* health = new min_health();
 	text* tex_m = new text();
 
 	int key1, key2;

@@ -36,7 +36,6 @@ public:
 	void get_name(string);
 	void get_status();
 	void get_age();
-	void rus_loc();
 	void display_param();
 	void main_menu_staff();
 	void clean();

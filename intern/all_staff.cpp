@@ -3,7 +3,6 @@
 #include "bro.h"
 #include "cleaner.h"
 #include "security.h"
-#include <fstream>
 #include <iostream>
 #include "conio.h"
 #include <Windows.h>
@@ -18,15 +17,9 @@
 void person::clean()
 {
 	age = NULL;
-	//strcpy(name, null_str);
+	strcpy(name, null_str);
 	strcpy(status, null_str);
 	strcpy(ag, null_str);
-}
-
-void person::rus_loc()
-{
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
 }
 
 void person::get_name(string)
@@ -35,7 +28,6 @@ void person::get_name(string)
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
 	char *filename = "data_base/data_female_staff_s.txt";
-	char *filename_s = "intermediate_files/person_name.txt";
 	char input[LENGHT];
 	string str;
 	FILE *fp;
@@ -64,11 +56,6 @@ void person::get_name(string)
 		
 
 		fclose(fp);
-		FILE *fo;
-		fopen_s(&fo, filename_s, "w");
-		fprintf(fo, name);
-		fclose(fo);
-
 	}
 	catch (bad_alloc)
 	{
@@ -157,14 +144,10 @@ void person::get_age()
 	}
 }
 
-char *name_per;
-
 void person::display_param()
 {
-	name_per = new char[30];
-	strcpy(name_per, name);
 	cout << endl;
-	cout << "ФИО: " << name_per << endl;
+	cout << "ФИО: " << name << endl;
 	cout << "Статус сотрудника: " << status << endl;
 	cout << "Возраст сотрудника: " << age << endl;
 	cout << "Должность: Медсестра" << endl;
@@ -613,10 +596,10 @@ void security::display_param()
 
 void person::main_menu_staff()
 {
-	person* sister = new person();
-	bro* medbro = new bro();
-	cleaner* cleane = new cleaner();
-	security* securit = new security();
+	static person* sister = new person();
+	static bro* medbro = new bro();
+	static cleaner* cleane = new cleaner();
+	static security* securit = new security();
 	text show;
 	int key1, key2, key3, key4;
 	do
