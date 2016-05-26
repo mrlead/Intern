@@ -169,11 +169,9 @@ void patient::get_place()
 
 void patient::display_param()
 {
-	cout << "ФИО пациента: " << name << endl;
-	cout << "Возраст пациента: " << age << endl;
-	cout << "Место жительства пациента: " << place << endl;
-	//cout << "Диагноз: " << disease << endl;
-	//cout << "Метод лечения: " << heal << endl;
+	cout << GetIniString("1", "answer_patient", "ini_base/menu_list_rus.ini") << name << endl;
+	cout << GetIniString("2", "answer_patient", "ini_base/menu_list_rus.ini") << age << endl;
+	cout << GetIniString("3", "answer_patient", "ini_base/menu_list_rus.ini") << place << endl;
 }
 static patient* pat = new patient();
 void patient::main_menu_pat()

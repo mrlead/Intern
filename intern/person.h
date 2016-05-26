@@ -39,4 +39,5 @@ public:
 	void display_param();
 	void main_menu_staff();
 	void clean();
+	void main_private_staff();
 };

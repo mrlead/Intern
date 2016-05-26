@@ -147,10 +147,10 @@ void person::get_age()
 void person::display_param()
 {
 	cout << endl;
-	cout << "ФИО: " << name << endl;
-	cout << "Статус сотрудника: " << status << endl;
-	cout << "Возраст сотрудника: " << age << endl;
-	cout << "Должность: Медсестра" << endl;
+	cout << GetIniString("1", "answer_per", "ini_base/menu_list_rus.ini") << name << endl;
+	cout << GetIniString("2", "answer_per", "ini_base/menu_list_rus.ini") << status << endl;
+	cout << GetIniString("3", "answer_per", "ini_base/menu_list_rus.ini") << age << endl;
+	cout << GetIniString("4", "answer_per", "ini_base/menu_list_rus.ini") << endl;
 	cout << endl;
 }
 
@@ -287,10 +287,10 @@ void bro::get_age()
 void bro::display_param()
 {
 	cout << endl;
-	cout << "ФИО: " << name << endl;
-	cout << "Стастус сотрудника: " << status << endl;
-	cout << "Возраст сотрудника: " << age << endl;
-	cout << "Должность: Медбрат" << endl;
+	cout << GetIniString("1", "answer_bro", "ini_base/menu_list_rus.ini") << name << endl;
+	cout << GetIniString("2", "answer_bro", "ini_base/menu_list_rus.ini") << status << endl;
+	cout << GetIniString("3", "answer_bro", "ini_base/menu_list_rus.ini") << age << endl;
+	cout << GetIniString("4", "answer_bro", "ini_base/menu_list_rus.ini") << endl;
 	cout << endl;
 }
 
@@ -429,10 +429,10 @@ void cleaner::get_age()
 void cleaner::display_param()
 {
 	cout << endl;
-	cout << "ФИО: " << name << endl;
-	cout << "Статус сотрудника: " << status << endl;
-	cout << "Возраст сотрудника: " << age << endl;
-	cout << "Должность: Уборщица" << endl;
+	cout << GetIniString("1", "answer_cle", "ini_base/menu_list_rus.ini") << name << endl;
+	cout << GetIniString("2", "answer_cle", "ini_base/menu_list_rus.ini") << status << endl;
+	cout << GetIniString("3", "answer_cle", "ini_base/menu_list_rus.ini") << age << endl;
+	cout << GetIniString("4", "answer_cle", "ini_base/menu_list_rus.ini") << endl;
 	cout << endl;
 }
 
@@ -571,10 +571,10 @@ void security::get_age()
 void security::display_param()
 {
 	cout << endl;
-	cout << "ФИО: " << name << endl;
-	cout << "Статус сотрудника: " << status << endl;
-	cout << "Возраст сотрудника: " << age << endl;
-	cout << "Должность: Охранник" << endl;
+	cout << GetIniString("1", "answer_sec", "ini_base/menu_list_rus.ini") << name << endl;
+	cout << GetIniString("2", "answer_sec", "ini_base/menu_list_rus.ini") << status << endl;
+	cout << GetIniString("3", "answer_sec", "ini_base/menu_list_rus.ini") << age << endl;
+	cout << GetIniString("4", "answer_sec", "ini_base/menu_list_rus.ini") << endl;
 	cout << endl;
 }
 
@@ -794,4 +794,218 @@ void person::main_menu_staff()
 		}
 		}
 		}while (key1 != 27);
+}
+
+void person::main_private_staff()
+{
+	static person* sis = new person();
+	static bro* med = new bro();
+	static cleaner* cle = new cleaner();
+	static security* sec = new security();
+	text show;
+	int key1, key2, key3, key4;
+	do
+	{
+		system("cls");
+		show.main_staff();
+		key1 = _getch();
+		switch (key1)
+		{
+		case '1':
+		{
+			do
+			{
+				system("cls");
+				show.menu_create_staff();
+				key2 = _getch();
+				switch (key2)
+				{
+					system("cls");
+				case '1':
+				{
+					if (sis->age != 0)
+					{
+						cout << "Для начала произведите увольнение" << endl;
+						Sleep(900);
+						system("cls");
+					}
+					else
+					{
+						person::person();
+						sis->get_name(name);
+						sis->get_status();
+						sis->get_age();
+						cout << "Успешно" << endl;
+						Sleep(500);
+					}
+					break;
+				}
+				system("cls");
+				case '2':
+				{
+					if (med->age != 0)
+					{
+						cout << "Для начала произведите увольнение" << endl;
+						Sleep(900);
+						system("cls");
+					}
+					else
+					{
+						bro::bro();
+						med->get_name();
+						med->get_status();
+						med->get_age();
+						cout << "Успешно" << endl;
+						Sleep(500);
+					}
+					break;
+				}
+				system("cls");
+				case '3':
+				{
+					if (cle->age != 0)
+					{
+						cout << "Для начала произведите увольнение" << endl;
+						Sleep(900);
+						system("cls");
+					}
+					else
+					{
+						cleaner::cleaner();
+						cle->get_name();
+						cle->get_status();
+						cle->get_age();
+						cout << "Успешно" << endl;
+						Sleep(500);
+					}
+					break;
+				}
+				system("cls");
+				case '4':
+				{
+					if (sec->age != 0)
+					{
+						cout << "Для начала произведите увольнение" << endl;
+						Sleep(900);
+						system("cls");
+					}
+					else
+					{
+						security::security();
+						sec->get_name();
+						sec->get_status();
+						sec->get_age();
+						cout << "Успешно" << endl;
+						Sleep(500);
+					}
+					break;
+				}
+				}
+			} while (key2 != 27);
+			break;
+		}
+
+		case '2':
+		{
+			do
+			{
+				system("cls");
+				sis->display_param();
+				med->display_param();
+				cle->display_param();
+				sec->display_param();
+				key4 = _getch();
+				switch (key4)
+				{
+				}
+			} while (key4 != 27);
+		}
+		break;
+		case '3':
+		{
+			do
+			{
+				system("cls");
+				show.remove_staff();
+				key3 = _getch();
+				switch (key3)
+				{
+				case '1':
+				{
+					if (sis->age == 0)
+					{
+						system("cls");
+						cout << "Увольнять ещё некого!" << endl;
+						Sleep(1500);
+						system("cls");
+					}
+					else
+					{
+						system("cls");
+						sis->clean();
+						cout << "Успешно" << endl;
+						Sleep(1500);
+					}
+					break;
+				}
+				case '2':
+				{
+					if (med->age == 0)
+					{
+						system("cls");
+						cout << "Увольнять ещё некого!" << endl;
+						Sleep(1500);
+						system("cls");
+					}
+					else
+					{
+						system("cls");
+						med->clean();
+						cout << "Успешно" << endl;
+						Sleep(1500);
+					}
+					break;
+				}
+				case '3':
+				{
+					if (cle->age == 0)
+					{
+						system("cls");
+						cout << "Увольнять ещё некого!" << endl;
+						Sleep(1500);
+						system("cls");
+					}
+					else
+					{
+						system("cls");
+						cle->clean();
+						cout << "Успешно" << endl;
+						Sleep(1500);
+					}
+					break;
+				}
+				case '4':
+				{
+					if (sec->age == 0)
+					{
+						system("cls");
+						cout << "Увольнять ещё некого!" << endl;
+						Sleep(1500);
+						system("cls");
+					}
+					else
+					{
+						system("cls");
+						sec->clean();
+						cout << "Успешно" << endl;
+						Sleep(1500);
+					}
+					break;
+				}
+				}
+			} while (key3 != 27);
+			break;
+		}
+		}
+	} while (key1 != 27);
 }

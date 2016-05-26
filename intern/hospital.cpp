@@ -28,7 +28,7 @@ void hospital::get_name()
 
 	try
 	{
-		throw Errors_s();
+		
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -46,6 +46,7 @@ void hospital::get_name()
 		str = coll[index];
 		name_hosp = new char[str.length() + 1];
 		strcpy(name_hosp, str.c_str());
+		strtok(name_hosp, "\n");
 
 		fclose(fp);
 	}
@@ -100,7 +101,7 @@ void hospital::get_place()
 
 	try
 	{
-		throw Errors_s();
+		
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -118,6 +119,7 @@ void hospital::get_place()
 		str = coll[index];
 		place = new char[str.length() + 1];
 		strcpy(place, str.c_str());
+		strtok(place, "\n");
 
 		fclose(fp);
 	}
@@ -171,11 +173,13 @@ void hospital::get_room()
 
 void hospital::display_param()
 {
-	cout << "Больница: " << name_hosp << endl;
-	cout << "Номер: " << number << endl;
-	cout << "Адрес: " << place << endl;
-	cout << "Цена за вип-палату за сутки: " << cost << endl;
-	cout << "Количество палат: " << room << "	Вип-палат: " << vip_room << endl;
+	cout << endl;
+	cout << GetIniString("1", "answer_hosp", "ini_base/menu_list_rus.ini") << name_hosp << endl;
+	cout << GetIniString("2", "answer_hosp", "ini_base/menu_list_rus.ini") << number << endl;
+	cout << GetIniString("3", "answer_hosp", "ini_base/menu_list_rus.ini") << place << endl;
+	cout << GetIniString("4", "answer_hosp", "ini_base/menu_list_rus.ini") << cost << endl;
+	cout << GetIniString("5", "answer_hosp", "ini_base/menu_list_rus.ini") << room << GetIniString("6", "answer_hosp", "ini_base/menu_list_rus.ini") << vip_room << endl;
+	cout << endl;
 }
 
 void hospital::main_menu_hospital()

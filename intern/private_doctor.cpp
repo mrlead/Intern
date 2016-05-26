@@ -304,9 +304,11 @@ void private_doctor::get_status()
 
 void private_doctor::display_param()
 {
-	cout << "ФИО: " << name << endl;
-	cout << "Квалификация: " << default_rank << endl;
-	cout << "Номер бригады: " << nums << endl;
+	cout << GetIniString("1", "answer_p_doct", "ini_base/menu_list_rus.ini") << name << endl;
+	cout << GetIniString("2", "answer_p_doct", "ini_base/menu_list_rus.ini") << status << endl;
+	cout << GetIniString("3", "answer_p_doct", "ini_base/menu_list_rus.ini") << age << endl;
+	cout << GetIniString("4", "answer_p_doct", "ini_base/menu_list_rus.ini") << default_rank << endl;
+	cout << GetIniString("5", "answer_p_doct", "ini_base/menu_list_rus.ini") << nums << endl;
 }
 
 static private_doctor* pr_doctor = new private_doctor();

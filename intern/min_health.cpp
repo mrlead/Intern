@@ -97,8 +97,8 @@ void min_health::get_place()
 
 void min_health::display_param()
 {
-	cout << "Название: " << name << endl;
-	cout << "Адрес: " << place << endl;
+	cout << GetIniString("1", "answer_health", "ini_base/menu_list_rus.ini") << name << endl;
+	cout << GetIniString("2", "answer_health", "ini_base/menu_list_rus.ini") << place << endl;
 }
 
 void min_health::main_menu_min_health()

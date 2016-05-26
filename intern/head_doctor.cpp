@@ -141,10 +141,12 @@ void head_doctor::get_status()
 
 void head_doctor::display_param()
 {
-	cout << "ФИО: " << name << endl;
-	cout << "Возраст: " << age << endl;
-	cout << "Статус сотрудника: " << status << endl;
-	cout << "Номер бригады скорой помощи: " << num << endl;
+	cout << endl;
+	cout << GetIniString("1", "answer_head", "ini_base/menu_list_rus.ini") << name << endl;
+	cout << GetIniString("2", "answer_head", "ini_base/menu_list_rus.ini") << status << endl;
+	cout << GetIniString("3", "answer_head", "ini_base/menu_list_rus.ini") << age << endl;
+	cout << GetIniString("4", "answer_head", "ini_base/menu_list_rus.ini") << num << endl;
+	cout << endl;
 }
 
 void head_doctor::main_head_doctor()

@@ -263,11 +263,13 @@ void doctor::get_status()
 
 void doctor::display_param()
 {
-	cout << "ФИО: " << name << endl;
-	cout << "Возраст: " << age << endl;
-	cout << "Статус сотрудника: " << status << endl;
-	cout << "Квалификация: " << default_rank << endl;
-	cout << "Номер бригады: " << nums << endl;
+	cout << endl;
+	cout << GetIniString("1", "answer_doct", "ini_base/menu_list_rus.ini") << name << endl;
+	cout << GetIniString("2", "answer_doct", "ini_base/menu_list_rus.ini") << status << endl;
+	cout << GetIniString("3", "answer_doct", "ini_base/menu_list_rus.ini") << age << endl;
+	cout << GetIniString("4", "answer_doct", "ini_base/menu_list_rus.ini") << default_rank << endl;
+	cout << GetIniString("4", "answer_doct", "ini_base/menu_list_rus.ini") << nums << endl;
+	cout << endl;
 }
 
 static doctor* doct = new doctor();

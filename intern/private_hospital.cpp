@@ -179,12 +179,12 @@ void private_hospital::get_company()
 
 void private_hospital::display_param()
 {
-	cout << "Больница: " << name << endl;
-	cout << "Номер: " << number << endl;
-	cout << "Адрес: " << place << endl;
-	cout << "Спонсор: " << company << endl;
-	cout << "Цена за вип-палату за сутки: " << cost << endl;
-	cout << "Количество палат вип-палат: " << vip_room << endl;
+	cout << GetIniString("1", "answer_p_hosp", "ini_base/menu_list_rus.ini") << name << endl;
+	cout << GetIniString("2", "answer_p_hosp", "ini_base/menu_list_rus.ini") << number << endl;
+	cout << GetIniString("3", "answer_p_hosp", "ini_base/menu_list_rus.ini") << place << endl;
+	cout << GetIniString("4", "answer_p_hosp", "ini_base/menu_list_rus.ini") << company<< endl;
+	cout << GetIniString("5", "answer_p_hosp", "ini_base/menu_list_rus.ini") << cost << endl;
+	cout << GetIniString("6", "answer_p_hosp", "ini_base/menu_list_rus.ini") << vip_room << endl;
 }
 
 void private_hospital::main_menu_private()
@@ -255,7 +255,7 @@ void private_hospital::main_menu_private()
 		{
 			system("cls");
 			person* run_p = new person();
-			run_p->main_menu_staff();
+			run_p->main_private_staff();
 		}
 		break;
 		case'5':
