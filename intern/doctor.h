@@ -76,6 +76,7 @@ public:
 	void clean();
 	void get_status();
 	void main_menu_doct();
+	//void err();
 	//создаём преегрузку для повышения квалификации
 	void operator ++ ()
 	{

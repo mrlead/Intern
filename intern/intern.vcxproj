@@ -19,38 +19,36 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ambulance.h" />
     <ClInclude Include="bro.h" />
     <ClInclude Include="cleaner.h" />
     <ClInclude Include="company.h" />
     <ClInclude Include="doctor.h" />
-    <ClInclude Include="emergency.h" />
-    <ClInclude Include="false.h" />
+    <ClInclude Include="Errors_c.h" />
     <ClInclude Include="head_doctor.h" />
     <ClInclude Include="head_private_doctor.h" />
     <ClInclude Include="hospital.h" />
     <ClInclude Include="IniMethod.h" />
-    <ClInclude Include="interns.h" />
-    <ClInclude Include="leaving_call.h" />
     <ClInclude Include="min_health.h" />
     <ClInclude Include="patient.h" />
     <ClInclude Include="person.h" />
     <ClInclude Include="private_doctor.h" />
     <ClInclude Include="private_hospital.h" />
     <ClInclude Include="security.h" />
-    <ClInclude Include="service.h" />
     <ClInclude Include="rus_localization.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="doctor.cpp" />
     <ClCompile Include="head_doctor.cpp" />
+    <ClCompile Include="head_p_doctor.cpp" />
     <ClCompile Include="hospital.cpp" />
     <ClCompile Include="IniMethod.cpp" />
     <ClCompile Include="all_staff.cpp" />
     <ClCompile Include="main_file.cpp" />
     <ClCompile Include="min_health.cpp" />
     <ClCompile Include="patient.cpp" />
-    <ClCompile Include="text_message.cpp" />
+    <ClCompile Include="private_doctor.cpp" />
+    <ClCompile Include="private_hospital.cpp" />
+    <ClCompile Include="text_message_rus.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B2D64AE6-8778-486C-8B3D-8854ACF791DA}</ProjectGuid>
@@ -109,7 +107,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ExceptionHandling>Async</ExceptionHandling>
+      <ExceptionHandling>Sync</ExceptionHandling>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

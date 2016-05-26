@@ -221,7 +221,7 @@ void head_doctor::main_head_doctor()
 					system("cls");
 					head_d->clean();
 					cout << "Успешно" << endl;
-					Sleep(1500);
+			 		Sleep(1500);
 				}
 			}
 			break;

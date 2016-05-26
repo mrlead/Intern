@@ -17,7 +17,6 @@ protected:
 	char *place;
 	char *null_str;
 	int r;
-	
 public:
 	char *name_hosp;
 	min_health()

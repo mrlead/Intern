@@ -1,6 +1,7 @@
 #pragma once
 #include "min_health.h"
 #include "hospital.h"
+#include "private_hospital.h"
 #include <iostream>
 #include "conio.h"
 #include <Windows.h>
@@ -41,6 +42,7 @@ void min_health::get_name()
 		str = coll[index];
 		name = new char[str.length() + 1];
 		strcpy(name, str.c_str());
+		strtok(name, "\n");
 		str = "";
 		coll.clear();
 
@@ -125,15 +127,24 @@ void min_health::main_menu_min_health()
 		break;
 		case'2':
 		{
-			do
+			if (health->r == 1)
+			{
+				do
+				{
+					system("cls");
+					health->display_param();
+					key2 = _getch();
+					switch (key2)
+					{}
+				} while (key2 != 27);
+			}
+			else
 			{
 				system("cls");
-				health->display_param();
-				key2 = _getch();
-				switch (key2)
-				{
-				}
-			} while (key2 != 27);
+				cout << "Сначала создайте министерство" << endl;
+				Sleep(1500);
+				system("cls");
+			}
 		}
 		break;
 		case'3':
@@ -162,6 +173,12 @@ void min_health::main_menu_min_health()
 			hospital run;
 			 run.main_menu_hospital();
 		}
+		break;
+		case'5':
+			{
+				private_hospital run_private_hos;
+				run_private_hos.main_menu_private();
+			}
 		}
 	} while (key1 != 27);
 }

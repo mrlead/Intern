@@ -18,4 +18,7 @@ public:
 	void main_head_d();
 	void main_doct();
 	void main_patient();
+	void main_p_hospital();
+	void main_p_head();
+	void main_p_doctor();
 };

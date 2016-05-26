@@ -3,6 +3,8 @@
 #include "person.h"
 #include "head_doctor.h"
 #include "doctor.h"
+#include "Errors_c.h"
+
 void hospital::clean()
 {
 	number = NULL;
@@ -26,6 +28,7 @@ void hospital::get_name()
 
 	try
 	{
+		throw Errors_s();
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -43,14 +46,11 @@ void hospital::get_name()
 		str = coll[index];
 		name_hosp = new char[str.length() + 1];
 		strcpy(name_hosp, str.c_str());
-		//strcpy(name_hosp, name);
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
+	catch (Errors_s)
+	{}
 }
 
 void hospital::get_number()
@@ -100,6 +100,7 @@ void hospital::get_place()
 
 	try
 	{
+		throw Errors_s();
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -113,17 +114,15 @@ void hospital::get_place()
 
 		//Случайная строка
 		srand(time(NULL));
-		int index = rand()*coll.size() / RAND_MAX;
+		int index = 1 + rand() % 2;
 		str = coll[index];
 		place = new char[str.length() + 1];
 		strcpy(place, str.c_str());
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
+	catch (Errors_s)
+	{}
 }
 
 void hospital::get_room()
@@ -205,7 +204,6 @@ void hospital::main_menu_hospital()
 					hospital::hospital();
 					medical->get_name();
 					medical->get_place();
-					medical->get_place();
 					medical->get_cost();
 					medical->get_room();
 					medical->get_number();
@@ -246,8 +244,8 @@ void hospital::main_menu_hospital()
 		case'4':
 			{
 				system("cls");
-				person run;
-				run.main_menu_staff();
+				person* run = new person();;
+				run->main_menu_staff();
 			}
 			break;
 		case'5':

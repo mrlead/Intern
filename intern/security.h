@@ -33,7 +33,6 @@ public:
 	void get_name();
 	void get_status();
 	void get_age();
-	void rus_loc();
 	void display_param();
 	void clean();
 };

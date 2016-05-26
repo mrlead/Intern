@@ -1,7 +1,7 @@
 #pragma once
 #include "doctor.h"
 #include "patient.h"
-
+#include "Errors_c.h"
 
 void doctor::clean()
 {
@@ -15,7 +15,6 @@ void doctor::clean()
 void doctor::get_name()
 {
 	//set_name
-	
 	const int LENGHT = 30;
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
@@ -40,20 +39,18 @@ void doctor::get_name()
 
 		//Случайная строка
 		srand(time(NULL));
-		int index = 1 + rand() % 12;
+		int index = 1 + rand() % 11;
 		str = coll[index];
 		name = new char[str.length() + 1];
 		strcpy(name, str.c_str());
 		strtok(name, "\n");
 
 		fclose(fp);
+		
 	}
-	catch (bad_alloc)
-	{
-		cerr << "Не удалось выделить память под коллекцию" << endl;
-		Sleep(900);
-	}
-
+	
+	catch (Errors_s)
+	{}
 }
 void doctor::get_age()
 {
@@ -68,6 +65,7 @@ void doctor::get_age()
 
 	try
 	{
+		//throw Errors_s();
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
 		{
@@ -79,7 +77,7 @@ void doctor::get_age()
 		fclose(fp);
 
 		srand(time(NULL));
-		int index = rand()*coll.size() / RAND_MAX;
+		int index = 1 + rand() % 35;
 		str = coll[index];
 		ag = new char[str.length() + 1];
 		strcpy(ag, str.c_str());
@@ -87,10 +85,8 @@ void doctor::get_age()
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
+	catch (Errors_s)
+	{}
 }
 
 void doctor::GetRank()
@@ -107,7 +103,7 @@ void doctor::get_number()
 	nums = 1 + rand() % 99;
 }
 
-patient* pat_n = new patient();
+static patient* pat_n = new patient();
 
 void doctor::Heal()
 {
@@ -240,7 +236,7 @@ void doctor::get_status()
 
 	try
 	{
-
+		//throw Errors_s();
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
 		{
@@ -253,7 +249,7 @@ void doctor::get_status()
 
 
 		srand(time(NULL));
-		int index = rand()*coll.size() / RAND_MAX;
+		int index = 1 + rand() % 6;
 		str = coll[index];
 		status = new char[str.length() + 1];
 		strcpy(status, str.c_str());
@@ -261,10 +257,8 @@ void doctor::get_status()
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
+	catch (Errors_s)
+	{}
 }
 
 void doctor::display_param()
@@ -307,7 +301,7 @@ void doctor::main_menu_doct()
 					doct->get_status();
 					doct->get_number();
 					doct->GetRank();
-					cout << "Успешно" << endl;
+					cout << "Операция произведенна" << endl;
 					Sleep(900);
 				}
 			}
@@ -326,6 +320,7 @@ void doctor::main_menu_doct()
 					do
 					{
 						system("cls");
+						doct->get_status();
 						doct->display_param();
 						cout << "'ESC' - Назад" << endl;
 						key2 = _getch();
@@ -350,7 +345,7 @@ void doctor::main_menu_doct()
 				{
 					system("cls");
 					doct->clean();
-					cout << "Успешно" << endl;
+					cout << "Созданно" << endl;
 					Sleep(1500);
 				}
 			}

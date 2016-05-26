@@ -43,7 +43,6 @@ void text::main_health()
 	cout << GetIniString("5", "min_health", "ini_base/menu_list_rus.ini") << endl;
 	cout << GetIniString("6", "min_health", "ini_base/menu_list_rus.ini") << endl;
 	cout << GetIniString("7", "min_health", "ini_base/menu_list_rus.ini") << endl;
-	cout << GetIniString("8", "min_health", "ini_base/menu_list_rus.ini") << endl;
 }
 
 void text::main_hospital()
@@ -89,4 +88,39 @@ void text::main_patient()
 	cout << GetIniString("3", "patient", "ini_base/menu_list_rus.ini") << endl;
 	cout << GetIniString("4", "patient", "ini_base/menu_list_rus.ini") << endl;
 	cout << GetIniString("5", "patient", "ini_base/menu_list_rus.ini") << endl;
+}
+
+void text::main_p_hospital()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	cout << GetIniString("1", "p_hospital", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("2", "p_hospital", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("3", "p_hospital", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("4", "p_hospital", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("5", "p_hospital", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("6", "p_hospital", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("7", "p_hospital", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("8", "p_hospital", "ini_base/menu_list_rus.ini") << endl;
+}
+
+void text::main_p_head()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	cout << GetIniString("1", "head_private_doctor", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("2", "head_private_doctor", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("3", "head_private_doctor", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("4", "head_private_doctor", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("5", "head_private_doctor", "ini_base/menu_list_rus.ini") << endl;
+}
+
+void text::main_p_doctor()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	cout << GetIniString("1", "private_doctor", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("2", "private_doctor", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("3", "private_doctor", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("4", "private_doctor", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("5", "private_doctor", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("6", "private_doctor", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("7", "private_doctor", "ini_base/menu_list_rus.ini") << endl;
 }

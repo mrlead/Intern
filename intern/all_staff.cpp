@@ -3,6 +3,7 @@
 #include "bro.h"
 #include "cleaner.h"
 #include "security.h"
+#include "Errors_c.h"
 #include <iostream>
 #include "conio.h"
 #include <Windows.h>
@@ -34,6 +35,7 @@ void person::get_name(string)
 
 	try
 	{
+		
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -51,16 +53,15 @@ void person::get_name(string)
 		str = coll[index];
 		name = new char[str.length() + 1];
 		strcpy(name, str.c_str());
+		strtok(name, "\n");
 		str = "";
 		coll.clear();
 		
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
+	catch (Errors_s)
+	{}
 }
 
 void person::get_status()
@@ -75,6 +76,7 @@ void person::get_status()
 
 	try
 	{
+		
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -92,15 +94,14 @@ void person::get_status()
 		str = coll[index];
 		status = new char[str.length() + 1];
 		strcpy(status, str.c_str());
+		strtok(status, "\n");
 		str = "";
 		coll.clear();
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
+	catch (Errors_s)
+	{}
 }
 
 void person::get_age()
@@ -115,6 +116,7 @@ void person::get_age()
 
 	try
 	{
+		
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -138,10 +140,8 @@ void person::get_age()
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
+	catch (Errors_s)
+	{}
 }
 
 void person::display_param()
@@ -178,7 +178,7 @@ void bro::get_name()
 
 	try
 	{
-
+		
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
 		{
@@ -191,19 +191,18 @@ void bro::get_name()
 
 
 		srand(time(NULL));
-		int index = rand() % 11;
+		int index = 1 + rand() % 11;
 		str = coll[index];
 		name = new char[str.length() + 1];
 		strcpy(name, str.c_str());
+		strtok(name, "\n");
 		str = "";
 		coll.clear();
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
+	catch (Errors_s)
+	{}
 }
 
 void bro::get_status()
@@ -218,7 +217,7 @@ void bro::get_status()
 
 	try
 	{
-
+		
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
 		{
@@ -235,15 +234,14 @@ void bro::get_status()
 		str = coll[index];
 		status = new char[str.length() + 1];
 		strcpy(status, str.c_str());
+		strtok(status, "\n");
 		str = "";
 		coll.clear();
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
+	catch (Errors_s)
+	{}
 }
 
 void bro::get_age()
@@ -258,7 +256,7 @@ void bro::get_age()
 
 	try
 	{
-
+		
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
 		{
@@ -282,10 +280,8 @@ void bro::get_age()
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
+	catch (Errors_s)
+	{}
 }
 
 void bro::display_param()
@@ -322,6 +318,7 @@ void cleaner::get_name()
 
 	try
 	{
+		
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -339,15 +336,14 @@ void cleaner::get_name()
 		str = coll[index];
 		name = new char[str.length() + 1];
 		strcpy(name, str.c_str());
+		strtok(name, "\n");
 		str = "";
 		coll.clear();
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
+	catch (Errors_s)
+	{}
 }
 
 void cleaner::get_status()
@@ -362,6 +358,7 @@ void cleaner::get_status()
 
 	try
 	{
+		
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -379,15 +376,14 @@ void cleaner::get_status()
 		str = coll[index];
 		status = new char[str.length() + 1];
 		strcpy(status, str.c_str());
+		strtok(status, "\n");
 		str = "";
 		coll.clear();
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
+	catch (Errors_s)
+	{}
 }
 
 void cleaner::get_age()
@@ -402,6 +398,7 @@ void cleaner::get_age()
 
 	try
 	{
+		
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -425,10 +422,8 @@ void cleaner::get_age()
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
+	catch (Errors_s)
+	{}
 }
 
 void cleaner::display_param()
@@ -453,12 +448,6 @@ void security::clean()
 	strcpy(ag, null_str);
 }
 
-void security::rus_loc()
-{
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-}
-
 void security::get_name()
 {
 	const int LENGHT = 30;
@@ -471,6 +460,7 @@ void security::get_name()
 
 	try
 	{
+		
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -488,15 +478,14 @@ void security::get_name()
 		str = coll[index];
 		name = new char[str.length() + 1];
 		strcpy(name, str.c_str());
+		strtok(name, "\n");
 		str = "";
 		coll.clear();
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
+	catch (Errors_s)
+	{}
 }
 
 void security::get_status()
@@ -511,6 +500,7 @@ void security::get_status()
 
 	try
 	{
+		
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -528,15 +518,14 @@ void security::get_status()
 		str = coll[index];
 		status = new char[str.length() + 1];
 		strcpy(status, str.c_str());
+		strtok(status, "\n");
 		str = "";
 		coll.clear();
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
+	catch (Errors_s)
+	{}
 }
 
 void security::get_age()
@@ -551,6 +540,7 @@ void security::get_age()
 
 	try
 	{
+		
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -574,10 +564,8 @@ void security::get_age()
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
+	catch (Errors_s)
+	{}
 }
 
 void security::display_param()
@@ -616,7 +604,6 @@ void person::main_menu_staff()
 				system("cls");
 				show.menu_create_staff();
 				key2 = _getch();
-				//system("cls");
 				switch (key2)
 				{
 					system("cls");
@@ -706,19 +693,20 @@ void person::main_menu_staff()
 
 		case '2':
 		{
-			do
-			{
-				system("cls");
-				sister->display_param();
-				medbro->display_param();
-				cleane->display_param();
-				securit->display_param();
-				key4 = _getch();
-				switch (key4)
-				{}
-			} while (key4 != 27);
-			break;
+				do
+				{
+					system("cls");
+					sister->display_param();
+					medbro->display_param();
+					cleane->display_param();
+					securit->display_param();
+					key4 = _getch();
+					switch (key4)
+					{
+					}
+				} while (key4 != 27);
 		}
+			break;
 		case '3':
 		{
 			do

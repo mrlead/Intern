@@ -11,7 +11,7 @@
 #include <cstring>
 #include <sstream>
 
-#pragma warning (disable:4244);
+#pragma warning (disable:4244)
 
 class patient:public doctor
 {
