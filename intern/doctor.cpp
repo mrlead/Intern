@@ -111,93 +111,79 @@ patient* pat_n = new patient();
 
 void doctor::Heal()
 {
-	//метод лечения 
-	/*const int LENGHT = 30;
-	vector<string> coll;
-	vector<string>::iterator it_deep, it_submit, pos;
-	char *filename = "data_base/health.txt";
-	char input[LENGHT];
-	string str;
-	FILE *fp;
-
-	try
-	{
-		//Читаем содержимое файла в коллекцию
-		fopen_s(&fp, filename, "r");
-		while (!feof(fp))
-		{
-			//Читаем строку из файла источника
-			fgets(input, LENGHT, fp);
-			str = input;
-			coll.push_back(str);
-		}
-		fclose(fp);
-
-		//Случайная строка
-		srand(time(NULL));
-		int index = rand()*coll.size() / RAND_MAX;
-		str = coll[index];
-		heal = new char[str.length() + 1];
-		strcpy(heal, str.c_str());
-
-		fclose(fp);
-	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}*/
-	//static patient* dis = new patient();
+	heal1 = "Уколы по 4 раза в день, 10 дней";
+	heal2 = "Обмазывание зелёнкой, таблетки два раза в день, 10 дней";
+	heal3 = "Промывание носа, капли для носа, 7 дней";
+	heal4 = "Строгая диета, капельница, 15 дней";
+	heal5 = "Капельница, 10 дней";
+	heal6 = "Массаж, 30 дней";
+	heal7 = "Успокаительное, капельница 14 дней";
+	heal8 = "Таблетки, и наблюдение у врача";
+	heal9 = "Уколы, приём таблеток, до выздоровления";
+	heal10 = "Лечение у психиатра";
+	
+	char *dis1 = "Бешенство";
+	char *dis2 = "Ветрянка";
+	char *dis3 = "Гайморит";
+	char *dis4 = "Гастрит желудка";
+	char *dis5 = "Инсульт";
+	char *dis6 = "Остеохондроз";
+	char *dis7 = "Инфаркт Миокарда";
+	char *dis8 = "Корь";
+	char *dis9 = "Острый бронхит";
+	char *dis10 = "Дальтонизм";
+	pat_n->get_disease();
 
 	cout << "Диагноз: " << pat_n->disease << endl;
 
-	if (pat_n->disease == "Бешенство")
+	if (strcmp(pat_n->disease,dis1) == 0)
 	{
-		heal = "Уколы по 4 раза в день, 10 дней";
+		strcpy(heal, heal1);
 	}
 	else
-		if (pat_n->disease == "Ветрянка")
+		if (strcmp(pat_n->disease, dis2) == 0)
 		{
-			heal = "Обмазывание зелёнкой, таблетки два раза в день, 10 дней";
+			strcpy(heal, heal2);
 		}
 		else
-			if(pat_n->disease == "Гайморит")
+			if(strcmp(pat_n->disease, dis3) == 0)
 		{
-			heal = "Промывание носа, капли для носа, 7 дней";
+			strcpy(heal, heal3);
 		}
 			else
-				if (pat_n->disease == "Гастрит желудка")
+				if (strcmp(pat_n->disease, dis4) == 0)
 				{
-					heal = "Строгая диета, капельница, 15 дней";
+					strcpy(heal, heal4);
 				}
 				else
-					if(pat_n->disease == "Инсульт")
+					if(strcmp(pat_n->disease, dis5) == 0)
 				{
-					heal = "Капельница, 10 дней";
+					strcpy(heal, heal5);
 				}
 					else
-						if (pat_n->disease == "Остеохондроз")
+						if (strcmp(pat_n->disease, dis6) == 0)
 						{
-							heal = "Массаж, 30 дней";
+							strcpy(heal, heal6);
 						}
 						else
-							if (pat_n->disease == "Инфаркт Миокарда")
+							if (strcmp(pat_n->disease, dis7) == 0)
 							{
-								heal = "Успокаительное, капельница 14 дней";
+								strcpy(heal, heal7);
 							}
 							else
-								if (pat_n->disease == "Корь")
+								if (strcmp(pat_n->disease, dis8) == 0)
 								{
-									heal = "Таблетки, и наблюдение у врача";
+									strcpy(heal, heal8);
 								}
 								else
-									if (pat_n->disease == "Острый бронхит")
+									if (strcmp(pat_n->disease, dis9) == 0)
 									{
-										heal = "Уколы, приём таблеток, до выздоровления";
+										strcpy(heal, heal9);
 									}
 									else
-										if (pat_n->disease == "Дальтонизм")
+										if (strcmp(pat_n->disease, dis10) == 0)
 										{
-											heal = "Лечение у психиатра";
+											strcpy(heal, heal10);
 										}
 	cout << "Метод лечения: " << heal << endl;
 }
@@ -290,9 +276,11 @@ void doctor::display_param()
 	cout << "Номер бригады: " << nums << endl;
 }
 
+static doctor* doct = new doctor();
+
 void doctor::main_menu_doct()
 {
-	static doctor* doct = new doctor();
+	
 	text* text_doct = new text();
 
 	int key1, key2;

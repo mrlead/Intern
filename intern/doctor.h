@@ -22,6 +22,16 @@ protected:
 	char *status;
 	int r;
 	char *heal;
+	char *heal1;
+	char *heal2;
+	char *heal3;
+	char *heal4;
+	char *heal5;
+	char *heal6;
+	char *heal7;
+	char *heal8;
+	char *heal9;
+	char *heal10;
 	char *rank;
 	char *rank_2;
 	char *rank_3;
@@ -29,9 +39,11 @@ protected:
 	char *default_rank;
 	char *null_str;
 	int nums;
+	char *dis;
 public:
 	doctor()
 	{
+		dis = new char[20];
 		null_str = "";
 		nums = NULL;
 		ag = new char[15];

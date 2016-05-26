@@ -172,7 +172,7 @@ void patient::display_param()
 	cout << "ФИО пациента: " << name << endl;
 	cout << "Возраст пациента: " << age << endl;
 	cout << "Место жительства пациента: " << place << endl;
-	cout << "Диагноз: " << disease << endl;
+	//cout << "Диагноз: " << disease << endl;
 	//cout << "Метод лечения: " << heal << endl;
 }
 static patient* pat = new patient();
@@ -205,7 +205,6 @@ void patient::main_menu_pat()
 					pat->get_name();
 					pat->get_age();
 					pat->get_place();
-					pat->get_disease();
 				}
 			}
 			break;
@@ -230,7 +229,6 @@ void patient::main_menu_pat()
 						{
 						}
 					} while (key2 != 27);
-					break;
 				}
 			}
 			break;
@@ -264,7 +262,6 @@ void patient::main_menu_pat()
 					pat->get_name();
 					pat->get_age();
 					pat->get_place();
-					pat->get_disease();
 				}
 				
 			}
