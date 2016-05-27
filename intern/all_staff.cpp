@@ -38,7 +38,7 @@ void person::get_name(string)
 	const int LENGHT = 30;
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
-	file_name = "data_base/data_female_staff_s.txt";
+	file_name;
 	char input[LENGHT];
 	string str;
 	FILE *fp;
@@ -47,7 +47,7 @@ void person::get_name(string)
 	{
 		
 		//Читаем содержимое файла в коллекцию
-		fopen_s(&fp, file_name, "r");
+		fopen_s(&fp, file_name_1, "r");
 		while (!feof(fp))
 		{
 			//Читаем строку из файла источника
@@ -79,7 +79,7 @@ void person::get_status()
 	const int LENGHT = 20;
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
-	file_status = "data_base/stat_staff_s.txt";
+	file_age;
 	char input[LENGHT];
 	string str;
 	FILE *fp;
@@ -88,7 +88,7 @@ void person::get_status()
 	{
 		
 		//Читаем содержимое файла в коллекцию
-		fopen_s(&fp, file_status, "r");
+		fopen_s(&fp, file_status_1, "r");
 		while (!feof(fp))
 		{
 			//Читаем строку из файла источника
@@ -119,7 +119,7 @@ void person::get_age()
 	const int LENGHT = 5;
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
-	file_age = "data_base/age_staff_s.txt";
+	file_status;
 	char input[LENGHT];
 	string str;
 	FILE *fp;
@@ -128,7 +128,7 @@ void person::get_age()
 	{
 		
 		//Читаем содержимое файла в коллекцию
-		fopen_s(&fp, file_age, "r");
+		fopen_s(&fp, file_age_1, "r");
 		while (!feof(fp))
 		{
 			//Читаем строку из файла источника
@@ -638,6 +638,7 @@ void person::main_menu_staff()
 					else
 					{
 						person::person();
+						sister->rename();
 						sister->get_name(name);
 						sister->get_status();
 						sister->get_age();
@@ -853,6 +854,7 @@ void person::main_private_staff()
 					else
 					{
 						person::person();
+						sis->rename();
 						sis->get_name(name);
 						sis->get_status();
 						sis->get_age();
