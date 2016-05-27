@@ -17,6 +17,9 @@ using namespace std;
 class person: public hospital
 {
 protected:
+	char *file_name;
+	char *file_age;
+	char *file_status;
 	int count;
 	char *ag;
 	char *name;
@@ -31,6 +34,12 @@ public:
 		null_str = "";
 		count++;
 		name = new char[30];
+		count++;
+		file_name = new char[150];
+		count++;
+		file_age = new char[150];
+		count++;
+		file_status = new char[150];
 		count++;
 		status = new char[20];
 		count++;
@@ -49,4 +58,5 @@ public:
 	void main_menu_staff();
 	void clean();
 	void main_private_staff();
+	void rename();
 };

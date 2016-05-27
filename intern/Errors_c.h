@@ -8,9 +8,6 @@ class Errors_s
 public:
 	Errors_s()
 	{
-		/*if (!File.is)open())
-		{
-
-		}*/
+		cerr << "Файл не открыт" << endl;
 	}
 };

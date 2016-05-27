@@ -23,4 +23,8 @@ public:
 	void main_p_doctor();
 	void titulka_rus(); 
 	void main();
+	void about_rus();
+	void author_rus();
+	void inst_rus();
+	void main_set();
 };

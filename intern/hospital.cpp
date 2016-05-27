@@ -58,9 +58,24 @@ void hospital::get_number()
 {
 	do
 	{
+	while (true)
+	{
 		cout << endl;
 		cout << "Введите номер больницы: ";
 		cin >> number;
+		if (cin.peek() == '\n')
+		{
+			cin.get();
+			break;
+		}
+		else
+		{
+			cout << "Пожалуйтса, введите число" << endl;
+			cin.clear();
+			while(cin.get() != '\n')
+			{}
+		}
+	}
 		if (number > 0 && number <= 100)
 		{
 			cout << "Успешно" << endl;
@@ -76,8 +91,25 @@ void hospital::get_cost()
 {
 	do
 	{
-		cout << "Введите цену на вип-палату: ";
-		cin >> cost;
+		while (true)
+		{
+			cout << endl;
+			cout << "Введите цену на вип-палату: ";
+			cin >> cost;
+			if (cin.peek() == '\n')
+			{
+				cin.get();
+				break;
+			}
+			else
+			{
+				cout << "Пожалуйтса, введите число" << endl;
+				cin.clear();
+				while (cin.get() != '\n')
+				{
+				}
+			}
+		}
 		if (cost > 0 && cost <= 15000)
 		{
 			cout << "Успешно" << endl;
@@ -131,8 +163,25 @@ void hospital::get_room()
 {
 	do
 	{
-		cout << "Введите количество палат: ";
-		cin >> room;
+		while (true)
+		{
+			cout << endl;
+			cout << "Введите количество палат: ";
+			cin >> room;
+			if (cin.peek() == '\n')
+			{
+				cin.get();
+				break;
+			}
+			else
+			{
+				cout << "Пожалуйтса, введите число" << endl;
+				cin.clear();
+				while (cin.get() != '\n')
+				{
+				}
+			}
+		}
 		if (room > 0 && room <= 100)
 		{
 			cout << "Успешно" << endl;
@@ -155,8 +204,26 @@ void hospital::get_room()
 		{
 			do
 			{
-				cout << "Введите количество вип-палат: ";
-				cin >> vip_room;
+				while (true)
+				{
+					cout << endl;
+					cout << "Введите количество вип-палат: ";
+					cin >> vip_room;
+					if (cin.peek() == '\n')
+					{
+						cin.get();
+						break;
+					}
+					else
+					{
+						cout << "Пожалуйтса, введите число" << endl;
+						cin.clear();
+						while (cin.get() != '\n')
+						{
+						}
+					}
+				}
+
 				if (vip_room > 0 && vip_room <= 100)
 				{
 					cout << "Успешно" << endl;

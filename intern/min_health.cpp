@@ -106,18 +106,6 @@ void min_health::display_param()
 text* tex_m = new text();
 text_eng* text_e = new text_eng();
 
-/*void lang()
-{
-	if ()
-	{
-		tex_m->main_health();
-	}
-	else
-	{
-		text_e->main_health_eng();
-	}
-}*/
-
 void min_health::main_menu_min_health()
 {
 	static min_health* health = new min_health();
