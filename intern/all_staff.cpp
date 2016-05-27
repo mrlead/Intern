@@ -592,6 +592,7 @@ void person::main_menu_staff()
 	int key1, key2, key3, key4;
 	do
 	{
+		setlocale(0, "");
 		system("cls");
 		show.main_staff();
 		key1 = _getch();
@@ -806,6 +807,7 @@ void person::main_private_staff()
 	int key1, key2, key3, key4;
 	do
 	{
+		setlocale(0, "");
 		system("cls");
 		show.main_staff();
 		key1 = _getch();

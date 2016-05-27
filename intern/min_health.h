@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <time.h>
 #include "rus_localization.h"
+#include "eng_localization.h"
 #pragma warning (disable:4244)
 
 using namespace std;

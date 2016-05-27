@@ -1,3 +1,4 @@
+#pragma once
 #include "private_hospital.h"
 #include <iostream>
 #include "conio.h"

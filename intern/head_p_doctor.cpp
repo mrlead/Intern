@@ -36,9 +36,9 @@ void head_private_doctor::get_name()
 		srand(time(NULL));
 		int index = 1 + rand() % 11;
 		str = coll[index];
-		ag = new char[str.length() + 1];
-		strcpy(ag, str.c_str());
-		age = (short)strtoul(ag, NULL, 0);
+		name = new char[str.length() + 1];
+		strcpy(name, str.c_str());
+		strtok(name, "\n");
 
 		fclose(fp);
 	}
@@ -186,6 +186,7 @@ void head_private_doctor::main_p_head()
 	int key1, key2;
 	do
 	{
+		setlocale(0, "");
 		system("cls");
 		text_p_head_doct->main_p_head();
 		key1 = _getch();

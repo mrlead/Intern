@@ -51,6 +51,7 @@ void private_doctor::get_name()
 		str = coll[index];
 		name = new char[str.length() + 1];
 		strcpy(name, str.c_str());
+		strtok(name, "\n");
 
 		fclose(fp);
 	}
@@ -292,7 +293,8 @@ void private_doctor::get_status()
 		int index = 1 + rand() % 6;
 		str = coll[index];
 		status = new char[str.length() + 1];
-		strcpy(status, str.c_str());
+		strcpy(status, str.c_str()); 
+		strtok(status, "\n");
 
 		fclose(fp);
 	}
@@ -321,6 +323,7 @@ void private_doctor::main_menu_pr_doctor()
 	int key1, key2;
 	do
 	{
+		setlocale(0, "");
 		system("cls");
 		text_doct->main_doct();
 		key1 = _getch();

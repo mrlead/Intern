@@ -101,21 +101,37 @@ void min_health::display_param()
 	cout << GetIniString("2", "answer_health", "ini_base/menu_list_rus.ini") << place << endl;
 }
 
+text* tex_m = new text();
+text_eng* text_e = new text_eng();
+
+void lang(bool l)
+{
+	if (l)
+	{
+		tex_m->main_health();
+	}
+	else
+	{
+		text_e->main_health_eng();
+	}
+}
+
 void min_health::main_menu_min_health()
 {
 	static min_health* health = new min_health();
-	text* tex_m = new text();
-
+	
+	
 	int key1, key2;
 	do
 	{
 		system("cls");
-		tex_m->main_health();
+		lang(lang);
 		key1 = _getch();
 		switch (key1)
 		{
 		case '1':
 		{
+			setlocale(0, "");
 			system("cls");
 			min_health::min_health();
 			health->get_name();

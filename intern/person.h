@@ -1,6 +1,7 @@
 #pragma once
 #include "hospital.h"
 #include "rus_localization.h"
+#include "eng_localization.h"
 #include <iostream>
 #include "conio.h"
 #include <cstdio>

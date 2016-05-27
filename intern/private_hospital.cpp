@@ -202,6 +202,7 @@ void private_hospital::main_menu_private()
 		{
 		case '1':
 		{
+			setlocale(0, "");
 			if (p_hosp->number != 0)
 			{
 				cout << "Для начала произведите очистку данных" << endl;

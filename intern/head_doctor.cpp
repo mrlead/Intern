@@ -164,6 +164,7 @@ void head_doctor::main_head_doctor()
 		{
 		case'1':
 			{
+				setlocale(0, "");
 				if (head_d->age != 0)
 				{
 					system("cls");

@@ -268,7 +268,7 @@ void doctor::display_param()
 	cout << GetIniString("2", "answer_doct", "ini_base/menu_list_rus.ini") << status << endl;
 	cout << GetIniString("3", "answer_doct", "ini_base/menu_list_rus.ini") << age << endl;
 	cout << GetIniString("4", "answer_doct", "ini_base/menu_list_rus.ini") << default_rank << endl;
-	cout << GetIniString("4", "answer_doct", "ini_base/menu_list_rus.ini") << nums << endl;
+	cout << GetIniString("5", "answer_doct", "ini_base/menu_list_rus.ini") << nums << endl;
 	cout << endl;
 }
 
@@ -282,6 +282,7 @@ void doctor::main_menu_doct()
 	int key1, key2;
 	do
 	{
+		setlocale(0, "");
 		system("cls");
 		text_doct->main_doct();
 		key1 = _getch();

@@ -190,6 +190,7 @@ void patient::main_menu_pat()
 		{
 		case'1':
 			{
+				setlocale(0, "");
 				if (pat->age != 0)
 				{
 					system("cls");

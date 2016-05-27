@@ -1,5 +1,4 @@
 #pragma once
-#include "company.h"
 #include "min_health.h"
 #include <iostream>
 #include "stdio.h"

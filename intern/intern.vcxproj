@@ -21,8 +21,8 @@
   <ItemGroup>
     <ClInclude Include="bro.h" />
     <ClInclude Include="cleaner.h" />
-    <ClInclude Include="company.h" />
     <ClInclude Include="doctor.h" />
+    <ClInclude Include="eng_localization.h" />
     <ClInclude Include="Errors_c.h" />
     <ClInclude Include="head_doctor.h" />
     <ClInclude Include="head_private_doctor.h" />
@@ -48,6 +48,7 @@
     <ClCompile Include="patient.cpp" />
     <ClCompile Include="private_doctor.cpp" />
     <ClCompile Include="private_hospital.cpp" />
+    <ClCompile Include="text_message_eng.cpp" />
     <ClCompile Include="text_message_rus.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

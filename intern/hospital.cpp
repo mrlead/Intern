@@ -197,6 +197,7 @@ void hospital::main_menu_hospital()
 		{
 		case '1':
 			{
+				setlocale(0, "");
 				if (medical->number != 0)
 				{
 					cout << "Для начала произведите очистку данных" << endl;
