@@ -172,6 +172,8 @@ void patient::display_param()
 	cout << GetIniString("1", "answer_patient", "ini_base/menu_list_rus.ini") << name << endl;
 	cout << GetIniString("2", "answer_patient", "ini_base/menu_list_rus.ini") << age << endl;
 	cout << GetIniString("3", "answer_patient", "ini_base/menu_list_rus.ini") << place << endl;
+	cout << endl;
+	cout << GetIniString("12", "objects", "ini_base/menu_list_rus.ini") << count << endl;
 }
 static patient* pat = new patient();
 void patient::main_menu_pat()

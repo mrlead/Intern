@@ -152,6 +152,8 @@ void person::display_param()
 	cout << GetIniString("3", "answer_per", "ini_base/menu_list_rus.ini") << age << endl;
 	cout << GetIniString("4", "answer_per", "ini_base/menu_list_rus.ini") << endl;
 	cout << endl;
+	cout << GetIniString("1", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	cout << endl;
 }
 
 /*Определение для bro
@@ -292,7 +294,10 @@ void bro::display_param()
 	cout << GetIniString("3", "answer_bro", "ini_base/menu_list_rus.ini") << age << endl;
 	cout << GetIniString("4", "answer_bro", "ini_base/menu_list_rus.ini") << endl;
 	cout << endl;
+	cout << GetIniString("2", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	cout << endl;
 }
+
 
 /*Определение для cleaner
 ------------------------
@@ -433,6 +438,8 @@ void cleaner::display_param()
 	cout << GetIniString("2", "answer_cle", "ini_base/menu_list_rus.ini") << status << endl;
 	cout << GetIniString("3", "answer_cle", "ini_base/menu_list_rus.ini") << age << endl;
 	cout << GetIniString("4", "answer_cle", "ini_base/menu_list_rus.ini") << endl;
+	cout << endl;
+	cout << GetIniString("3", "objects", "ini_base/menu_list_rus.ini") << count << endl;
 	cout << endl;
 }
 
@@ -575,6 +582,8 @@ void security::display_param()
 	cout << GetIniString("2", "answer_sec", "ini_base/menu_list_rus.ini") << status << endl;
 	cout << GetIniString("3", "answer_sec", "ini_base/menu_list_rus.ini") << age << endl;
 	cout << GetIniString("4", "answer_sec", "ini_base/menu_list_rus.ini") << endl;
+	cout << endl;
+	cout << GetIniString("4", "objects", "ini_base/menu_list_rus.ini") << count << endl;
 	cout << endl;
 }
 

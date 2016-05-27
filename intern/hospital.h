@@ -13,6 +13,7 @@ using namespace std;
 class hospital :public min_health 
 {
 protected:
+	int count;
 	char *name;
 	char *place;
 	int room, vip_room;
@@ -23,14 +24,24 @@ protected:
 public:
 	hospital()
 	{
+		count = 0;
+		count++;
 		null_str = "";
+		count++;
 		name = new char[15];
+		count++;
 		place = new char[40];
+		count++;
 		number_s = new char[5];
+		count++;
 		number = NULL;
+		count++;
 		cost = NULL;
+		count++;
 		room = NULL;
+		count++;
 		vip_room = NULL;
+		count++;
 		strcpy(name, null_str);
 		strcpy(place, null_str);
 		strcpy(number_s, null_str);

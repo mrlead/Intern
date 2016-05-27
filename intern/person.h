@@ -17,6 +17,7 @@ using namespace std;
 class person: public hospital
 {
 protected:
+	int count;
 	char *ag;
 	char *name;
 	char *status;
@@ -25,11 +26,18 @@ protected:
 public:
 	person()
 	{
+		count = 0;
+		count++;
 		null_str = "";
+		count++;
 		name = new char[30];
+		count++;
 		status = new char[20];
+		count++;
 		ag = new char[5];
+		count++;
 		age = NULL;
+		count++;
 		strcpy(name, null_str);
 		strcpy(status, null_str);
 		strcpy(ag, null_str);

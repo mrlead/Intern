@@ -21,4 +21,6 @@ public:
 	void main_p_hospital();
 	void main_p_head();
 	void main_p_doctor();
+	void titulka_rus(); 
+	void main();
 };

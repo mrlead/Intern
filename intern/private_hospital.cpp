@@ -185,6 +185,8 @@ void private_hospital::display_param()
 	cout << GetIniString("4", "answer_p_hosp", "ini_base/menu_list_rus.ini") << company<< endl;
 	cout << GetIniString("5", "answer_p_hosp", "ini_base/menu_list_rus.ini") << cost << endl;
 	cout << GetIniString("6", "answer_p_hosp", "ini_base/menu_list_rus.ini") << vip_room << endl;
+	cout << endl;
+	cout << GetIniString("8", "objects", "ini_base/menu_list_rus.ini") << count << endl;
 }
 
 void private_hospital::main_menu_private()

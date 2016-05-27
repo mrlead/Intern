@@ -18,6 +18,7 @@ using namespace std;
 class private_doctor:public private_hospital
 {
 protected:
+	int count;
 	char *name, *ag;
 	short age;
 	char *status;
@@ -43,19 +44,34 @@ protected:
 public:
 	private_doctor()
 	{
+		count = 0;
+		count++;
 		null_str = "";
+		count++;
 		nums = NULL;
+		count++;
 		ag = new char[15];
+		count++;
 		name = new char[30];
+		count++;
 		status = new char[17];
+		count++;
 		rank = new char[15];
+		count++;
 		rank_2 = new char[15];
+		count++;
 		rank_3 = new char[15];
+		count++;
 		rank_4 = new char[30];
+		count++;
 		default_rank = new char[15];
+		count++;
 		heal = new char[60];
+		count++;
 		r = 1;
+		count++;
 		age = 0;
+		count++;
 		strcpy(name, null_str);
 		strcpy(status, null_str);
 		strcpy(heal, null_str);

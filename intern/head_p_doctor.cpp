@@ -176,6 +176,8 @@ void head_private_doctor::display_param()
 	cout << GetIniString("3", "answer_p_head", "ini_base/menu_list_rus.ini") << age << endl;
 	cout << GetIniString("4", "answer_p_head", "ini_base/menu_list_rus.ini") << num << endl;
 	cout << endl;
+	cout << GetIniString("9", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	cout << endl;
 }
 
 void head_private_doctor::main_p_head()

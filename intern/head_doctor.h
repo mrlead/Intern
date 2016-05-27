@@ -16,6 +16,7 @@ using namespace std;
 class head_doctor:public hospital
 {
 protected:
+	int count;
 	char *name;
 	short age;
 	char *ag;
@@ -25,11 +26,18 @@ protected:
 public:
 	head_doctor()
 	{
+		count = 0;
+		count++;
 		status = new char[20];
+		count++;
 		null_str = "";
+		count++;
 		name = new char[30];
+		count++;
 		ag = new char[15];
+		count++;
 		age = NULL;
+		count++;
 		strcpy(status, null_str);
 		strcpy(name, null_str);
 		strcpy(ag, null_str);

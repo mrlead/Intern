@@ -147,6 +147,8 @@ void head_doctor::display_param()
 	cout << GetIniString("3", "answer_head", "ini_base/menu_list_rus.ini") << age << endl;
 	cout << GetIniString("4", "answer_head", "ini_base/menu_list_rus.ini") << num << endl;
 	cout << endl;
+	cout << GetIniString("6", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	cout << endl;
 }
 
 void head_doctor::main_head_doctor()

@@ -124,3 +124,44 @@ void text::main_p_doctor()
 	cout << GetIniString("6", "private_doctor", "ini_base/menu_list_rus.ini") << endl;
 	cout << GetIniString("7", "private_doctor", "ini_base/menu_list_rus.ini") << endl;
 }
+
+void text::titulka_rus()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	cout << GetIniString("1", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("2", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("3", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("4", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("5", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("6", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("7", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("8", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("9", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("10", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("11", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("12", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("13", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("14", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("15", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("16", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("17", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("18", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("19", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("20", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("21", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("22", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("23", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("24", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("25", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("26", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("27", "titulka_rus", "ini_base/menu_list_rus.ini") << endl;
+}
+
+void text::main()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	cout << GetIniString("1", "main", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("2", "main", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("3", "main", "ini_base/menu_list_rus.ini") << endl;
+	cout << GetIniString("4", "main", "ini_base/menu_list_rus.ini") << endl;
+}

@@ -16,6 +16,7 @@ using namespace std;
 class head_private_doctor: public private_hospital
 {
 protected:
+	int count;
 	char *name;
 	short age;
 	char *ag;
@@ -25,12 +26,20 @@ protected:
 public:
 	head_private_doctor()
 	{
+		count = 0;
+		count++;
 		null_str = "";
+		count++;
 		status = new char[30];
+		count++;
 		name = new char[30];
+		count++;
 		ag = new char[15];
+		count++;
 		num = new char[5];
+		count++;
 		age = NULL;
+		count++;
 		strcpy(name, null_str);
 		strcpy(num, null_str);
 		strcpy(status, null_str);

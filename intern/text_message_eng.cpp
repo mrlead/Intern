@@ -113,3 +113,34 @@ void text_eng::main_p_doctor_eng()
 	cout << GetIniString("6", "private_doctor", "ini_base/menu_list_eng.ini") << endl;
 	cout << GetIniString("7", "private_doctor", "ini_base/menu_list_eng.ini") << endl;
 }
+
+void text_eng::titulka_eng()
+{
+	cout << GetIniString("1", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("2", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("3", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("4", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("5", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("6", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("7", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("8", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("9", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("10", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("11", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("12", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("13", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("14", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("15", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("16", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("17", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("18", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("19", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("20", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("21", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("22", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("23", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("24", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("25", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("26", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+	cout << GetIniString("27", "titulka_eng", "ini_base/menu_list_eng.ini") << endl;
+}

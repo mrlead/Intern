@@ -99,14 +99,16 @@ void min_health::display_param()
 {
 	cout << GetIniString("1", "answer_health", "ini_base/menu_list_rus.ini") << name << endl;
 	cout << GetIniString("2", "answer_health", "ini_base/menu_list_rus.ini") << place << endl;
+	cout << endl;
+	cout << GetIniString("11", "objects", "ini_base/menu_list_rus.ini") << count << endl;
 }
 
 text* tex_m = new text();
 text_eng* text_e = new text_eng();
 
-void lang(bool l)
+/*void lang()
 {
-	if (l)
+	if ()
 	{
 		tex_m->main_health();
 	}
@@ -114,18 +116,18 @@ void lang(bool l)
 	{
 		text_e->main_health_eng();
 	}
-}
+}*/
 
 void min_health::main_menu_min_health()
 {
 	static min_health* health = new min_health();
-	
-	
 	int key1, key2;
+	
 	do
 	{
 		system("cls");
-		lang(lang);
+		//lang();
+		tex_m->main_health();
 		key1 = _getch();
 		switch (key1)
 		{
@@ -151,7 +153,8 @@ void min_health::main_menu_min_health()
 					health->display_param();
 					key2 = _getch();
 					switch (key2)
-					{}
+					{
+					}
 				} while (key2 != 27);
 			}
 			else
@@ -187,14 +190,14 @@ void min_health::main_menu_min_health()
 		{
 			system("cls");
 			hospital run;
-			 run.main_menu_hospital();
+			run.main_menu_hospital();
 		}
 		break;
 		case'5':
-			{
-				private_hospital run_private_hos;
-				run_private_hos.main_menu_private();
-			}
+		{
+			private_hospital run_private_hos;
+			run_private_hos.main_menu_private();
+		}
 		}
 	} while (key1 != 27);
 }

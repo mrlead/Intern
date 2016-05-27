@@ -180,6 +180,8 @@ void hospital::display_param()
 	cout << GetIniString("4", "answer_hosp", "ini_base/menu_list_rus.ini") << cost << endl;
 	cout << GetIniString("5", "answer_hosp", "ini_base/menu_list_rus.ini") << room << GetIniString("6", "answer_hosp", "ini_base/menu_list_rus.ini") << vip_room << endl;
 	cout << endl;
+	cout << GetIniString("7", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	cout << endl;
 }
 
 void hospital::main_menu_hospital()

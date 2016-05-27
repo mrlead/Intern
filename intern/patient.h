@@ -16,6 +16,7 @@
 class patient:public doctor
 {
 protected:
+	int count;
 	char *name;
 	short age;
 	char *place;
@@ -26,13 +27,22 @@ public:
 	char *disease;
 	patient()
 	{
+		count = 0;
+		count++;
 		null_str = "";
+		count++;
 		name = new char[30];
+		count++;
 		disease = new char[30];
+		count++;
 		place = new char[30];
+		count++;
 		ag = new char[5];
+		count++;
 		n = NULL;
+		count++;
 		age = NULL;
+		count++;
 		strcpy(name, null_str);
 		strcpy(place, null_str);
 		strcpy(disease, null_str);

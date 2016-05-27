@@ -311,6 +311,8 @@ void private_doctor::display_param()
 	cout << GetIniString("3", "answer_p_doct", "ini_base/menu_list_rus.ini") << age << endl;
 	cout << GetIniString("4", "answer_p_doct", "ini_base/menu_list_rus.ini") << default_rank << endl;
 	cout << GetIniString("5", "answer_p_doct", "ini_base/menu_list_rus.ini") << nums << endl;
+	cout << endl;
+	cout << GetIniString("10", "objects", "ini_base/menu_list_rus.ini") << count << endl;
 }
 
 static private_doctor* pr_doctor = new private_doctor();
