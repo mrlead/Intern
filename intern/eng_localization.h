@@ -22,4 +22,9 @@ public:
 	void main_p_head_eng();
 	void main_p_doctor_eng();
 	void titulka_eng();
+	void about_eng();
+	void author_eng();
+	void inst_eng();
+	void main_eng();
+	void main();
 }; 

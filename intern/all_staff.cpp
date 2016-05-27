@@ -47,7 +47,7 @@ void person::get_name(string)
 	{
 		
 		//Читаем содержимое файла в коллекцию
-		fopen_s(&fp, file_name_1, "r");
+		fopen_s(&fp, file_name, "r");
 		while (!feof(fp))
 		{
 			//Читаем строку из файла источника
@@ -79,7 +79,7 @@ void person::get_status()
 	const int LENGHT = 20;
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
-	file_age;
+	file_status;
 	char input[LENGHT];
 	string str;
 	FILE *fp;
@@ -88,7 +88,7 @@ void person::get_status()
 	{
 		
 		//Читаем содержимое файла в коллекцию
-		fopen_s(&fp, file_status_1, "r");
+		fopen_s(&fp, file_status, "r");
 		while (!feof(fp))
 		{
 			//Читаем строку из файла источника
@@ -119,7 +119,7 @@ void person::get_age()
 	const int LENGHT = 5;
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
-	file_status;
+	file_age;
 	char input[LENGHT];
 	string str;
 	FILE *fp;
@@ -128,7 +128,7 @@ void person::get_age()
 	{
 		
 		//Читаем содержимое файла в коллекцию
-		fopen_s(&fp, file_age_1, "r");
+		fopen_s(&fp, file_age, "r");
 		while (!feof(fp))
 		{
 			//Читаем строку из файла источника

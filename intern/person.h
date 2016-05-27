@@ -20,9 +20,6 @@ protected:
 	char *file_name;
 	char *file_age;
 	char *file_status;
-	char *file_name_1;
-	char *file_age_1;
-	char *file_status_1;
 	int count;
 	char *ag;
 	char *name;
