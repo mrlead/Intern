@@ -2,6 +2,7 @@
 #include "doctor.h"
 #include "patient.h"
 #include "Errors_c.h"
+#include <fstream>
 
 void doctor::clean()
 {
@@ -24,7 +25,12 @@ void doctor::get_name()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
+	{
+		cout << "Файл не открыт" << endl;
+	}
+	else
 	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
@@ -48,9 +54,6 @@ void doctor::get_name()
 		fclose(fp);
 		
 	}
-	
-	catch (Errors_s)
-	{}
 }
 void doctor::get_age()
 {
@@ -63,7 +66,12 @@ void doctor::get_age()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
+	{
+		cout << "Файл не открыт" << endl;
+	}
+	else
 	{
 		//throw Errors_s();
 		fopen_s(&fp, filename, "r");
@@ -85,8 +93,6 @@ void doctor::get_age()
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void doctor::GetRank()
@@ -234,7 +240,12 @@ void doctor::get_status()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
+	{
+		cout << "Файл не открыт" << endl;
+	}
+	else
 	{
 		//throw Errors_s();
 		fopen_s(&fp, filename, "r");
@@ -257,8 +268,6 @@ void doctor::get_status()
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void doctor::display_param()

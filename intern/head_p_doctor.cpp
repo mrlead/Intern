@@ -1,4 +1,5 @@
 #include "head_private_doctor.h"
+#include <fstream>
 
 void head_private_doctor::clean()
 {
@@ -19,9 +20,13 @@ void head_private_doctor::get_name()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
 	{
-
+		cout << "Файл не открыт" << endl;
+	}
+	else
+	{
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
 		{
@@ -42,10 +47,6 @@ void head_private_doctor::get_name()
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
 }
 
 void head_private_doctor::get_age()
@@ -59,9 +60,13 @@ void head_private_doctor::get_age()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
 	{
-
+		cout << "Файл не открыт" << endl;
+	}
+	else
+	{
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
 		{
@@ -82,48 +87,44 @@ void head_private_doctor::get_age()
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
 }
 
 void head_private_doctor::number()
 {
-			const int LENGHT = 30;
-			vector<string> coll;
-			vector<string>::iterator it_deep, it_submit, pos;
-			char *filename = "data_base/doct_num.txt";
-			char input[LENGHT];
-			string str;
-			FILE *fp;
+		const int LENGHT = 30;
+		vector<string> coll;
+		vector<string>::iterator it_deep, it_submit, pos;
+		char *filename = "data_base/doct_num.txt";
+		char input[LENGHT];
+		string str;
+		FILE *fp;
 
-			try
+		ifstream f(filename);
+		if (!f.good())
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+		{	//Читаем содержимое файла в коллекцию
+			fopen_s(&fp, filename, "r");
+			while (!feof(fp))
 			{
-				//Читаем содержимое файла в коллекцию
-				fopen_s(&fp, filename, "r");
-				while (!feof(fp))
-				{
-					//Читаем строку из файла источника
-					fgets(input, LENGHT, fp);
-					str = input;
-					coll.push_back(str);
-				}
-				fclose(fp);
-
-				//Случайная строка
-				srand(time(NULL));
-				int index = 1 + rand() % 40;
-				str = coll[index];
-				num = new char[str.length() + 1];
-				strcpy(num, str.c_str());
-
-				fclose(fp);
+				//Читаем строку из файла источника
+				fgets(input, LENGHT, fp);
+				str = input;
+				coll.push_back(str);
 			}
-			catch (bad_alloc)
-			{
-				cout << "Не удалось выделить память под коллекцию" << endl;
-			}
+			fclose(fp);
+
+			//Случайная строка
+			srand(time(NULL));
+			int index = 1 + rand() % 40;
+			str = coll[index];
+			num = new char[str.length() + 1];
+			strcpy(num, str.c_str());
+
+			fclose(fp);
+		}
 }
 
 void head_private_doctor::get_status()
@@ -137,7 +138,12 @@ void head_private_doctor::get_status()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
+	{
+		cout << "Файл не открыт" << endl;
+	}
+	else
 	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
@@ -161,10 +167,6 @@ void head_private_doctor::get_status()
 		strtok(status, "'\n'");
 
 		fclose(fp);
-	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
 	}
 }
 

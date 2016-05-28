@@ -3,6 +3,7 @@
 #include "conio.h"
 #include <Windows.h>
 #include <locale.h>
+#include <fstream>
 
 void head_doctor::clean()
 {
@@ -23,9 +24,13 @@ void head_doctor::get_age()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
 	{
-
+		cout << "Файл не открыт" << endl;
+	}
+	else
+	{
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
 		{
@@ -46,10 +51,6 @@ void head_doctor::get_age()
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
 }
 
 void head_doctor::get_name()
@@ -63,9 +64,13 @@ void head_doctor::get_name()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
 	{
-
+		cout << "Файл не открыт" << endl;
+	}
+	else
+	{
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
 		{
@@ -86,10 +91,6 @@ void head_doctor::get_name()
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
 }
 
 void head_doctor::GetNumber()
@@ -108,7 +109,12 @@ void head_doctor::get_status()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
+	{
+		cout << "Файл не открыт" << endl;
+	}
+	else
 	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
@@ -132,10 +138,6 @@ void head_doctor::get_status()
 		strtok(status, "'\n'");
 
 		fclose(fp);
-	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
 	}
 }
 

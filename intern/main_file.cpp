@@ -4,15 +4,23 @@
 #include <locale.h>
 #include <fstream>
 #include <string>
+#define TITRUS titul->titulka_rus()
+#define TITENG tit_eng->titulka_eng()
+#define TITUL rus?TITENG:TITRUS
 
+text_eng* tit_eng = new text_eng();
+text* titul = new text();
 int main()
 {
-	text* titul = new text();
+	
 	min_health health;
+	bool rus=1;
 	int key1, key2, key3, key4, key5, key6;
 	do
 	{
-		titul->titulka_rus();
+		//tit_eng->titulka_eng();
+		//titul->titulka_rus();
+		//TITUL;
 		cout << endl;
 		cout << endl;
 		cout << endl;
@@ -94,6 +102,14 @@ int main()
 					}
 					}
 				} while (key3 != 27);
+			}
+			break;
+		case'l':
+			{
+			/*
+				if(TITUL == TITRUS)
+				else
+					TITENG*/
 			}
 		}
 		

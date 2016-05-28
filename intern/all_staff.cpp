@@ -5,6 +5,7 @@
 #include "security.h"
 #include "Errors_c.h"
 #include <iostream>
+#include <fstream>
 #include "conio.h"
 #include <Windows.h>
 #include <locale.h>
@@ -26,11 +27,12 @@ void person::clean()
 void person::rename()
 {
 	cout << "Введите путь к фалу для имени" << endl;
+	strcpy(file_name, null_str);
 	cin >> file_name;
-	cout << "Введите путь к файлу для возраста" << endl;
+	/*cout << "Введите путь к файлу для возраста" << endl;
 	cin >> file_age;
 	cout << "Введите путь к файлу для статуса" << endl;
-	cin >> file_status;
+	cin >> file_status;*/
 }
 
 void person::get_name(string)
@@ -38,14 +40,17 @@ void person::get_name(string)
 	const int LENGHT = 30;
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
-	file_name;
 	char input[LENGHT];
 	string str;
 	FILE *fp;
-
-	try
-	{
 		
+	ifstream f(file_name);
+	if (!f.good())
+	{
+		cout << "Файл не открыт" << endl;
+	}
+	else
+	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, file_name, "r");
 		while (!feof(fp))
@@ -57,6 +62,8 @@ void person::get_name(string)
 		}
 		fclose(fp);
 
+
+
 		//Случайная строка
 		srand(time(NULL));
 		int index = rand() % 11;
@@ -66,12 +73,9 @@ void person::get_name(string)
 		strtok(name, "\n");
 		str = "";
 		coll.clear();
-		
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void person::get_status()
@@ -79,14 +83,18 @@ void person::get_status()
 	const int LENGHT = 20;
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
-	file_status;
+	file_status = "data_base/stat_staff_m.txt";
 	char input[LENGHT];
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(file_status);
+	if (!f.good())
 	{
-		
+		cout << "Файл не открыт" << endl;
+	}
+	else
+	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, file_status, "r");
 		while (!feof(fp))
@@ -110,8 +118,6 @@ void person::get_status()
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void person::get_age()
@@ -119,14 +125,18 @@ void person::get_age()
 	const int LENGHT = 5;
 	vector<string> coll;
 	vector<string>::iterator it_deep, it_submit, pos;
-	file_age;
+	file_age = "data_base/age_staff_m.txt";
 	char input[LENGHT];
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(file_age);
+	if (!f.good())
 	{
-		
+		cout << "Файл не открыт" << endl;
+	}
+	else
+	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, file_age, "r");
 		while (!feof(fp))
@@ -150,8 +160,6 @@ void person::get_age()
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void person::display_param()
@@ -188,9 +196,13 @@ void bro::get_name()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
 	{
-		
+		cout << "Файл не открыт" << endl;
+	}
+	else
+	{
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
 		{
@@ -213,8 +225,6 @@ void bro::get_name()
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void bro::get_status()
@@ -227,9 +237,13 @@ void bro::get_status()
 	string str;
 	FILE *fp;
 
-	try
-	{
-		
+		ifstream f(filename);
+		if (!f.good())
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+		{
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
 		{
@@ -251,9 +265,7 @@ void bro::get_status()
 		coll.clear();
 
 		fclose(fp);
-	}
-	catch (Errors_s)
-	{}
+		}
 }
 
 void bro::get_age()
@@ -266,9 +278,13 @@ void bro::get_age()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
 	{
-		
+		cout << "Файл не открыт" << endl;
+	}
+	else
+	{
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
 		{
@@ -292,8 +308,6 @@ void bro::get_age()
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void bro::display_param()
@@ -331,9 +345,13 @@ void cleaner::get_name()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
 	{
-		
+		cout << "Файл не открыт" << endl;
+	}
+	else
+	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -357,8 +375,6 @@ void cleaner::get_name()
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void cleaner::get_status()
@@ -371,9 +387,13 @@ void cleaner::get_status()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
 	{
-		
+		cout << "Файл не открыт" << endl;
+	}
+	else
+	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -397,8 +417,6 @@ void cleaner::get_status()
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void cleaner::get_age()
@@ -411,9 +429,13 @@ void cleaner::get_age()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
 	{
-		
+		cout << "Файл не открыт" << endl;
+	}
+	else
+	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -437,8 +459,6 @@ void cleaner::get_age()
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void cleaner::display_param()
@@ -475,9 +495,13 @@ void security::get_name()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
 	{
-		
+		cout << "Файл не открыт" << endl;
+	}
+	else
+	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -501,8 +525,6 @@ void security::get_name()
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void security::get_status()
@@ -515,9 +537,13 @@ void security::get_status()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
 	{
-		
+		cout << "Файл не открыт" << endl;
+	}
+	else
+	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -541,8 +567,6 @@ void security::get_status()
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void security::get_age()
@@ -555,9 +579,13 @@ void security::get_age()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
 	{
-		
+		cout << "Файл не открыт" << endl;
+	}
+	else
+	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -581,8 +609,6 @@ void security::get_age()
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void security::display_param()
@@ -638,7 +664,7 @@ void person::main_menu_staff()
 					else
 					{
 						person::person();
-						sister->rename();
+						//sister->rename();
 						sister->get_name(name);
 						sister->get_status();
 						sister->get_age();

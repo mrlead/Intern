@@ -4,6 +4,7 @@
 #include "head_doctor.h"
 #include "doctor.h"
 #include "Errors_c.h"
+#include <fstream>
 
 void hospital::clean()
 {
@@ -26,9 +27,13 @@ void hospital::get_name()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
 	{
-		
+		cout << "Файл не открыт" << endl;
+	}
+	else
+	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -50,8 +55,6 @@ void hospital::get_name()
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void hospital::get_number()
@@ -131,9 +134,13 @@ void hospital::get_place()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
 	{
-		
+		cout << "Файл не открыт" << endl;
+	}
+	else
+	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
 		while (!feof(fp))
@@ -155,8 +162,6 @@ void hospital::get_place()
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void hospital::get_room()

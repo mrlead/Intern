@@ -4,6 +4,7 @@
 #include "private_doctor.h"
 #include "Errors_c.h"
 #include "person.h"
+#include <fstream>
 
 void private_hospital::clean()
 {
@@ -25,7 +26,12 @@ void private_hospital::get_name()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
+	{
+		cout << "Файл не открыт" << endl;
+	}
+	else
 	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
@@ -48,8 +54,6 @@ void private_hospital::get_name()
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void private_hospital::get_number()
@@ -130,7 +134,12 @@ void private_hospital::get_place()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
+	{
+		cout << "Файл не открыт" << endl;
+	}
+	else
 	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
@@ -153,8 +162,6 @@ void private_hospital::get_place()
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void private_hospital::get_room()
@@ -202,7 +209,12 @@ void private_hospital::get_company()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
+	{
+		cout << "Файл не открыт" << endl;
+	}
+	else
 	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
@@ -224,8 +236,6 @@ void private_hospital::get_company()
 
 		fclose(fp);
 	}
-	catch (Errors_s)
-	{}
 }
 
 void private_hospital::display_param()

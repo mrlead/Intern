@@ -1,4 +1,5 @@
 #include "patient.h"
+#include <fstream>
 
 void patient::clean()
 {
@@ -21,7 +22,12 @@ void patient::get_name()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
+	{
+		cout << "Файл не открыт" << endl;
+	}
+	else
 	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
@@ -44,11 +50,8 @@ void patient::get_name()
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
 }
+
 void patient::get_age()
 {
 	//set_age
@@ -60,7 +63,12 @@ void patient::get_age()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
+	{
+		cout << "Файл не открыт" << endl;
+	}
+	else
 	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
@@ -83,10 +91,6 @@ void patient::get_age()
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
 }
 void patient::get_disease()
 {
@@ -99,7 +103,12 @@ void patient::get_disease()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
+	{
+		cout << "Файл не открыт" << endl;
+	}
+	else
 	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
@@ -122,10 +131,6 @@ void patient::get_disease()
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
 }
 void patient::get_place()
 {
@@ -138,7 +143,12 @@ void patient::get_place()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
+	{
+		cout << "Файл не открыт" << endl;
+	}
+	else
 	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
@@ -160,10 +170,6 @@ void patient::get_place()
 		strtok(place, "\n");
 
 		fclose(fp);
-	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
 	}
 }
 

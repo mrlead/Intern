@@ -5,6 +5,7 @@
 #include <iostream>
 #include "conio.h"
 #include <Windows.h>
+#include <fstream>
 
 void min_health::clean()
 {
@@ -23,7 +24,12 @@ void min_health::get_name()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
+	{
+		cout << "Файл не открыт" << endl;
+	}
+	else
 	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
@@ -48,10 +54,6 @@ void min_health::get_name()
 
 		fclose(fp);
 	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
-	}
 }
 
 void min_health::get_place()
@@ -64,7 +66,12 @@ void min_health::get_place()
 	string str;
 	FILE *fp;
 
-	try
+	ifstream f(filename);
+	if (!f.good())
+	{
+		cout << "Файл не открыт" << endl;
+	}
+	else
 	{
 		//Читаем содержимое файла в коллекцию
 		fopen_s(&fp, filename, "r");
@@ -87,10 +94,6 @@ void min_health::get_place()
 		coll.clear();
 
 		fclose(fp);
-	}
-	catch (bad_alloc)
-	{
-		cout << "Не удалось выделить память под коллекцию" << endl;
 	}
 	r = 1;
 }
