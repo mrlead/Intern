@@ -1,5 +1,5 @@
 #pragma once
-#include "hospital.h"
+#include "person.h"
 #include <iostream>
 #include "conio.h"
 #include <cstdio>
@@ -12,7 +12,7 @@
 
 using namespace std;
 
-class bro:public hospital
+class bro:public person
 {
 public:
 	int count;

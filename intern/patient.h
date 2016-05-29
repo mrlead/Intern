@@ -1,5 +1,6 @@
 #pragma once
 #include "doctor.h"
+#include "private_doctor.h"
 #include <iostream>
 #include "conio.h"
 #include <cstdio>
@@ -13,7 +14,7 @@
 
 #pragma warning (disable:4244)
 
-class patient:public doctor
+class patient:public doctor, private_doctor
 {
 protected:
 	int count;

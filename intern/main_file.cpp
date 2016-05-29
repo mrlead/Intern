@@ -6,34 +6,37 @@
 #include <fstream>
 #include <string>
 
-//lang* Lang = new lang();
 text_eng* tit_eng = new text_eng();
 text* titul = new text();
+lang* sw = new lang();
 
 int main()
 {
-	
 	min_health health;
-	bool rus=1;
+	bool rus = 1;
 	int key1, key2, key3, key4, key5, key6;
 	char lang;
 	do
 	{
-	//	Lang->main_lang(Lang, Lang);
-	/*	cin >> lang;
-		if (lang = 1)
-		{
-			titul->main();
-		}
-		else 
-			if (lang = 2)
-			{
-				tit_eng->main_eng();
-			}*/
-		tit_eng->main_eng();
 		key1 = _getch();
 		switch (key1)
 		{
+		case'l':
+		{
+			if (rus == 0)
+			{
+				system("cls");
+				sw->main_lang(sw);
+			}
+			else 
+				if (rus == 1)
+				{
+					system("cls");
+					titul->main();
+					rus = 0;
+				}
+		}
+		break;
 		case'1':
 			{	
 				system("cls");

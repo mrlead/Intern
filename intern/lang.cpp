@@ -1,17 +1,23 @@
 #include "lang.h"
 
-//lang* Lang = new lang();
-text* print = new text();
-text_eng* print_eng = new text_eng();
+text_eng* tit_en = new text_eng();
+text* titu = new text();
 
-void lang::main_lang(bool l, bool z)
+bool rus = 0;
+
+void lang::main_lang(bool l)
 {
-	if (l)
+	if (rus == 1)
 	{
-		print->titulka_rus();
+		system("cls");
+		titu->main();
+		rus = 0;
 	}
-	while (z);
-	{
-		print_eng->titulka_eng();
-	}
+	else
+		if (rus == 0)
+		{
+			system("cls");
+			tit_en->main_eng();
+			rus = 1;
+		}
 }

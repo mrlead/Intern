@@ -1,5 +1,6 @@
 #pragma once
 #include "head_doctor.h"
+#include "person.h"
 #include <iostream>
 #include "conio.h"
 #include <cstdio>
@@ -14,7 +15,7 @@
 
 using namespace std;
 
-class doctor:public head_doctor
+class doctor:public person,  head_doctor
 {
 protected:
 	int count;
