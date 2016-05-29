@@ -19,6 +19,7 @@ protected:
 	char *place;
 	char *null_str;
 	int r;
+	const char *health;
 public:
 	char *name_hosp;
 	min_health()
@@ -35,6 +36,8 @@ public:
 		count++;
 		place = new char[40];
 		count++;
+		health = "output/min_health.txt";
+		count++;
 		strcpy(name, null_str);
 		strcpy(place, null_str);
 	}
@@ -43,4 +46,5 @@ public:
 	virtual void get_place();
 	void clean();
 	void main_menu_min_health();
+	void save();
 };

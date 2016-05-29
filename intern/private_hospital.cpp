@@ -2,7 +2,6 @@
 #include "private_hospital.h"
 #include "head_private_doctor.h"
 #include "private_doctor.h"
-#include "Errors_c.h"
 #include "person.h"
 #include <fstream>
 
@@ -250,6 +249,27 @@ void private_hospital::display_param()
 	cout << GetIniString("8", "objects", "ini_base/menu_list_rus.ini") << count << endl;
 }
 
+void private_hospital::save_private()
+{
+	ofstream fout(file_hospital_p, ios_base::out | ios_base::trunc);
+	if (!fout.good())
+	{
+		cout << "Файл поврежден" << endl;
+
+	}
+	else
+	{
+		fout << GetIniString("1", "answer_p_hosp", "ini_base/menu_list_rus.ini") << name << endl;
+		fout << GetIniString("2", "answer_p_hosp", "ini_base/menu_list_rus.ini") << number << endl;
+		fout << GetIniString("3", "answer_p_hosp", "ini_base/menu_list_rus.ini") << place << endl;
+		fout << GetIniString("4", "answer_p_hosp", "ini_base/menu_list_rus.ini") << company << endl;
+		fout << GetIniString("5", "answer_p_hosp", "ini_base/menu_list_rus.ini") << cost << endl;
+		fout << GetIniString("6", "answer_p_hosp", "ini_base/menu_list_rus.ini") << vip_room << endl;
+		fout << endl;
+		fout << GetIniString("8", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	}
+}
+
 void private_hospital::main_menu_private()
 {
 	static private_hospital* p_hosp = new private_hospital();
@@ -289,6 +309,7 @@ void private_hospital::main_menu_private()
 			{
 				system("cls");
 				p_hosp->display_param();
+				p_hosp->save_private();
 				cout << "'ESC' - Назад" << endl;
 				key2 = _getch();
 				switch (key2)

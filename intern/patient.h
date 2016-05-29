@@ -23,6 +23,7 @@ protected:
 	char *ag;
 	char *null_str;
 	int n;
+	const char *file_pat;
 public:
 	char *disease;
 	patient()
@@ -43,6 +44,8 @@ public:
 		count++;
 		age = NULL;
 		count++;
+		file_pat = "output/patient.txt";
+		count++;
 		strcpy(name, null_str);
 		strcpy(place, null_str);
 		strcpy(disease, null_str);
@@ -55,4 +58,5 @@ public:
 	void display_param();
 	void clean();
 	void main_menu_pat();
+	void save();
 };

@@ -181,7 +181,27 @@ void patient::display_param()
 	cout << endl;
 	cout << GetIniString("12", "objects", "ini_base/menu_list_rus.ini") << count << endl;
 }
+
+void patient::save()
+{
+	ofstream fout(file_pat, ios_base::out | ios_base::trunc);
+	if (!fout.good())
+	{
+		cout << "Файл поврежден" << endl;
+
+	}
+	else
+	{
+		fout << GetIniString("1", "answer_patient", "ini_base/menu_list_rus.ini") << name << endl;
+		fout << GetIniString("2", "answer_patient", "ini_base/menu_list_rus.ini") << age << endl;
+		fout << GetIniString("3", "answer_patient", "ini_base/menu_list_rus.ini") << place << endl;
+		fout << endl;
+		fout << GetIniString("12", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	}
+}
+
 static patient* pat = new patient();
+
 void patient::main_menu_pat()
 {
 	
@@ -230,6 +250,7 @@ void patient::main_menu_pat()
 					{
 						system("cls");
 						pat->display_param();
+						pat->save();
 						cout << "'ESC' - Назад" << endl;
 						key2 = _getch();
 						switch (key2)

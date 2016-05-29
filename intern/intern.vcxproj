@@ -23,11 +23,11 @@
     <ClInclude Include="cleaner.h" />
     <ClInclude Include="doctor.h" />
     <ClInclude Include="eng_localization.h" />
-    <ClInclude Include="Errors_c.h" />
     <ClInclude Include="head_doctor.h" />
     <ClInclude Include="head_private_doctor.h" />
     <ClInclude Include="hospital.h" />
     <ClInclude Include="IniMethod.h" />
+    <ClInclude Include="lang.h" />
     <ClInclude Include="min_health.h" />
     <ClInclude Include="patient.h" />
     <ClInclude Include="person.h" />
@@ -43,6 +43,7 @@
     <ClCompile Include="hospital.cpp" />
     <ClCompile Include="IniMethod.cpp" />
     <ClCompile Include="all_staff.cpp" />
+    <ClCompile Include="lang.cpp" />
     <ClCompile Include="main_file.cpp" />
     <ClCompile Include="min_health.cpp" />
     <ClCompile Include="patient.cpp" />

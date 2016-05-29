@@ -1,6 +1,5 @@
 #pragma once
 #include "private_doctor.h"
-#include "Errors_c.h"
 #include "patient.h"
 #include <fstream>
 
@@ -319,6 +318,26 @@ void private_doctor::display_param()
 	cout << GetIniString("10", "objects", "ini_base/menu_list_rus.ini") << count << endl;
 }
 
+void private_doctor::save_private()
+{
+	ofstream fout(file_doctor_p, ios_base::out | ios_base::trunc);
+	if (!fout.good())
+	{
+		cout << "Файл поврежден" << endl;
+
+	}
+	else
+	{
+		fout << GetIniString("1", "answer_p_doct", "ini_base/menu_list_rus.ini") << name << endl;
+		fout << GetIniString("2", "answer_p_doct", "ini_base/menu_list_rus.ini") << status << endl;
+		fout << GetIniString("3", "answer_p_doct", "ini_base/menu_list_rus.ini") << age << endl;
+		fout << GetIniString("4", "answer_p_doct", "ini_base/menu_list_rus.ini") << default_rank << endl;
+		fout << GetIniString("5", "answer_p_doct", "ini_base/menu_list_rus.ini") << nums << endl;
+		fout << endl;
+		fout << GetIniString("10", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	}
+}
+
 static private_doctor* pr_doctor = new private_doctor();
 
 void private_doctor::main_menu_pr_doctor()
@@ -372,6 +391,7 @@ void private_doctor::main_menu_pr_doctor()
 					system("cls");
 					pr_doctor->get_status();
 					pr_doctor->display_param();
+					pr_doctor->save_private();
 					cout << "'ESC' - Назад" << endl;
 					key2 = _getch();
 					switch (key2)

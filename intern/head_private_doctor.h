@@ -23,6 +23,7 @@ protected:
 	char *num;
 	char *null_str;
 	char *status;
+	const char *file_head_p;
 public:
 	head_private_doctor()
 	{
@@ -40,6 +41,8 @@ public:
 		count++;
 		age = NULL;
 		count++;
+		file_head_p = "output/head_private.txt";
+		count++;
 		strcpy(name, null_str);
 		strcpy(num, null_str);
 		strcpy(status, null_str);
@@ -51,4 +54,5 @@ public:
 	void main_p_head();
 	void clean();
 	void number();
+	void save_private();
 };

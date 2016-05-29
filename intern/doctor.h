@@ -41,6 +41,7 @@ protected:
 	char *null_str;
 	int nums;
 	char *dis;
+	const char *file_doctor_o;
 public:
 	doctor()
 	{
@@ -74,6 +75,8 @@ public:
 		count++;
 		age = NULL;
 		count++;
+		file_doctor_o = "output/doctor_origin.txt";
+		count++;
 		strcpy(name, null_str);
 		strcpy(status, null_str);
 		strcpy(heal, null_str);
@@ -99,4 +102,5 @@ public:
 		r1 += 1;
 		cout << r1 << endl;
 	}
+	void save_origin();
 };

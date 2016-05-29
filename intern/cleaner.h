@@ -18,6 +18,8 @@ public:
 	char *name, *status, *ag;
 	short age;
 	char *null_str;
+	const char *file_cleaner_o;
+	const char *file_cleaner_p;
 public:
 	cleaner()
 	{
@@ -33,6 +35,10 @@ public:
 		count++;
 		age = NULL;
 		count++;
+		file_cleaner_o = "output/cleaner_origin.txt";
+		count++;
+		file_cleaner_p = "output/cleaner_private.txt";
+		count++;
 		strcpy(name, null_str);
 		strcpy(status, null_str);
 		strcpy(ag, null_str);
@@ -42,4 +48,6 @@ public:
 	void get_age();
 	void display_param();
 	void clean();
+	void save_origin();
+	void save_private();
 };

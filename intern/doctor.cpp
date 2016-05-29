@@ -1,7 +1,6 @@
 #pragma once
 #include "doctor.h"
 #include "patient.h"
-#include "Errors_c.h"
 #include <fstream>
 
 void doctor::clean()
@@ -283,6 +282,26 @@ void doctor::display_param()
 	cout << endl;
 }
 
+void doctor::save_origin()
+{
+		ofstream fout(file_doctor_o, ios_base::out | ios_base::trunc);
+		if (!fout.good())
+		{
+			cout << "Файл поврежден" << endl;
+
+		}
+		else
+		{
+			fout << GetIniString("1", "answer_doct", "ini_base/menu_list_rus.ini") << name << endl;
+			fout << GetIniString("2", "answer_doct", "ini_base/menu_list_rus.ini") << status << endl;
+			fout << GetIniString("3", "answer_doct", "ini_base/menu_list_rus.ini") << age << endl;
+			fout << GetIniString("4", "answer_doct", "ini_base/menu_list_rus.ini") << default_rank << endl;
+			fout << GetIniString("5", "answer_doct", "ini_base/menu_list_rus.ini") << nums << endl;
+			fout << endl;
+			fout << GetIniString("5", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+		}
+}
+
 static doctor* doct = new doctor();
 
 void doctor::main_menu_doct()
@@ -336,6 +355,7 @@ void doctor::main_menu_doct()
 						system("cls");
 						doct->get_status();
 						doct->display_param();
+						doct->save_origin();
 						cout << "'ESC' - Назад" << endl;
 						key2 = _getch();
 						switch (key2)

@@ -1,33 +1,36 @@
 #pragma once
 #include "min_health.h"
 #include "person.h"
+#include "lang.h"
 #include <locale.h>
 #include <fstream>
 #include <string>
-#define TITRUS titul->titulka_rus()
-#define TITENG tit_eng->titulka_eng()
-#define TITUL rus?TITENG:TITRUS
 
+//lang* Lang = new lang();
 text_eng* tit_eng = new text_eng();
 text* titul = new text();
+
 int main()
 {
 	
 	min_health health;
 	bool rus=1;
 	int key1, key2, key3, key4, key5, key6;
+	char lang;
 	do
 	{
-		//tit_eng->titulka_eng();
-		//titul->titulka_rus();
-		//TITUL;
-		cout << endl;
-		cout << endl;
-		cout << endl;
-		cout << endl;
-		cout << endl;
-		cout << endl;
-		titul->main();
+	//	Lang->main_lang(Lang, Lang);
+	/*	cin >> lang;
+		if (lang = 1)
+		{
+			titul->main();
+		}
+		else 
+			if (lang = 2)
+			{
+				tit_eng->main_eng();
+			}*/
+		tit_eng->main_eng();
 		key1 = _getch();
 		switch (key1)
 		{
@@ -36,6 +39,7 @@ int main()
 				system("cls");
 				health.main_menu_min_health();
 			}
+			break;
 		case'2':
 			{
 				do
@@ -104,13 +108,6 @@ int main()
 				} while (key3 != 27);
 			}
 			break;
-		case'l':
-			{
-			/*
-				if(TITUL == TITRUS)
-				else
-					TITENG*/
-			}
 		}
 		
 	} while (key1 != 27);

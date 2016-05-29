@@ -153,6 +153,25 @@ void head_doctor::display_param()
 	cout << endl;
 }
 
+void head_doctor::save_origin()
+{
+	ofstream fout(file_head_o, ios_base::out | ios_base::trunc);
+	if (!fout.good())
+	{
+		cout << "Файл поврежден" << endl;
+
+	}
+	else
+	{
+		fout << GetIniString("1", "answer_head", "ini_base/menu_list_rus.ini") << name << endl;
+		fout << GetIniString("2", "answer_head", "ini_base/menu_list_rus.ini") << status << endl;
+		fout << GetIniString("3", "answer_head", "ini_base/menu_list_rus.ini") << age << endl;
+		fout << GetIniString("4", "answer_head", "ini_base/menu_list_rus.ini") << num << endl;
+		fout << endl;
+		fout << GetIniString("6", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	}
+}
+
 void head_doctor::main_head_doctor()
 {
 	static head_doctor* head_d = new head_doctor();
@@ -204,6 +223,7 @@ void head_doctor::main_head_doctor()
 					{
 						system("cls");
 						head_d->display_param();
+						head_d->save_origin();
 						cout << "'ESC' - Назад" << endl;
 						key2 = _getch();
 						switch (key2)

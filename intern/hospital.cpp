@@ -3,7 +3,6 @@
 #include "person.h"
 #include "head_doctor.h"
 #include "doctor.h"
-#include "Errors_c.h"
 #include <fstream>
 
 void hospital::clean()
@@ -256,6 +255,26 @@ void hospital::display_param()
 	cout << endl;
 }
 
+void hospital::save_origin()
+{
+	ofstream fout(file_hospital_o, ios_base::out | ios_base::trunc);
+	if (!fout.good())
+	{
+		cout << "Файл поврежден" << endl;
+
+	}
+	else
+	{
+		fout << GetIniString("1", "answer_hosp", "ini_base/menu_list_rus.ini") << name_hosp << endl;
+		fout << GetIniString("2", "answer_hosp", "ini_base/menu_list_rus.ini") << number << endl;
+		fout << GetIniString("3", "answer_hosp", "ini_base/menu_list_rus.ini") << place << endl;
+		fout << GetIniString("4", "answer_hosp", "ini_base/menu_list_rus.ini") << cost << endl;
+		fout << GetIniString("5", "answer_hosp", "ini_base/menu_list_rus.ini") << room << GetIniString("6", "answer_hosp", "ini_base/menu_list_rus.ini") << vip_room << endl;
+		fout << endl;
+		fout << GetIniString("7", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	}
+}
+
 void hospital::main_menu_hospital()
 {
 	static hospital* medical = new hospital();
@@ -295,6 +314,7 @@ void hospital::main_menu_hospital()
 				{
 					system("cls");
 					medical->display_param();
+					medical->save_origin();
 					cout << "'ESC' - Назад" << endl;
 					key2 = _getch();
 					switch (key2)

@@ -106,6 +106,23 @@ void min_health::display_param()
 	cout << GetIniString("11", "objects", "ini_base/menu_list_rus.ini") << count << endl;
 }
 
+void min_health::save()
+{
+	ofstream fout(health, ios_base::out | ios_base::trunc);
+	if (!fout.good())
+	{
+		cout << "Файл поврежден" << endl;
+
+	}
+	else
+	{
+		fout << GetIniString("1", "answer_health", "ini_base/menu_list_rus.ini") << name << endl;
+		fout << GetIniString("2", "answer_health", "ini_base/menu_list_rus.ini") << place << endl;
+		fout << endl;
+		fout << GetIniString("11", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	}
+}
+
 text* tex_m = new text();
 text_eng* text_e = new text_eng();
 
@@ -142,6 +159,7 @@ void min_health::main_menu_min_health()
 				{
 					system("cls");
 					health->display_param();
+					health->save();
 					key2 = _getch();
 					switch (key2)
 					{

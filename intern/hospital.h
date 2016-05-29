@@ -21,6 +21,7 @@ protected:
 	int cost;
 	char *number_s;
 	char *null_str;
+	const char *file_hospital_o;
 public:
 	hospital()
 	{
@@ -42,6 +43,8 @@ public:
 		count++;
 		vip_room = NULL;
 		count++;
+		file_hospital_o = "output/hospital_origin.txt";
+		count++;
 		strcpy(name, null_str);
 		strcpy(place, null_str);
 		strcpy(number_s, null_str);
@@ -54,4 +57,5 @@ public:
 	void get_cost();
 	void clean();
 	void main_menu_hospital();
+	void save_origin();
 };

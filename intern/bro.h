@@ -20,6 +20,8 @@ public:
 	short age;
 	char *null_str;
 	int num;
+	const char *file_bro_o;
+	const char *file_bro_p;
 public:
 	bro()
 	{
@@ -37,6 +39,10 @@ public:
 		count++;
 		num = NULL;
 		count++;
+		file_bro_o = "output/bro_origin.txt";
+		count++;
+		file_bro_p = "output/bro_private.txt";
+		count++;
 		strcpy(name, null_str);
 		strcpy(status, null_str);
 		strcpy(ag, null_str);
@@ -46,4 +52,6 @@ public:
 	void get_age();
 	virtual void display_param();
 	void clean();
+	void save_origin();
+	void save_private();
 };

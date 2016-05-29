@@ -23,6 +23,7 @@ protected:
 	char *null_str;
 	char *status;
 	int num;
+	const char *file_head_o;
 public:
 	head_doctor()
 	{
@@ -38,6 +39,8 @@ public:
 		count++;
 		age = NULL;
 		count++;
+		file_head_o = "output/head_origin.txt";
+		count++;
 		strcpy(status, null_str);
 		strcpy(name, null_str);
 		strcpy(ag, null_str);
@@ -49,5 +52,6 @@ public:
 	void get_status();
 	void display_param();
 	void main_head_doctor();
+	void save_origin();
 };
 

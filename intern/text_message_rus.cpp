@@ -247,5 +247,4 @@ void text::inst_rus()
 	cout << GetIniString("45", "inst_rus", "ini_base/instr.ini") << endl;
 	cout << GetIniString("46", "inst_rus", "ini_base/instr.ini") << endl;
 	cout << GetIniString("47", "inst_rus", "ini_base/instr.ini") << endl;
-
 }

@@ -22,6 +22,7 @@ protected:
 	char *number_s;
 	char *null_str;
 	char *company;
+	const char *file_hospital_p;
 public:
 	private_hospital()
 	{
@@ -43,6 +44,8 @@ public:
 		count++;
 		vip_room = NULL;
 		count++;
+		file_hospital_p = "output/hospital_private.txt";
+		count++;
 		strcpy(name, null_str);
 		strcpy(place, null_str);
 		strcpy(number_s, null_str);
@@ -56,5 +59,6 @@ public:
 	void get_company();
 	void clean();
 	void main_menu_private();
+	void save_private();
 };
 

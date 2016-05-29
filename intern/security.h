@@ -19,6 +19,8 @@ public:
 	char *name, *status, *ag;
 	short age;
 	char *null_str;
+	const char *file_security_o;
+	const char *file_security_p;
 public:
 	security()
 	{
@@ -34,6 +36,10 @@ public:
 		count++;
 		age = NULL;
 		count++;
+		file_security_o = "output/security_origin.txt";
+		count++;
+		file_security_p = "output/security_private.txt";
+		count++;
 		strcpy(name, null_str);
 		strcpy(status, null_str);
 		strcpy(ag, null_str);
@@ -43,4 +49,6 @@ public:
 	void get_age();
 	void display_param();
 	void clean();
+	void save_origin();
+	void save_private();
 };

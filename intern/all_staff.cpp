@@ -3,7 +3,6 @@
 #include "bro.h"
 #include "cleaner.h"
 #include "security.h"
-#include "Errors_c.h"
 #include <iostream>
 #include <fstream>
 #include "conio.h"
@@ -174,6 +173,45 @@ void person::display_param()
 	cout << endl;
 }
 
+void person::save_origin()
+{
+	ofstream fout(fileout, ios_base::out | ios_base::trunc);
+	if (!fout.good())
+	{
+		cout << "Файл поврежден" << endl;
+		Sleep(900);
+	}
+	else
+	{
+		fout << GetIniString("1", "answer_per", "ini_base/menu_list_rus.ini") << name << endl;
+		fout << GetIniString("2", "answer_per", "ini_base/menu_list_rus.ini") << status << endl;
+		fout << GetIniString("3", "answer_per", "ini_base/menu_list_rus.ini") << age << endl;
+		fout << GetIniString("4", "answer_per", "ini_base/menu_list_rus.ini") << endl;
+		fout << endl;
+		fout << GetIniString("1", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	}
+}
+
+void person::save_private()
+{
+	ofstream fout(file_private, ios_base::out | ios_base::trunc);
+	if (!fout.good())
+	{
+		cout << "Файл поврежден" << endl;
+		
+	}
+	else
+	{
+		fout << GetIniString("1", "answer_per", "ini_base/menu_list_rus.ini") << name << endl;
+		fout << GetIniString("2", "answer_per", "ini_base/menu_list_rus.ini") << status << endl;
+		fout << GetIniString("3", "answer_per", "ini_base/menu_list_rus.ini") << age << endl;
+		fout << GetIniString("4", "answer_per", "ini_base/menu_list_rus.ini") << endl;
+		fout << endl;
+		fout << GetIniString("1", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	}
+}
+
+
 /*Определение для bro
 ------------------------
 -----------------------*/
@@ -322,6 +360,43 @@ void bro::display_param()
 	cout << endl;
 }
 
+void bro::save_origin()
+{
+	ofstream fout(file_bro_o, ios_base::out | ios_base::trunc);
+	if (!fout.good())
+	{
+		cout << "Файл поврежден" << endl;
+
+	}
+	else
+	{
+		fout << GetIniString("1", "answer_bro", "ini_base/menu_list_rus.ini") << name << endl;
+		fout << GetIniString("2", "answer_bro", "ini_base/menu_list_rus.ini") << status << endl;
+		fout << GetIniString("3", "answer_bro", "ini_base/menu_list_rus.ini") << age << endl;
+		fout << GetIniString("4", "answer_bro", "ini_base/menu_list_rus.ini") << endl;
+		fout << endl;
+		fout << GetIniString("2", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	}
+}
+
+void bro::save_private()
+{
+	ofstream fout(file_bro_p, ios_base::out | ios_base::trunc);
+	if (!fout.good())
+	{
+		cout << "Файл поврежден" << endl;
+
+	}
+	else
+	{
+		fout << GetIniString("1", "answer_bro", "ini_base/menu_list_rus.ini") << name << endl;
+		fout << GetIniString("2", "answer_bro", "ini_base/menu_list_rus.ini") << status << endl;
+		fout << GetIniString("3", "answer_bro", "ini_base/menu_list_rus.ini") << age << endl;
+		fout << GetIniString("4", "answer_bro", "ini_base/menu_list_rus.ini") << endl;
+		fout << endl;
+		fout << GetIniString("2", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	}
+}
 
 /*Определение для cleaner
 ------------------------
@@ -471,6 +546,44 @@ void cleaner::display_param()
 	cout << endl;
 	cout << GetIniString("3", "objects", "ini_base/menu_list_rus.ini") << count << endl;
 	cout << endl;
+}
+
+void cleaner::save_origin()
+{
+	ofstream fout(file_cleaner_o, ios_base::out | ios_base::trunc);
+	if (!fout.good())
+	{
+		cout << "Файл поврежден" << endl;
+
+	}
+	else
+	{
+		fout << GetIniString("1", "answer_cle", "ini_base/menu_list_rus.ini") << name << endl;
+		fout << GetIniString("2", "answer_cle", "ini_base/menu_list_rus.ini") << status << endl;
+		fout << GetIniString("3", "answer_cle", "ini_base/menu_list_rus.ini") << age << endl;
+		fout << GetIniString("4", "answer_cle", "ini_base/menu_list_rus.ini") << endl;
+		fout << endl;
+		fout << GetIniString("3", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	}
+}
+
+void cleaner::save_private()
+{
+	ofstream fout(file_cleaner_p, ios_base::out | ios_base::trunc);
+	if (!fout.good())
+	{
+		cout << "Файл поврежден" << endl;
+
+	}
+	else
+	{
+		fout << GetIniString("1", "answer_cle", "ini_base/menu_list_rus.ini") << name << endl;
+		fout << GetIniString("2", "answer_cle", "ini_base/menu_list_rus.ini") << status << endl;
+		fout << GetIniString("3", "answer_cle", "ini_base/menu_list_rus.ini") << age << endl;
+		fout << GetIniString("4", "answer_cle", "ini_base/menu_list_rus.ini") << endl;
+		fout << endl;
+		fout << GetIniString("3", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	}
 }
 
 /*Определение для cleaner
@@ -623,6 +736,44 @@ void security::display_param()
 	cout << endl;
 }
 
+void security::save_origin()
+{
+	ofstream fout(file_security_o, ios_base::out | ios_base::trunc);
+	if (!fout.good())
+	{
+		cout << "Файл поврежден" << endl;
+
+	}
+	else
+	{
+		fout << GetIniString("1", "answer_cle", "ini_base/menu_list_rus.ini") << name << endl;
+		fout << GetIniString("2", "answer_cle", "ini_base/menu_list_rus.ini") << status << endl;
+		fout << GetIniString("3", "answer_cle", "ini_base/menu_list_rus.ini") << age << endl;
+		fout << GetIniString("4", "answer_cle", "ini_base/menu_list_rus.ini") << endl;
+		fout << endl;
+		fout << GetIniString("3", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	}
+}
+
+void security::save_private()
+{
+	ofstream fout(file_security_p, ios_base::out | ios_base::trunc);
+	if (!fout.good())
+	{
+		cout << "Файл поврежден" << endl;
+
+	}
+	else
+	{
+		fout << GetIniString("1", "answer_cle", "ini_base/menu_list_rus.ini") << name << endl;
+		fout << GetIniString("2", "answer_cle", "ini_base/menu_list_rus.ini") << status << endl;
+		fout << GetIniString("3", "answer_cle", "ini_base/menu_list_rus.ini") << age << endl;
+		fout << GetIniString("4", "answer_cle", "ini_base/menu_list_rus.ini") << endl;
+		fout << endl;
+		fout << GetIniString("3", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	}
+}
+
 /*Создание меню для всего персонала
 ------------------------
 -----------------------*/
@@ -664,7 +815,6 @@ void person::main_menu_staff()
 					else
 					{
 						person::person();
-						//sister->rename();
 						sister->get_name(name);
 						sister->get_status();
 						sister->get_age();
@@ -744,9 +894,13 @@ void person::main_menu_staff()
 				{
 					system("cls");
 					sister->display_param();
+					sister->save_origin();
 					medbro->display_param();
+					medbro->save_origin();
 					cleane->display_param();
+					cleane->save_origin();
 					securit->display_param();
+					securit->save_origin();
 					key4 = _getch();
 					switch (key4)
 					{
@@ -880,7 +1034,6 @@ void person::main_private_staff()
 					else
 					{
 						person::person();
-						sis->rename();
 						sis->get_name(name);
 						sis->get_status();
 						sis->get_age();
@@ -960,9 +1113,13 @@ void person::main_private_staff()
 			{
 				system("cls");
 				sis->display_param();
+				sis->save_private();
 				med->display_param();
+				med->save_private();
 				cle->display_param();
+				cle->save_private();
 				sec->display_param();
+				sec->save_private();
 				key4 = _getch();
 				switch (key4)
 				{

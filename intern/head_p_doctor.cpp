@@ -182,6 +182,25 @@ void head_private_doctor::display_param()
 	cout << endl;
 }
 
+void head_private_doctor::save_private()
+{
+	ofstream fout(file_head_p, ios_base::out | ios_base::trunc);
+	if (!fout.good())
+	{
+		cout << "Файл поврежден" << endl;
+
+	}
+	else
+	{
+		fout << GetIniString("1", "answer_p_head", "ini_base/menu_list_rus.ini") << name << endl;
+		fout << GetIniString("2", "answer_p_head", "ini_base/menu_list_rus.ini") << status << endl;
+		fout << GetIniString("3", "answer_p_head", "ini_base/menu_list_rus.ini") << age << endl;
+		fout << GetIniString("4", "answer_p_head", "ini_base/menu_list_rus.ini") << num << endl;
+		fout << endl;
+		fout << GetIniString("9", "objects", "ini_base/menu_list_rus.ini") << count << endl;
+	}
+}
+
 void head_private_doctor::main_p_head()
 {
 	static head_private_doctor* head_P = new head_private_doctor();
@@ -233,6 +252,7 @@ void head_private_doctor::main_p_head()
 				{
 					system("cls");
 					head_P->display_param();
+					head_P->save_private();
 					cout << "'ESC' - Назад" << endl;
 					key2 = _getch();
 					switch (key2)

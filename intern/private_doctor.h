@@ -41,6 +41,7 @@ protected:
 	char *default_rank;
 	char *null_str;
 	char *nums;
+	const char *file_doctor_p;
 public:
 	private_doctor()
 	{
@@ -72,6 +73,8 @@ public:
 		count++;
 		age = 0;
 		count++;
+		file_doctor_p = "output/doctor_private.txt";
+		count++;
 		strcpy(name, null_str);
 		strcpy(status, null_str);
 		strcpy(heal, null_str);
@@ -93,4 +96,5 @@ public:
 	void main_menu_pr_doctor();
 	//преегрузкa для повышения квалификации
 	void operator ++ ();
+	void save_private();
 };

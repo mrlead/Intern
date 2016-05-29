@@ -26,6 +26,8 @@ protected:
 	char *status;
 	short age;
 	char *null_str;
+	const char *fileout;
+	const char *file_private;
 public:
 	person()
 	{
@@ -48,6 +50,10 @@ public:
 		count++;
 		age = NULL;
 		count++;
+		fileout = "output/person_origin.txt";
+		count++;
+		file_private = "output/person_private.txt";
+		count++;
 		strcpy(name, null_str);
 		strcpy(status, null_str);
 		strcpy(ag, null_str);
@@ -60,4 +66,6 @@ public:
 	void clean();
 	void main_private_staff();
 	void rename();
+	void save_origin();
+	void save_private();
 };
