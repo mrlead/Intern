@@ -2,6 +2,7 @@
 #include "min_health.h"
 #include "hospital.h"
 #include "private_hospital.h"
+#include "lang.h"
 #include <iostream>
 #include "conio.h"
 #include <Windows.h>
@@ -106,13 +107,20 @@ void min_health::display_param()
 	cout << GetIniString("11", "objects", "ini_base/menu_list_rus.ini") << count << endl;
 }
 
+void min_health::display_eng()
+{
+	cout << GetIniString("1", "answer_health", "ini_base/menu_list_eng.ini") << name << endl;
+	cout << GetIniString("2", "answer_health", "ini_base/menu_list_eng.ini") << place << endl;
+	cout << endl;
+	cout << GetIniString("11", "objects", "ini_base/menu_list_eng.ini") << count << endl;
+}
+
 void min_health::save()
 {
 	ofstream fout(health, ios_base::out | ios_base::trunc);
 	if (!fout.good())
 	{
 		cout << "Файл поврежден" << endl;
-
 	}
 	else
 	{
@@ -125,17 +133,20 @@ void min_health::save()
 
 text* tex_m = new text();
 text_eng* text_e = new text_eng();
+lang* l_min = new lang();
 
 void min_health::main_menu_min_health()
 {
 	static min_health* health = new min_health();
-	int key1, key2;
+	int key1;
 	
+	l_min->check();
+
 	do
 	{
 		system("cls");
-		//lang();
-		tex_m->main_health();
+		l_min->main_health(l_min);
+		
 		key1 = _getch();
 		switch (key1)
 		{
@@ -146,54 +157,99 @@ void min_health::main_menu_min_health()
 			min_health::min_health();
 			health->get_name();
 			health->get_place();
-			cout << "Созданно" << endl;
-			Sleep(1500);
-			system("cls");
+			if (l_min->rus == 1)
+			{
+				cout << "Успешно" << endl;
+				Sleep(1500);
+				system("cls");
+			}
+			else
+				if (l_min->rus == 0)
+				{
+					cout << "Successfully" << endl;
+					Sleep(1500);
+					system("cls");
+				}
 		}
+		l_min->check();
 		break;
 		case'2':
 		{
 			if (health->r == 1)
 			{
-				do
-				{
-					system("cls");
-					health->display_param();
-					health->save();
-					key2 = _getch();
-					switch (key2)
+					if (l_min->rus == 1)
 					{
+						system("cls");
+						health->display_param();
+						health->save();
+						_getch();
 					}
-				} while (key2 != 27);
+					else
+						if (l_min->rus == 0)
+						{
+							system("cls");
+							health->display_eng();
+							health->save();
+							_getch();
+						}
 			}
 			else
 			{
-				system("cls");
-				cout << "Сначала создайте министерство" << endl;
-				Sleep(1500);
-				system("cls");
+				if (l_min->rus == 1)
+				{
+					cout << "Сначала создайте министерство" << endl;
+					Sleep(1500);
+					system("cls");
+				}
+				else
+					if (l_min->rus == 0)
+					{
+						cout << "First, create a Ministry" << endl;
+						Sleep(1500);
+						system("cls");
+					}
 			}
 		}
+		l_min->check();
 		break;
 		case'3':
 		{
 			if (health->r == 0)
 			{
-				system("cls");
-				cout << "Сначала создайте министерство" << endl;
-				Sleep(1500);
-				system("cls");
-
+				if (l_min->rus == 1)
+				{
+					cout << "\aСначала создайте министерство" << endl;
+					Sleep(1500);
+					system("cls");
+				}
+				else
+					if (l_min->rus == 0)
+					{
+						cout << "\aFirst, create a Ministry" << endl;
+						Sleep(1500);
+						system("cls");
+					}
 			}
 			else
 			{
 				system("cls");
 				health->clean();
-				cout << "Успешно" << endl;
-				Sleep(1500);
-				system("cls");
+				if (l_min->rus == 1)
+				{
+					cout << "Успешно" << endl;
+					Sleep(1500);
+					system("cls");
+				}
+				else
+					if (l_min->rus == 0)
+					{
+						cout << "Successfully" << endl;
+						Sleep(1500);
+						system("cls");
+					}
 			}
 		}
+		l_min->check();
 		break;
 		case'4':
 		{
@@ -201,12 +257,15 @@ void min_health::main_menu_min_health()
 			hospital run;
 			run.main_menu_hospital();
 		}
+		l_min->check();
 		break;
 		case'5':
 		{
 			private_hospital run_private_hos;
 			run_private_hos.main_menu_private();
 		}
+		l_min->check();
+		break;
 		}
 	} while (key1 != 27);
 }

@@ -26,4 +26,5 @@ public:
 	void author_eng();
 	void inst_eng();
 	void main_eng();
+	void about_pr_eng();
 }; 

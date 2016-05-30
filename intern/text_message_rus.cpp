@@ -162,7 +162,6 @@ void text::main()
 	setlocale(LC_ALL, "RUSSIAN");
 	cout << GetIniString("1", "main", "ini_base/menu_list_rus.ini") << endl;
 	cout << GetIniString("2", "main", "ini_base/menu_list_rus.ini") << endl;
-	cout << GetIniString("3", "main", "ini_base/menu_list_rus.ini") << endl;
 	cout << GetIniString("4", "main", "ini_base/menu_list_rus.ini") << endl;
 }
 

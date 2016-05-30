@@ -47,4 +47,5 @@ public:
 	void clean();
 	void main_menu_min_health();
 	void save();
+	void display_eng();
 };
