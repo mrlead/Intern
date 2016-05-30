@@ -12,8 +12,11 @@ public:
 	void main_lang(bool);
 	void main_health(bool);
 	void about_author_l(bool);
-	void titulka(bool);
 	void about(bool);
 	void about_programm(bool);
 	void instruct(bool);
+	void main_hospital(bool);
+	void main_person(bool);
+	void main_create(bool);
+	void main_remove(bool);
 };

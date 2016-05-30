@@ -125,3 +125,71 @@ void lang::about_author_l(bool l)
 			rus = 0;
 		}
 }
+
+void lang::main_hospital(bool l)
+{
+	if (rus == 0)
+	{
+		system("cls");
+		titu->main_hospital();
+		rus = 1;
+	}
+	else
+		if (rus == 1)
+		{
+			system("cls");
+			tit_en->main_hospital_eng();
+			rus = 0;
+		}
+}
+
+void lang::main_person(bool l)
+{
+	if (rus == 0)
+	{
+		system("cls");
+		titu->main_staff();
+		rus = 1;
+	}
+	else
+		if (rus == 1)
+		{
+			system("cls");
+			tit_en->main_staff_eng();
+			rus = 0;
+		}
+}
+
+void lang::main_create(bool l)
+{
+	if (rus == 0)
+	{
+		system("cls");
+		titu->menu_create_staff();
+		rus = 1;
+	}
+	else
+		if (rus == 1)
+		{
+			system("cls");
+			tit_en->menu_create_staff_eng();
+			rus = 0;
+		}
+}
+
+void lang::main_remove(bool l)
+{
+	if (rus == 0)
+	{
+		system("cls");
+		titu->remove_staff();
+		rus = 1;
+	}
+	else
+		if (rus == 1)
+		{
+			system("cls");
+			tit_en->remove_staff_eng();
+			rus = 0;
+		}
+}

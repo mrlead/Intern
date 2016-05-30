@@ -146,7 +146,6 @@ void min_health::main_menu_min_health()
 	{
 		system("cls");
 		l_min->main_health(l_min);
-		
 		key1 = _getch();
 		switch (key1)
 		{

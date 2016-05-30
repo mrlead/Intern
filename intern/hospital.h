@@ -58,4 +58,5 @@ public:
 	void clean();
 	void main_menu_hospital();
 	void save_origin();
+	void display_eng();
 };

@@ -3,6 +3,7 @@
 #include "bro.h"
 #include "cleaner.h"
 #include "security.h"
+#include "lang.h"
 #include <iostream>
 #include <fstream>
 #include "conio.h"
@@ -10,6 +11,9 @@
 #include <locale.h>
 
 #pragma warning(disable:4060)
+
+lang* l_staff = new lang();
+
 
 /*Определение для person
 ------------------------
@@ -21,17 +25,6 @@ void person::clean()
 	strcpy(name, null_str);
 	strcpy(status, null_str);
 	strcpy(ag, null_str);
-}
-
-void person::rename()
-{
-	cout << "Введите путь к фалу для имени" << endl;
-	strcpy(file_name, null_str);
-	cin >> file_name;
-	/*cout << "Введите путь к файлу для возраста" << endl;
-	cin >> file_age;
-	cout << "Введите путь к файлу для статуса" << endl;
-	cin >> file_status;*/
 }
 
 void person::get_name(string)
@@ -46,7 +39,15 @@ void person::get_name(string)
 	ifstream f(file_name);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_staff->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_staff->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -60,8 +61,6 @@ void person::get_name(string)
 			coll.push_back(str);
 		}
 		fclose(fp);
-
-
 
 		//Случайная строка
 		srand(time(NULL));
@@ -90,7 +89,15 @@ void person::get_status()
 	ifstream f(file_status);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+			if (l_staff->rus == 1)
+			{
+				cout << "Файл не открыт" << endl;
+			}
+			else
+				if (l_staff->rus == 0)
+				{
+					cout << "File not open" << endl;
+				}
 	}
 	else
 	{
@@ -132,7 +139,15 @@ void person::get_age()
 	ifstream f(file_age);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+			if (l_staff->rus == 1)
+			{
+				cout << "Файл не открыт" << endl;
+			}
+			else
+				if (l_staff->rus == 0)
+				{
+					cout << "File not open" << endl;
+				}
 	}
 	else
 	{
@@ -173,13 +188,32 @@ void person::display_param()
 	cout << endl;
 }
 
+void person::display_eng()
+{
+	cout << endl;
+	cout << GetIniString("1", "answer_per", "ini_base/menu_list_eng.ini") << name << endl;
+	cout << GetIniString("2", "answer_per", "ini_base/menu_list_eng.ini") << status << endl;
+	cout << GetIniString("3", "answer_per", "ini_base/menu_list_eng.ini") << age << endl;
+	cout << GetIniString("4", "answer_per", "ini_base/menu_list_eng.ini") << endl;
+	cout << endl;
+	cout << GetIniString("1", "objects", "ini_base/menu_list_eng.ini") << count << endl;
+	cout << endl;
+}
+
 void person::save_origin()
 {
 	ofstream fout(fileout, ios_base::out | ios_base::trunc);
 	if (!fout.good())
 	{
-		cout << "Файл поврежден" << endl;
-		Sleep(900);
+			if (l_staff->rus == 1)
+			{
+				cout << "Файл повреждён" << endl;
+			}
+			else
+				if (l_staff->rus == 0)
+				{
+					cout << "Bad file" << endl;
+				}
 	}
 	else
 	{
@@ -197,8 +231,15 @@ void person::save_private()
 	ofstream fout(file_private, ios_base::out | ios_base::trunc);
 	if (!fout.good())
 	{
-		cout << "Файл поврежден" << endl;
-		
+		if (l_staff->rus == 1)
+		{
+			cout << "Файл повреждён" << endl;
+		}
+		else
+			if (l_staff->rus == 0)
+			{
+				cout << "Bad file" << endl;
+			}
 	}
 	else
 	{
@@ -237,7 +278,15 @@ void bro::get_name()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_staff->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_staff->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -278,7 +327,15 @@ void bro::get_status()
 		ifstream f(filename);
 		if (!f.good())
 		{
-			cout << "Файл не открыт" << endl;
+			if (l_staff->rus == 1)
+			{
+				cout << "Файл не открыт" << endl;
+			}
+			else
+				if (l_staff->rus == 0)
+				{
+					cout << "File not open" << endl;
+				}
 		}
 		else
 		{
@@ -319,7 +376,15 @@ void bro::get_age()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_staff->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_staff->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -360,13 +425,33 @@ void bro::display_param()
 	cout << endl;
 }
 
+void bro::display_eng()
+{
+
+	cout << endl;
+	cout << GetIniString("1", "answer_bro", "ini_base/menu_list_eng.ini") << name << endl;
+	cout << GetIniString("2", "answer_bro", "ini_base/menu_list_eng.ini") << status << endl;
+	cout << GetIniString("3", "answer_bro", "ini_base/menu_list_eng.ini") << age << endl;
+	cout << GetIniString("4", "answer_bro", "ini_base/menu_list_eng.ini") << endl;
+	cout << endl;
+	cout << GetIniString("2", "objects", "ini_base/menu_list_eng.ini") << count << endl;
+	cout << endl;
+}
+
 void bro::save_origin()
 {
 	ofstream fout(file_bro_o, ios_base::out | ios_base::trunc);
 	if (!fout.good())
 	{
-		cout << "Файл поврежден" << endl;
-
+		if (l_staff->rus == 1)
+		{
+			cout << "Файл повреждён" << endl;
+		}
+		else
+			if (l_staff->rus == 0)
+			{
+				cout << "Bad file" << endl;
+			}
 	}
 	else
 	{
@@ -384,8 +469,15 @@ void bro::save_private()
 	ofstream fout(file_bro_p, ios_base::out | ios_base::trunc);
 	if (!fout.good())
 	{
-		cout << "Файл поврежден" << endl;
-
+		if (l_staff->rus == 1)
+		{
+			cout << "Файл повреждён" << endl;
+		}
+		else
+			if (l_staff->rus == 0)
+			{
+				cout << "Bad file" << endl;
+			}
 	}
 	else
 	{
@@ -423,7 +515,15 @@ void cleaner::get_name()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_staff->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_staff->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -465,7 +565,15 @@ void cleaner::get_status()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_staff->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_staff->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -507,7 +615,15 @@ void cleaner::get_age()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_staff->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_staff->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -548,13 +664,32 @@ void cleaner::display_param()
 	cout << endl;
 }
 
+void cleaner::display_eng()
+{
+	cout << endl;
+	cout << GetIniString("1", "answer_cle", "ini_base/menu_list_eng.ini") << name << endl;
+	cout << GetIniString("2", "answer_cle", "ini_base/menu_list_eng.ini") << status << endl;
+	cout << GetIniString("3", "answer_cle", "ini_base/menu_list_eng.ini") << age << endl;
+	cout << GetIniString("4", "answer_cle", "ini_base/menu_list_eng.ini") << endl;
+	cout << endl;
+	cout << GetIniString("3", "objects", "ini_base/menu_list_eng.ini") << count << endl;
+	cout << endl;
+}
+
 void cleaner::save_origin()
 {
 	ofstream fout(file_cleaner_o, ios_base::out | ios_base::trunc);
 	if (!fout.good())
 	{
-		cout << "Файл поврежден" << endl;
-
+		if (l_staff->rus == 1)
+		{
+			cout << "Файл повреждён" << endl;
+		}
+		else
+			if (l_staff->rus == 0)
+			{
+				cout << "Bad file" << endl;
+			}
 	}
 	else
 	{
@@ -572,8 +707,15 @@ void cleaner::save_private()
 	ofstream fout(file_cleaner_p, ios_base::out | ios_base::trunc);
 	if (!fout.good())
 	{
-		cout << "Файл поврежден" << endl;
-
+		if (l_staff->rus == 1)
+		{
+			cout << "Файл повреждён" << endl;
+		}
+		else
+			if (l_staff->rus == 0)
+			{
+				cout << "Bad file" << endl;
+			}
 	}
 	else
 	{
@@ -586,7 +728,7 @@ void cleaner::save_private()
 	}
 }
 
-/*Определение для cleaner
+/*Определение для security
 ------------------------
 -----------------------*/
 
@@ -611,7 +753,15 @@ void security::get_name()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_staff->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_staff->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -653,7 +803,15 @@ void security::get_status()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_staff->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_staff->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -695,7 +853,15 @@ void security::get_age()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_staff->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_staff->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -736,13 +902,32 @@ void security::display_param()
 	cout << endl;
 }
 
+void security::display_eng()
+{
+	cout << endl;
+	cout << GetIniString("1", "answer_sec", "ini_base/menu_list_eng.ini") << name << endl;
+	cout << GetIniString("2", "answer_sec", "ini_base/menu_list_eng.ini") << status << endl;
+	cout << GetIniString("3", "answer_sec", "ini_base/menu_list_eng.ini") << age << endl;
+	cout << GetIniString("4", "answer_sec", "ini_base/menu_list_eng.ini") << endl;
+	cout << endl;
+	cout << GetIniString("4", "objects", "ini_base/menu_list_eng.ini") << count << endl;
+	cout << endl;
+}
+
 void security::save_origin()
 {
 	ofstream fout(file_security_o, ios_base::out | ios_base::trunc);
 	if (!fout.good())
 	{
-		cout << "Файл поврежден" << endl;
-
+		if (l_staff->rus == 1)
+		{
+			cout << "Файл повреждён" << endl;
+		}
+		else
+			if (l_staff->rus == 0)
+			{
+				cout << "Bad file" << endl;
+			}
 	}
 	else
 	{
@@ -760,8 +945,15 @@ void security::save_private()
 	ofstream fout(file_security_p, ios_base::out | ios_base::trunc);
 	if (!fout.good())
 	{
-		cout << "Файл поврежден" << endl;
-
+		if (l_staff->rus == 1)
+		{
+			cout << "Файл повреждён" << endl;
+		}
+		else
+			if (l_staff->rus == 0)
+			{
+				cout << "Bad file" << endl;
+			}
 	}
 	else
 	{
@@ -784,13 +976,17 @@ void person::main_menu_staff()
 	static bro* medbro = new bro();
 	static cleaner* cleane = new cleaner();
 	static security* securit = new security();
+	
 	text show;
+
+	l_staff->check();
+
 	int key1, key2, key3, key4;
 	do
 	{
 		setlocale(0, "");
 		system("cls");
-		show.main_staff();
+		l_staff->main_person(l_staff);
 		key1 = _getch();
 		switch (key1)
 		{
@@ -799,7 +995,9 @@ void person::main_menu_staff()
 			do
 			{
 				system("cls");
-				show.menu_create_staff();
+				l_staff->check();
+				l_staff->main_create(l_staff);
+				//l_staff->check();
 				key2 = _getch();
 				switch (key2)
 				{
@@ -808,9 +1006,17 @@ void person::main_menu_staff()
 				{
 					if (sister->age != 0)
 					{
-						cout << "Для начала произведите увольнение" << endl;
-						Sleep(900);
-						system("cls");
+						if (l_staff->rus == 1)
+						{
+							cout << "Для начала произведите увольнение" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "To start make a dismissal" << endl;
+								Sleep(1500);
+							}
 					}
 					else
 					{
@@ -818,19 +1024,39 @@ void person::main_menu_staff()
 						sister->get_name(name);
 						sister->get_status();
 						sister->get_age();
-						cout << "Успешно" << endl;
-						Sleep(500);
+						if (l_staff->rus == 1)
+						{
+							cout << "Успешно" << endl;
+							Sleep(1500);
+							l_staff->check();
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "Successfully" << endl;
+								Sleep(1500);
+								l_staff->check();
+							}
 					}
-					break;
 				}
+				l_staff->check();
+				break;
 				system("cls");
 				case '2':
 				{
 					if (medbro->age != 0)
 					{
-						cout << "Для начала произведите увольнение" << endl;
-						Sleep(900);
-						system("cls");
+						if (l_staff->rus == 1)
+						{
+							cout << "Для начала произведите увольнение" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "To start make a dismissal" << endl;
+								Sleep(1500);
+							}
 					}
 					else
 					{
@@ -838,19 +1064,37 @@ void person::main_menu_staff()
 						medbro->get_name();
 						medbro->get_status();
 						medbro->get_age();
-						cout << "Успешно" << endl;
-						Sleep(500);
+						if (l_staff->rus == 1)
+						{
+							cout << "Успешно" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "Successfully" << endl;
+								Sleep(1500);
+							}
 					}
-					break;
 				}
+				l_staff->check();
+				break;
 				system("cls");
 				case '3':
 				{
 					if (cleane->age != 0)
 					{
-						cout << "Для начала произведите увольнение" << endl;
-						Sleep(900);
-						system("cls");
+						if (l_staff->rus == 1)
+						{
+							cout << "Для начала произведите увольнение" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "To start make a dismissal" << endl;
+								Sleep(1500);
+							}
 					}
 					else
 					{
@@ -858,19 +1102,37 @@ void person::main_menu_staff()
 						cleane->get_name();
 						cleane->get_status();
 						cleane->get_age();
-						cout << "Успешно" << endl;
-						Sleep(500);
+						if (l_staff->rus == 1)
+						{
+							cout << "Успешно" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "Successfully" << endl;
+								Sleep(1500);
+							}
 					}
-					break;
 				}
+				l_staff->check();
+				break;
 				system("cls");
 				case '4':
 				{
 					if (securit->age != 0)
 					{
-						cout << "Для начала произведите увольнение" << endl;
-						Sleep(900);
-						system("cls");
+						if (l_staff->rus == 1)
+						{
+							cout << "Для начала произведите увольнение" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "To start make a dismissal" << endl;
+								Sleep(1500);
+							}
 					}
 					else
 					{
@@ -878,42 +1140,65 @@ void person::main_menu_staff()
 						securit->get_name();
 						securit->get_status();
 						securit->get_age();
-						cout << "Успешно" << endl;
-						Sleep(500);
+						if (l_staff->rus == 1)
+						{
+							cout << "Успешно" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "Successfully" << endl;
+								Sleep(1500);
+							}
 					}
-					break;
 				}
+				l_staff->check();
+				break;
 				}
 			} while (key2 != 27);
+			l_staff->check();
 			break;
 		}
 
 		case '2':
 		{
-				do
+			if (l_staff->rus == 1)
+			{
+				system("cls");
+				sister->display_param();
+				sister->save_origin();
+				medbro->display_param();
+				medbro->save_origin();
+				cleane->display_param();
+				cleane->save_origin();
+				securit->display_param();
+				securit->save_origin();
+				_getch();
+			}
+			else
+				if (l_staff->rus == 0)
 				{
 					system("cls");
-					sister->display_param();
+					sister->display_eng();
 					sister->save_origin();
-					medbro->display_param();
+					medbro->display_eng();
 					medbro->save_origin();
-					cleane->display_param();
+					cleane->display_eng();
 					cleane->save_origin();
-					securit->display_param();
+					securit->display_eng();
 					securit->save_origin();
-					key4 = _getch();
-					switch (key4)
-					{
-					}
-				} while (key4 != 27);
+					_getch();
+				}
 		}
-			break;
+		l_staff->check();
+		break;
 		case '3':
 		{
 			do
 			{
 				system("cls");
-			show.remove_staff();
+			l_staff->main_remove(l_staff);
 			key3 = _getch();
 			switch (key3)
 			{
@@ -921,78 +1206,147 @@ void person::main_menu_staff()
 					{
 						if (sister->age == 0)
 						{
-							system("cls");
-							cout << "Увольнять ещё некого!" << endl;
-							Sleep(1500);
-							system("cls");
+							if (l_staff->rus == 1)
+							{
+								cout << "Увольнять ещё некого!" << endl;
+								Sleep(1500);
+							}
+							else
+								if (l_staff->rus == 0)
+								{
+									cout << "Dismiss more certain!" << endl;
+									Sleep(1500);
+								}
 						}
 						else
 						{
 							system("cls");
 							sister->clean();
-							cout << "Успешно" << endl;
-							Sleep(1500);
+							if (l_staff->rus == 1)
+							{
+								cout << "Успешно" << endl;
+								Sleep(1500);
+							}
+							else
+								if (l_staff->rus == 0)
+								{
+									cout << "Successfully" << endl;
+									Sleep(1500);
+								}
 						}
-							break;
 					}
+					l_staff->check();
+					break;
 					case '2':
 					{
 						if (medbro->age == 0)
 						{
-							system("cls");
-							cout << "Увольнять ещё некого!" << endl;
-							Sleep(1500);
-							system("cls");
+							if (l_staff->rus == 1)
+							{
+								cout << "Увольнять ещё некого!" << endl;
+								Sleep(1500);
+							}
+							else
+								if (l_staff->rus == 0)
+								{
+									cout << "Dismiss more certain!" << endl;
+									Sleep(1500);
+								}
 						}
 						else
 						{
 							system("cls");
 							medbro->clean();
-							cout << "Успешно" << endl;
-							Sleep(1500);
+							if (l_staff->rus == 1)
+							{
+								cout << "Успешно" << endl;
+								Sleep(1500);
+							}
+							else
+								if (l_staff->rus == 0)
+								{
+									cout << "Successfully" << endl;
+									Sleep(1500);
+								}
 						}
-						break;
 					}
+					l_staff->check();
+					break;
 					case '3':
 					{
 						if (cleane->age == 0)
 						{
-							system("cls");
-							cout << "Увольнять ещё некого!" << endl;
-							Sleep(1500);
-							system("cls");
+							if (l_staff->rus == 1)
+							{
+								cout << "Увольнять ещё некого!" << endl;
+								Sleep(1500);
+							}
+							else
+								if (l_staff->rus == 0)
+								{
+									cout << "Dismiss more certain!" << endl;
+									Sleep(1500);
+								}
 						}
 						else
 						{
 							system("cls");
 							cleane->clean();
-							cout << "Успешно" << endl;
-							Sleep(1500);
+							if (l_staff->rus == 1)
+							{
+								cout << "Успешно" << endl;
+								Sleep(1500);
+							}
+							else
+								if (l_staff->rus == 0)
+								{
+									cout << "Successfully" << endl;
+									Sleep(1500);
+								}
 						}
-						break;
 					}
+					l_staff->check();
+					break;
 					case '4':
 					{
 						if (securit->age == 0)
 						{
-							system("cls");
-							cout << "Увольнять ещё некого!" << endl;
-							Sleep(1500);
-							system("cls");
+							if (l_staff->rus == 1)
+							{
+								cout << "Увольнять ещё некого!" << endl;
+								Sleep(1500);
+							}
+							else
+								if (l_staff->rus == 0)
+								{
+									cout << "Dismiss more certain!" << endl;
+									Sleep(1500);
+								}
 						}
 						else
 						{
 							system("cls");
 							securit->clean();
-							cout << "Успешно" << endl;
-							Sleep(1500);
+							if (l_staff->rus == 1)
+							{
+								cout << "Успешно" << endl;
+								Sleep(1500);
+							}
+							else
+								if (l_staff->rus == 0)
+								{
+									cout << "Successfully" << endl;
+									Sleep(1500);
+								}
 						}
-						break;
 					}
+					l_staff->check();
+					break;
 				} 
 			} while (key3 != 27);
-			break;
 		}
+		l_staff->check();
+		break;
 		}
 		}while (key1 != 27);
 }
@@ -1003,13 +1357,15 @@ void person::main_private_staff()
 	static bro* med = new bro();
 	static cleaner* cle = new cleaner();
 	static security* sec = new security();
-	text show;
+
+	l_staff->check();
+
 	int key1, key2, key3, key4;
 	do
 	{
 		setlocale(0, "");
 		system("cls");
-		show.main_staff();
+		l_staff->main_person(l_staff);
 		key1 = _getch();
 		switch (key1)
 		{
@@ -1018,7 +1374,7 @@ void person::main_private_staff()
 			do
 			{
 				system("cls");
-				show.menu_create_staff();
+				l_staff->main_create(l_staff);
 				key2 = _getch();
 				switch (key2)
 				{
@@ -1027,9 +1383,17 @@ void person::main_private_staff()
 				{
 					if (sis->age != 0)
 					{
-						cout << "Для начала произведите увольнение" << endl;
-						Sleep(900);
-						system("cls");
+						if (l_staff->rus == 1)
+						{
+							cout << "Для начала произведите увольнение" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "To start make a dismissal" << endl;
+								Sleep(1500);
+							}
 					}
 					else
 					{
@@ -1037,9 +1401,19 @@ void person::main_private_staff()
 						sis->get_name(name);
 						sis->get_status();
 						sis->get_age();
-						cout << "Успешно" << endl;
-						Sleep(500);
+						if (l_staff->rus == 1)
+						{
+							cout << "Успешно" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "Successfully" << endl;
+								Sleep(1500);
+							}
 					}
+					l_staff->check();
 					break;
 				}
 				system("cls");
@@ -1047,9 +1421,17 @@ void person::main_private_staff()
 				{
 					if (med->age != 0)
 					{
-						cout << "Для начала произведите увольнение" << endl;
-						Sleep(900);
-						system("cls");
+						if (l_staff->rus == 1)
+						{
+							cout << "Для начала произведите увольнение" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "To start make a dismissal" << endl;
+								Sleep(1500);
+							}
 					}
 					else
 					{
@@ -1057,19 +1439,37 @@ void person::main_private_staff()
 						med->get_name();
 						med->get_status();
 						med->get_age();
-						cout << "Успешно" << endl;
-						Sleep(500);
-					}
-					break;
+						if (l_staff->rus == 1)
+						{
+							cout << "Успешно" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "Successfully" << endl;
+								Sleep(1500);
+							}
+					}					
 				}
+				l_staff->check();
+				break;
 				system("cls");
 				case '3':
 				{
 					if (cle->age != 0)
 					{
-						cout << "Для начала произведите увольнение" << endl;
-						Sleep(900);
-						system("cls");
+						if (l_staff->rus == 1)
+						{
+							cout << "Для начала произведите увольнение" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "To start make a dismissal" << endl;
+								Sleep(1500);
+							}
 					}
 					else
 					{
@@ -1077,19 +1477,37 @@ void person::main_private_staff()
 						cle->get_name();
 						cle->get_status();
 						cle->get_age();
-						cout << "Успешно" << endl;
-						Sleep(500);
+						if (l_staff->rus == 1)
+						{
+							cout << "Успешно" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "Successfully" << endl;
+								Sleep(1500);
+							}
 					}
-					break;
 				}
+				l_staff->check();
+				break;
 				system("cls");
 				case '4':
 				{
 					if (sec->age != 0)
 					{
-						cout << "Для начала произведите увольнение" << endl;
-						Sleep(900);
-						system("cls");
+						if (l_staff->rus == 1)
+						{
+							cout << "Для начала произведите увольнение" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "To start make a dismissal" << endl;
+								Sleep(1500);
+							}
 					}
 					else
 					{
@@ -1097,19 +1515,30 @@ void person::main_private_staff()
 						sec->get_name();
 						sec->get_status();
 						sec->get_age();
-						cout << "Успешно" << endl;
-						Sleep(500);
+						if (l_staff->rus == 1)
+						{
+							cout << "Успешно" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "Successfully" << endl;
+								Sleep(1500);
+							}
 					}
-					break;
 				}
+				l_staff->check();
+				break;
 				}
 			} while (key2 != 27);
-			break;
 		}
+		l_staff->check();
+		break;
 
 		case '2':
 		{
-			do
+			if (l_staff->rus == 1)
 			{
 				system("cls");
 				sis->display_param();
@@ -1120,19 +1549,31 @@ void person::main_private_staff()
 				cle->save_private();
 				sec->display_param();
 				sec->save_private();
-				key4 = _getch();
-				switch (key4)
+				_getch();
+			}
+			else 
+				if (l_staff->rus == 0)
 				{
+					system("cls");
+					sis->display_eng();
+					sis->save_private();
+					med->display_eng();
+					med->save_private();
+					cle->display_eng();
+					cle->save_private();
+					sec->display_eng();
+					sec->save_private();
+					_getch();
 				}
-			} while (key4 != 27);
 		}
+		l_staff->check();
 		break;
 		case '3':
 		{
 			do
 			{
 				system("cls");
-				show.remove_staff();
+				l_staff->main_remove(l_staff);
 				key3 = _getch();
 				switch (key3)
 				{
@@ -1140,78 +1581,147 @@ void person::main_private_staff()
 				{
 					if (sis->age == 0)
 					{
-						system("cls");
-						cout << "Увольнять ещё некого!" << endl;
-						Sleep(1500);
-						system("cls");
+						if (l_staff->rus == 1)
+						{
+							cout << "Увольнять ещё некого!" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "Dismiss more certain!" << endl;
+								Sleep(1500);
+							}
 					}
 					else
 					{
 						system("cls");
 						sis->clean();
-						cout << "Успешно" << endl;
-						Sleep(1500);
+						if (l_staff->rus == 1)
+						{
+							cout << "Успешно" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "Successfully" << endl;
+								Sleep(1500);
+							}
 					}
-					break;
 				}
+				l_staff->check();
+				break;
 				case '2':
 				{
 					if (med->age == 0)
 					{
-						system("cls");
-						cout << "Увольнять ещё некого!" << endl;
-						Sleep(1500);
-						system("cls");
+						if (l_staff->rus == 1)
+						{
+							cout << "Увольнять ещё некого!" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "Dismiss more certain!" << endl;
+								Sleep(1500);
+							}
 					}
 					else
 					{
 						system("cls");
 						med->clean();
-						cout << "Успешно" << endl;
-						Sleep(1500);
+						if (l_staff->rus == 1)
+						{
+							cout << "Успешно" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "Successfully" << endl;
+								Sleep(1500);
+							}
 					}
-					break;
 				}
+				l_staff->check();
+				break;
 				case '3':
 				{
 					if (cle->age == 0)
 					{
-						system("cls");
-						cout << "Увольнять ещё некого!" << endl;
-						Sleep(1500);
-						system("cls");
+						if (l_staff->rus == 1)
+						{
+							cout << "Увольнять ещё некого!" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "Dismiss more certain!" << endl;
+								Sleep(1500);
+							}
 					}
 					else
 					{
 						system("cls");
 						cle->clean();
-						cout << "Успешно" << endl;
-						Sleep(1500);
+						if (l_staff->rus == 1)
+						{
+							cout << "Успешно" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "Successfully" << endl;
+								Sleep(1500);
+							}
 					}
-					break;
 				}
+				l_staff->check();
+				break;
 				case '4':
 				{
 					if (sec->age == 0)
 					{
-						system("cls");
-						cout << "Увольнять ещё некого!" << endl;
-						Sleep(1500);
-						system("cls");
+						if (l_staff->rus == 1)
+						{
+							cout << "Увольнять ещё некого!" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "Dismiss more certain!" << endl;
+								Sleep(1500);
+							}
 					}
 					else
 					{
 						system("cls");
 						sec->clean();
-						cout << "Успешно" << endl;
-						Sleep(1500);
+						if (l_staff->rus == 1)
+						{
+							cout << "Успешно" << endl;
+							Sleep(1500);
+						}
+						else
+							if (l_staff->rus == 0)
+							{
+								cout << "Successfully" << endl;
+								Sleep(1500);
+							}
 					}
-					break;
 				}
+				l_staff->check();
+				break;
 				}
 			} while (key3 != 27);
-			break;
 		}
+		l_staff->check();
+		break;
 		}
 	} while (key1 != 27);
 }

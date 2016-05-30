@@ -54,4 +54,5 @@ public:
 	void clean();
 	void save_origin();
 	void save_private();
+	void display_eng();
 };

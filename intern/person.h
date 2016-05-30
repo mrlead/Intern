@@ -37,7 +37,6 @@ public:
 		count++;
 		name = new char[30];
 		count++;
-		//file_name = new char[150];
 		file_name = "data_base/data_female_staff_s.txt";
 		count++;
 		file_age = new char[150];
@@ -65,7 +64,7 @@ public:
 	void main_menu_staff();
 	void clean();
 	void main_private_staff();
-	void rename();
 	void save_origin();
 	void save_private();
+	void display_eng();
 };
