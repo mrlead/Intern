@@ -60,4 +60,5 @@ public:
 	void clean();
 	void main_menu_pat();
 	void save();
+	void display_eng();
 };

@@ -1,9 +1,12 @@
 #include "head_doctor.h"
+#include "lang.h"
 #include <iostream>
 #include "conio.h"
 #include <Windows.h>
 #include <locale.h>
 #include <fstream>
+
+lang* l_head = new lang();
 
 void head_doctor::clean()
 {
@@ -27,7 +30,15 @@ void head_doctor::get_age()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_head->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_head->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -67,7 +78,15 @@ void head_doctor::get_name()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_head->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_head->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -112,7 +131,15 @@ void head_doctor::get_status()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_head->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_head->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -153,13 +180,32 @@ void head_doctor::display_param()
 	cout << endl;
 }
 
+void head_doctor::display_eng()
+{
+	cout << endl;
+	cout << GetIniString("1", "answer_head", "ini_base/menu_list_eng.ini") << name << endl;
+	cout << GetIniString("2", "answer_head", "ini_base/menu_list_eng.ini") << status << endl;
+	cout << GetIniString("3", "answer_head", "ini_base/menu_list_eng.ini") << age << endl;
+	cout << GetIniString("4", "answer_head", "ini_base/menu_list_eng.ini") << num << endl;
+	cout << endl;
+	cout << GetIniString("6", "objects", "ini_base/menu_list_eng.ini") << count << endl;
+	cout << endl;
+}
+
 void head_doctor::save_origin()
 {
 	ofstream fout(file_head_o, ios_base::out | ios_base::trunc);
 	if (!fout.good())
 	{
-		cout << "Файл поврежден" << endl;
-
+		if (l_head->rus == 1)
+		{
+			cout << "Файл повреждён" << endl;
+		}
+		else
+			if (l_head->rus == 0)
+			{
+				cout << "Bad file" << endl;
+			}
 	}
 	else
 	{
@@ -177,11 +223,13 @@ void head_doctor::main_head_doctor()
 	static head_doctor* head_d = new head_doctor();
 	text* text_head_doct = new text();
 
+	l_head->check();
+
 	int key1, key2;
 	do
 	{
 		system("cls");
-		text_head_doct->main_head_d();
+		l_head->main_head(l_head);
 		key1 = _getch();
 		switch (key1)
 		{
@@ -190,10 +238,17 @@ void head_doctor::main_head_doctor()
 				setlocale(0, "");
 				if (head_d->age != 0)
 				{
-					system("cls");
-					cout << "Для начала произведите очистку данных" << endl;
-					Sleep(1500);
-					system("cls");
+					if (l_head->rus == 1)
+					{
+						cout << "Для начала произведите увольнение" << endl;
+						Sleep(1500);
+					}
+					else
+						if (l_head->rus == 0)
+						{
+							cout << "To start make a dismissal" << endl;
+							Sleep(1500);
+						}
 				}
 				else
 				{
@@ -203,54 +258,92 @@ void head_doctor::main_head_doctor()
 					head_d->GetNumber();
 					head_d->get_status();
 					system("cls");
-					cout << "Успешно" << endl;
-					Sleep(1500);
+					if (l_head->rus == 1)
+					{
+						cout << "Успешно" << endl;
+						Sleep(1500);
+					}
+					else
+						if (l_head->rus == 0)
+						{
+							cout << "Successfully" << endl;
+							Sleep(1500);
+						}
 				}
 			}
+			l_head->check();
 			break;
 		case'2':
 			{
 				if (head_d->age == 0)
 				{
-					system("cls");
-					cout << "\aСначала создайте врача" << endl;
-					Sleep(1500);
-					system("cls");
+					if (l_head->rus == 1)
+					{
+						system("cls");
+						cout << "Сначала создайте доктора" << endl;
+						Sleep(1500);
+					}
+					else
+						if (l_head->rus == 0)
+						{
+							system("cls");
+							cout << "First, create a doctor" << endl;
+							Sleep(1500);
+						}
 				}
 				else
 				{
-					do
+					if (l_head->rus == 1)
 					{
 						system("cls");
 						head_d->display_param();
 						head_d->save_origin();
-						cout << "'ESC' - Назад" << endl;
-						key2 = _getch();
-						switch (key2)
+						_getch();
+					}
+					else
+						if (l_head->rus == 0)
 						{
+							system("cls");
+							head_d->display_eng();
+							head_d->save_origin();
+							_getch();
 						}
-					} while (key2 != 27);
-					break;
 				}
 			}
+			l_head->check();
 			break;
 		case'3':
 			{
 				if (head_d->age == 0)
 				{
-					system("cls");
-					cout << "\aСтирать ещё нечего" << endl;
-					Sleep(1500);
-					system("cls");
+					if (l_head->rus == 1)
+					{
+						cout << "Увольнять ещё некого!" << endl;
+						Sleep(1500);
+					}
+					else
+						if (l_head->rus == 0)
+						{
+							cout << "Dismiss more certain!" << endl;
+							Sleep(1500);
+						}
 				}
 				else
 				{
-					system("cls");
-					head_d->clean();
-					cout << "Успешно" << endl;
-			 		Sleep(1500);
+					if (l_head->rus == 1)
+					{
+						cout << "Успешно" << endl;
+						Sleep(1500);
+					}
+					else
+						if (l_head->rus == 0)
+						{
+							cout << "Successfully" << endl;
+							Sleep(1500);
+						}
 				}
 			}
+			l_head->check();
 			break;
 		}
 	} while (key1 != 27);

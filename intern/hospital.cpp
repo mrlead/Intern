@@ -107,11 +107,29 @@ void hospital::get_number()
 	}
 		if (number > 0 && number <= 100)
 		{
-			cout << "Успешно" << endl;
+			if (l_hosp->rus == 1)
+			{
+				cout << "Успешно" << endl;
+				Sleep(1500);
+			}
+			else
+				if (l_hosp->rus == 0)
+				{
+					cout << "Successfully" << endl;
+					Sleep(1500);
+				}
 		}
 		else
 		{
-			cout << "Простите, вы ввели некоректные данные" << endl;
+			if (l_hosp->rus == 1)
+			{
+				cout << "Простите, вы ввели некорректные данные" << endl;
+			}
+			else
+				if (l_hosp->rus == 0)
+				{
+					cout << "Sorry , you have entered incorrect data" << endl;
+				}
 		}
 	} while (!(number > 0 && number <= 100));
 }
@@ -412,8 +430,15 @@ void hospital::save_origin()
 	ofstream fout(file_hospital_o, ios_base::out | ios_base::trunc);
 	if (!fout.good())
 	{
-		cout << "Файл поврежден" << endl;
-
+		if (l_hosp->rus == 1)
+		{
+			cout << "Файл повреждён" << endl;
+		}
+		else
+			if (l_hosp->rus == 0)
+			{
+				cout << "Bad file" << endl;
+			}
 	}
 	else
 	{

@@ -3,7 +3,10 @@
 #include "head_private_doctor.h"
 #include "private_doctor.h"
 #include "person.h"
+#include "lang.h"
 #include <fstream>
+
+lang* l_pr = new lang();
 
 void private_hospital::clean()
 {
@@ -28,7 +31,15 @@ void private_hospital::get_name()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_pr->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_pr->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -62,7 +73,15 @@ void private_hospital::get_number()
 		while (true)
 		{
 			cout << endl;
-			cout << "Введите номер больницы: ";
+			if (l_pr->rus == 1)
+			{
+				cout << "Введите номер больницы" << endl;
+			}
+			else
+				if (l_pr->rus == 0)
+				{
+					cout << "Enter hospital number" << endl;
+				}
 			cin >> number;
 			if (cin.peek() == '\n')
 			{
@@ -71,7 +90,15 @@ void private_hospital::get_number()
 			}
 			else
 			{
-				cout << "Пожалуйтса, введите число" << endl;
+				if (l_pr->rus == 1)
+				{
+					cout << "Пожалуйста введите число" << endl;
+				}
+				else
+					if (l_pr->rus == 0)
+					{
+						cout << "Please enter the number" << endl;
+					}
 				cin.clear();
 				while (cin.get() != '\n')
 				{
@@ -80,11 +107,29 @@ void private_hospital::get_number()
 		}
 		if (number > 0 && number <= 100)
 		{
-			cout << "Успешно" << endl;
+			if (l_pr->rus == 1)
+			{
+				cout << "Успешно" << endl;
+				Sleep(1500);
+			}
+			else
+				if (l_pr->rus == 0)
+				{
+					cout << "Successfully" << endl;
+					Sleep(1500);
+				}
 		}
 		else
 		{
-			cout << "Простите, вы ввели некоректные данные" << endl;
+			if (l_pr->rus == 1)
+			{
+				cout << "Простите, вы ввели некорректные данные" << endl;
+			}
+			else
+				if (l_pr->rus == 0)
+				{
+					cout << "Sorry , you have entered incorrect data" << endl;
+				}
 		}
 	} while (!(number > 0 && number <= 100));
 }
@@ -96,7 +141,15 @@ void private_hospital::get_cost()
 		while (true)
 		{
 			cout << endl;
-			cout << "Введите цену на вип-палату: ";
+			if (l_pr->rus == 1)
+			{
+				cout << "Введите цену на вип-палату: " << endl;
+			}
+			else
+				if (l_pr->rus == 0)
+				{
+					cout << "Enter cost for VIP - chambers: " << endl;
+				}
 			cin >> cost;
 			if (cin.peek() == '\n')
 			{
@@ -105,7 +158,15 @@ void private_hospital::get_cost()
 			}
 			else
 			{
-				cout << "Пожалуйтса, введите число" << endl;
+				if (l_pr->rus == 1)
+				{
+					cout << "Пожалуйста введите число" << endl;
+				}
+				else
+					if (l_pr->rus == 0)
+					{
+						cout << "Please enter the number" << endl;
+					}
 				cin.clear();
 				while (cin.get() != '\n')
 				{
@@ -114,11 +175,27 @@ void private_hospital::get_cost()
 		}
 		if (cost > 0 && cost <= 15000)
 		{
-			cout << "Успешно" << endl;
+			if (l_pr->rus == 1)
+			{
+				cout << "Успешно" << endl;
+			}
+			else
+				if (l_pr->rus == 0)
+				{
+					cout << "Successfully" << endl;
+				}
 		}
 		else
 		{
-			cout << "Простите, вы ввели некоректные данные" << endl;
+			if (l_pr->rus == 1)
+			{
+				cout << "Простите, вы ввели некорректные данные" << endl;
+			}
+			else
+				if (l_pr->rus == 0)
+				{
+					cout << "Sorry , you have entered incorrect data" << endl;
+				}
 		}
 	} while (!(cost > 0 && cost <= 15000));
 }
@@ -136,7 +213,15 @@ void private_hospital::get_place()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_pr->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_pr->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -170,7 +255,15 @@ void private_hospital::get_room()
 		while (true)
 		{
 			cout << endl;
-			cout << "Введите количество вип-палат: ";
+			if (l_pr->rus == 1)
+			{
+				cout << "Введите количество палат: " << endl;
+			}
+			else
+				if (l_pr->rus == 0)
+				{
+					cout << "Enter the number of chambers: " << endl;
+				}
 			cin >> vip_room;
 			if (cin.peek() == '\n')
 			{
@@ -179,7 +272,15 @@ void private_hospital::get_room()
 			}
 			else
 			{
-				cout << "Пожалуйтса, введите число" << endl;
+				if (l_pr->rus == 1)
+				{
+					cout << "Пожалуйста введите число" << endl;
+				}
+				else
+					if (l_pr->rus == 0)
+					{
+						cout << "Please enter the number" << endl;
+					}
 				cin.clear();
 				while (cin.get() != '\n')
 				{
@@ -188,11 +289,27 @@ void private_hospital::get_room()
 		}
 		if (vip_room > 0 && vip_room <= 100)
 		{
-			cout << "Успешно" << endl;
+			if (l_pr->rus == 1)
+			{
+				cout << "Успешно" << endl;
+			}
+			else
+				if (l_pr->rus == 0)
+				{
+					cout << "Successfully" << endl;
+				}
 		}
 		else
 		{
-			cout << "Простите, вы ввели некоректные данные" << endl;
+			if (l_pr->rus == 1)
+			{
+				cout << "Простите, вы ввели некорректные данные" << endl;
+			}
+			else
+				if (l_pr->rus == 0)
+				{
+					cout << "Sorry , you have entered incorrect data" << endl;
+				}
 		}
 	} while (!(vip_room > 0 && vip_room <= 100));
 }
@@ -211,7 +328,15 @@ void private_hospital::get_company()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_pr->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_pr->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -249,13 +374,33 @@ void private_hospital::display_param()
 	cout << GetIniString("8", "objects", "ini_base/menu_list_rus.ini") << count << endl;
 }
 
+void private_hospital::display_eng()
+{
+	cout << GetIniString("1", "answer_p_hosp", "ini_base/menu_list_eng.ini") << name << endl;
+	cout << GetIniString("2", "answer_p_hosp", "ini_base/menu_list_eng.ini") << number << endl;
+	cout << GetIniString("3", "answer_p_hosp", "ini_base/menu_list_eng.ini") << place << endl;
+	cout << GetIniString("4", "answer_p_hosp", "ini_base/menu_list_eng.ini") << company << endl;
+	cout << GetIniString("5", "answer_p_hosp", "ini_base/menu_list_eng.ini") << cost << endl;
+	cout << GetIniString("6", "answer_p_hosp", "ini_base/menu_list_eng.ini") << vip_room << endl;
+	cout << endl;
+	cout << GetIniString("8", "objects", "ini_base/menu_list_eng.ini") << count << endl;
+}
+
+
 void private_hospital::save_private()
 {
 	ofstream fout(file_hospital_p, ios_base::out | ios_base::trunc);
 	if (!fout.good())
 	{
-		cout << "Файл поврежден" << endl;
-
+		if (l_pr->rus == 1)
+		{
+			cout << "Файл повреждён" << endl;
+		}
+		else
+			if (l_pr->rus == 0)
+			{
+				cout << "Bad file" << endl;
+			}
 	}
 	else
 	{
@@ -275,11 +420,13 @@ void private_hospital::main_menu_private()
 	static private_hospital* p_hosp = new private_hospital();
 	text* text_p_hosp = new text();
 
-	int key1, key2;
+	l_pr->check();
+
+	int key1;
 	do
 	{
 		system("cls");
-		text_p_hosp->main_p_hospital();
+		l_pr->main_pr_hosp(l_pr);
 		key1 = _getch();
 		switch (key1)
 		{
@@ -288,9 +435,19 @@ void private_hospital::main_menu_private()
 			setlocale(0, "");
 			if (p_hosp->number != 0)
 			{
-				cout << "Для начала произведите очистку данных" << endl;
-				Sleep(900);
-				system("cls");
+				if (l_pr->rus == 1)
+				{
+					cout << "Сначала сотрите данные" << endl;
+					Sleep(1500);
+					system("cls");
+				}
+				else
+					if (l_pr->rus == 0)
+					{
+						cout << "First, erase data" << endl;
+						Sleep(1500);
+						system("cls");
+					}
 			}
 			else
 			{
@@ -302,39 +459,66 @@ void private_hospital::main_menu_private()
 				p_hosp->get_room();
 				p_hosp->get_number();
 			}
+			l_pr->check();
 			break;
 		case'2':
 		{
-			do
+			if (l_pr->rus == 1)
 			{
 				system("cls");
 				p_hosp->display_param();
 				p_hosp->save_private();
-				cout << "'ESC' - Назад" << endl;
-				key2 = _getch();
-				switch (key2)
+				_getch();
+			}
+			else
+				if (l_pr->rus == 0)
 				{
+					system("cls");
+					p_hosp->display_eng();
+					p_hosp->save_private();
+					_getch();
 				}
-			} while (key2 != 27);
-			break;
 		}
+		l_pr->check();
+		break;
 		case'3':
 		{
 			if (p_hosp->number == 0)
 			{
-				system("cls");
-				cout << "Стирать ещё нечего" << endl;
-				Sleep(1500);
-				system("cls");
+				if (l_pr->rus == 1)
+				{
+					system("cls");
+					cout << "Стирать ещё нечего" << endl;
+					Sleep(1500);
+					system("cls");
+				}
+				else
+					if (l_pr->rus == 0)
+					{
+						system("cls");
+						cout << "Wash nothing more" << endl;
+						Sleep(1500);
+						system("cls");
+					}
 			}
 			else
 			{
 				system("cls");
 				p_hosp->clean();
-				cout << "Успешно" << endl;
-				Sleep(1500);
+				if (l_pr->rus == 1)
+				{
+					cout << "Успешно" << endl;
+					Sleep(1500);
+				}
+				else
+					if (l_pr->rus == 0)
+					{
+						cout << "Successfully" << endl;
+						Sleep(1500);
+					}
 			}
 		}
+		l_pr->check();
 		break;
 		case'4':
 		{
@@ -342,6 +526,7 @@ void private_hospital::main_menu_private()
 			person* run_p = new person();
 			run_p->main_private_staff();
 		}
+		l_pr->check();
 		break;
 		case'5':
 		{
@@ -349,6 +534,7 @@ void private_hospital::main_menu_private()
 			head_private_doctor run_head;
 			run_head.main_p_head();
 		}
+		l_pr->check();
 		break;
 		case'6':
 			{
@@ -356,8 +542,11 @@ void private_hospital::main_menu_private()
 				private_doctor run_private;
 				run_private.main_menu_pr_doctor();
 			}
+			l_pr->check();
 			break;
 		}
+		l_pr->check();
+		break;
 		}
 	} while (key1 != 27);
 }

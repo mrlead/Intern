@@ -1,5 +1,9 @@
+#pragma once
 #include "patient.h"
+#include "lang.h"
 #include <fstream>
+
+lang* l_pat = new lang();
 
 void patient::clean()
 {
@@ -25,7 +29,15 @@ void patient::get_name()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_pat->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_pat->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -66,7 +78,15 @@ void patient::get_age()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_pat->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_pat->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -106,7 +126,15 @@ void patient::get_disease()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_pat->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_pat->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -146,7 +174,15 @@ void patient::get_place()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_pat->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_pat->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -182,13 +218,29 @@ void patient::display_param()
 	cout << GetIniString("12", "objects", "ini_base/menu_list_rus.ini") << count << endl;
 }
 
+void patient::display_eng()
+{
+	cout << GetIniString("1", "answer_patient", "ini_base/menu_list_eng.ini") << name << endl;
+	cout << GetIniString("2", "answer_patient", "ini_base/menu_list_eng.ini") << age << endl;
+	cout << GetIniString("3", "answer_patient", "ini_base/menu_list_eng.ini") << place << endl;
+	cout << endl;
+	cout << GetIniString("12", "objects", "ini_base/menu_list_eng.ini") << count << endl;
+}
+
 void patient::save()
 {
 	ofstream fout(file_pat, ios_base::out | ios_base::trunc);
 	if (!fout.good())
 	{
-		cout << "Файл поврежден" << endl;
-
+		if (l_pat->rus == 1)
+		{
+			cout << "Файл повреждён" << endl;
+		}
+		else
+			if (l_pat->rus == 0)
+			{
+				cout << "Bad file" << endl;
+			}
 	}
 	else
 	{
@@ -208,11 +260,13 @@ void patient::main_menu_pat()
 	static doctor* health = new doctor();
 	text* text_pat = new text();
 
-	int key1, key2, key3;
+	l_pat->check();
+
+	int key1;
 	do
 	{
 		system("cls");
-		text_pat->main_patient();
+		l_pat->main_pat(l_pat);
 		key1 = _getch();
 		switch (key1)
 		{
@@ -221,10 +275,21 @@ void patient::main_menu_pat()
 				setlocale(0, "");
 				if (pat->age != 0)
 				{
-					system("cls");
-					cout << "\aТеперь осмотрите пациента" << endl;
-					Sleep(900);
-					system("cls");
+					if (l_pat->rus == 1)
+					{
+						system("cls");
+						cout << "\aТеперь осмотрите пациента" << endl;
+						Sleep(900);
+						system("cls");
+					}
+					else
+						if (l_pat->rus == 0)
+						{
+							system("cls");
+							cout << "\aNow examine the patient" << endl;
+							Sleep(900);
+							system("cls");
+						}
 				}
 				else
 				{
@@ -234,55 +299,76 @@ void patient::main_menu_pat()
 					pat->get_place();
 				}
 			}
+			l_pat->check();
 			break;
 		case'2':
 			{
 				if (pat->age == 0)
 				{
-					system("cls");
-					cout << "\aДля начала впустите пациента" << endl;
-					Sleep(1500);
-					system("cls");
+					if (l_pat->rus == 1)
+					{
+						system("cls");
+						cout << "\aДля начала впустите пациента" << endl;
+						Sleep(1500);
+						system("cls");
+					}
+					else
+						if (l_pat->rus == 0)
+						{
+							system("cls");
+							cout << "\aTo begin with let the patient" << endl;
+							Sleep(1500);
+						}
 				}
 				else
 				{
-					do
+					if (l_pat->rus == 1)
 					{
 						system("cls");
 						pat->display_param();
 						pat->save();
-						cout << "'ESC' - Назад" << endl;
-						key2 = _getch();
-						switch (key2)
+						_getch();
+					}
+					else
+						if (l_pat->rus == 0)
 						{
+							system("cls");
+							pat->display_eng();
+							pat->save();
+							_getch();
 						}
-					} while (key2 != 27);
 				}
 			}
+			l_pat->check();
 			break;
 		case'3':
 			{	
-				do
-				{
 					system("cls");
 					health->Heal();
+					_getch();
 					n = 1;
-					cout << "'ESC' - Назад" << endl;
-					key3 = _getch();
-					switch (key3)
-					{
-					}
-				} while (key3 != 27);
 			}
+			l_pat->check();
 			break;
 		case'4':
 			{
 				if (pat->n != 0)
 				{
-					system("cls");
-					cout << "\aТеперь осмотрите пациента" << endl;
-					Sleep(900);
-					system("cls");
+					if (l_pat->rus == 1)
+					{
+						system("cls");
+						cout << "\aТеперь осмотрите пациента" << endl;
+						Sleep(900);
+						system("cls");
+					}
+					else
+						if (l_pat->rus == 0)
+						{
+							system("cls");
+							cout << "\aNow examine the patient" << endl;
+							Sleep(900);
+							system("cls");
+						}
 				}
 				else
 				{
@@ -293,6 +379,8 @@ void patient::main_menu_pat()
 				}
 				
 			}
+			l_pat->check();
+			break;
 		}
 	} while (key1 != 27);
 }

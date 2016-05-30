@@ -104,4 +104,5 @@ public:
 		cout << r1 << endl;
 	}
 	void save_origin();
+	void display_eng();
 };

@@ -193,3 +193,71 @@ void lang::main_remove(bool l)
 			rus = 0;
 		}
 }
+
+void lang::main_doct(bool l)
+{
+	if (rus == 0)
+	{
+		system("cls");
+		titu->main_doct();
+		rus = 1;
+	}
+	else
+		if (rus == 1)
+		{
+			system("cls");
+			tit_en->main_doct_eng();
+			rus = 0;
+		}
+}
+
+void lang::main_pat(bool l)
+{
+	if (rus == 0)
+	{
+		system("cls");
+		titu->main_patient();
+		rus = 1;
+	}
+	else
+		if (rus == 1)
+		{
+			system("cls");
+			tit_en->main_patient_eng();
+			rus = 0;
+		}
+}
+
+void lang::main_head(bool l)
+{
+	if (rus == 0)
+	{
+		system("cls");
+		titu->main_head_d();
+		rus = 1;
+	}
+	else
+		if (rus == 1)
+		{
+			system("cls");
+			tit_en->main_head_d_eng();
+			rus = 0;
+		}
+}
+
+void lang::main_pr_hosp(bool l)
+{
+	if (rus == 0)
+	{
+		system("cls");
+		titu->main_p_hospital();
+		rus = 1;
+	}
+	else
+		if (rus == 1)
+		{
+			system("cls");
+			tit_en->main_p_hospital_eng();
+			rus = 0;
+		}
+}

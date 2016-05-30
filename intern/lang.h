@@ -19,4 +19,8 @@ public:
 	void main_person(bool);
 	void main_create(bool);
 	void main_remove(bool);
+	void main_doct(bool);
+	void main_pat(bool);
+	void main_head(bool);
+	void main_pr_hosp(bool);
 };

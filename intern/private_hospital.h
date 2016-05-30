@@ -60,5 +60,6 @@ public:
 	void clean();
 	void main_menu_private();
 	void save_private();
+	void display_eng();
 };
 

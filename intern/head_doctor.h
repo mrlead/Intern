@@ -53,5 +53,6 @@ public:
 	void display_param();
 	void main_head_doctor();
 	void save_origin();
+	void display_eng();
 };
 
