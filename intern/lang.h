@@ -23,4 +23,6 @@ public:
 	void main_pat(bool);
 	void main_head(bool);
 	void main_pr_hosp(bool);
+	void main_pr_doct(bool);
+	void main_pr_he(bool);
 };

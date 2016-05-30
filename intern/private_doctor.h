@@ -97,4 +97,5 @@ public:
 	//преегрузкa для повышения квалификации
 	void operator ++ ();
 	void save_private();
+	void display_eng();
 };

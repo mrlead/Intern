@@ -55,4 +55,5 @@ public:
 	void clean();
 	void number();
 	void save_private();
+	void display_eng();
 };

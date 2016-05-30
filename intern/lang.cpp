@@ -261,3 +261,37 @@ void lang::main_pr_hosp(bool l)
 			rus = 0;
 		}
 }
+
+void lang::main_pr_he(bool l)
+{
+	if (rus == 0)
+	{
+		system("cls");
+		titu->main_p_head();
+		rus = 1;
+	}
+	else
+		if (rus == 1)
+		{
+			system("cls");
+			tit_en->main_p_head_eng();
+			rus = 0;
+		}
+}
+
+void lang::main_pr_doct(bool l)
+{
+	if (rus == 0)
+	{
+		system("cls");
+		titu->main_p_doctor();
+		rus = 1;
+	}
+	else
+		if (rus == 1)
+		{
+			system("cls");
+			tit_en->main_p_doctor_eng();
+			rus = 0;
+		}
+}

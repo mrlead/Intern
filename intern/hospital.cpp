@@ -459,7 +459,6 @@ void hospital::main_menu_hospital()
 	static hospital* medical = new hospital();
 	text* text_hosp = new text();
 	
-
 	l_hosp->check();
 
 	int key1, key2;

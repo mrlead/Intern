@@ -1,9 +1,11 @@
 #pragma once
 #include "private_doctor.h"
 #include "patient.h"
+#include "lang.h"
 #include <fstream>
 
 static patient* pat_p = new patient();
+lang* l_p_doct = new lang();
 
 void private_doctor::operator ++()
 {
@@ -35,7 +37,15 @@ void private_doctor::get_name()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_p_doct->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_p_doct->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -84,7 +94,15 @@ void private_doctor::GetNumber()
 		ifstream f(filename);
 		if (!f.good())
 		{
-			cout << "Файл не открыт" << endl;
+			if (l_p_doct->rus == 1)
+			{
+				cout << "Файл не открыт" << endl;
+			}
+			else
+				if (l_p_doct->rus == 0)
+				{
+					cout << "File not open" << endl;
+				}
 		}
 		else
 		{
@@ -186,7 +204,15 @@ void private_doctor::Heal()
 										{
 											strcpy(heal, heal10);
 										}
-	cout << "Метод лечения: " << heal << endl;
+	if (l_p_doct->rus == 1)
+	{
+		cout << "Метод лечения: " << heal << endl;
+	}
+	else
+		if (l_p_doct->rus == 0)
+		{
+			cout << "Health method: " << heal << endl;
+		}
 }
 
 void private_doctor::exam()
@@ -201,31 +227,72 @@ void private_doctor::exam()
 		if (r == 2 && r != 6)
 		{
 			strcpy(default_rank, rank_2);
-			cout << "Доктор сдал экзамен" << endl;
+			if (l_p_doct->rus == 1)
+			{
+				cout << "Доктор сдал экзамен" << endl;
+			}
+			else
+				if (l_p_doct->rus == 0)
+				{
+					cout << "Doctor exam" << endl;
+				}
 		}
 		else
 			if (r == 3 && r != 6)
 			{
 				strcpy(default_rank, rank_3);
-				cout << "Доктор сдал экзамен" << endl;
+				if (l_p_doct->rus == 1)
+				{
+					cout << "Доктор сдал экзамен" << endl;
+				}
+				else
+					if (l_p_doct->rus == 0)
+					{
+						cout << "Doctor exam" << endl;
+					}
 			}
 			else
 				if (r == 4 && r != 6)
 				{
-					cout << "Квалификация уже повышеннна до максимального уровня" << endl;
-					cout << "Но вы можете попробовать ещё разок)" << endl;
+					if (l_p_doct->rus == 1)
+					{
+						cout << "Квалификация уже повышенна до максимального уровня" << endl;
+						cout << "Но вы можете попробовать ещё разок)" << endl;
+					}
+					else
+						if (l_p_doct->rus == 0)
+						{
+							cout << "Qualification already elevated to the maximum level" << endl;
+							cout << "But you can try one more time )" << endl;
+						}
 				}
 				else
 					if (r == 5 && r != 6)
 					{
-						cout << "Вы Бог медицины" << endl;
+						if (l_p_doct->rus == 1)
+						{
+							cout << "Вы Бог медицины" << endl;
+						}
+						else
+							if (l_p_doct->rus == 0)
+							{
+								cout << "You are God of medicine" << endl;
+							}
 						strcpy(default_rank, rank_4);
 					}
 	}
 	else
 		if (ex == 2 && ex != 3)
 		{
-			cout << "\aДоктор провалил экзамен" << endl;
+			if (l_p_doct->rus == 1)
+			{
+				cout << "\aДоктор провалил экзамен" << endl;
+			}
+			else
+				if (l_p_doct->rus == 0)
+				{
+					cout << "\aDoctor fail exam" << endl;
+				}
 		}
 }
 
@@ -243,7 +310,15 @@ void private_doctor::get_age()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_p_doct->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_p_doct->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -281,7 +356,15 @@ void private_doctor::get_status()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_p_doct->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_p_doct->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -318,13 +401,31 @@ void private_doctor::display_param()
 	cout << GetIniString("10", "objects", "ini_base/menu_list_rus.ini") << count << endl;
 }
 
+void private_doctor::display_eng()
+{
+	cout << GetIniString("1", "answer_p_doct", "ini_base/menu_list_eng.ini") << name << endl;
+	cout << GetIniString("2", "answer_p_doct", "ini_base/menu_list_eng.ini") << status << endl;
+	cout << GetIniString("3", "answer_p_doct", "ini_base/menu_list_eng.ini") << age << endl;
+	cout << GetIniString("4", "answer_p_doct", "ini_base/menu_list_eng.ini") << default_rank << endl;
+	cout << GetIniString("5", "answer_p_doct", "ini_base/menu_list_eng.ini") << nums << endl;
+	cout << endl;
+	cout << GetIniString("10", "objects", "ini_base/menu_list_eng.ini") << count << endl;
+}
+
 void private_doctor::save_private()
 {
 	ofstream fout(file_doctor_p, ios_base::out | ios_base::trunc);
 	if (!fout.good())
 	{
-		cout << "Файл поврежден" << endl;
-
+		if (l_p_doct->rus == 1)
+		{
+			cout << "Файл повреждён" << endl;
+		}
+		else
+			if (l_p_doct->rus == 0)
+			{
+				cout << "Bad file" << endl;
+			}
 	}
 	else
 	{
@@ -345,12 +446,13 @@ void private_doctor::main_menu_pr_doctor()
 
 	text* text_doct = new text();
 
+	l_p_doct->check();
+
 	int key1, key2;
 	do
 	{
-		setlocale(0, "");
 		system("cls");
-		text_doct->main_doct();
+		l_p_doct->main_pr_doct(l_p_doct);
 		key1 = _getch();
 		switch (key1)
 		{
@@ -358,9 +460,17 @@ void private_doctor::main_menu_pr_doctor()
 		{
 			if (pr_doctor->age != 0)
 			{
-				cout << "Для начала произведите увольнение" << endl;
-				Sleep(900);
-				system("cls");
+				if (l_p_doct->rus == 1)
+				{
+					cout << "Для начала произведите увольнение" << endl;
+					Sleep(1500);
+				}
+				else
+					if (l_p_doct->rus == 0)
+					{
+						cout << "To start make a dismissal" << endl;
+						Sleep(1500);
+					}
 			}
 			else
 			{
@@ -370,70 +480,121 @@ void private_doctor::main_menu_pr_doctor()
 				pr_doctor->get_status();
 				pr_doctor->GetNumber();
 				pr_doctor->GetRank();
-				cout << "Операция произведенна" << endl;
-				Sleep(900);
+				if (l_p_doct->rus == 1)
+				{
+					cout << "Успешно" << endl;
+					Sleep(1500);
+				}
+				else
+					if (l_p_doct->rus == 0)
+					{
+						cout << "Successfully" << endl;
+						Sleep(1500);
+					}
 			}
 		}
+		l_p_doct->check();
 		break;
 		case'2':
 		{
 			if (pr_doctor->age == 0)
 			{
-				system("cls");
-				cout << "\aСначала создайте врача" << endl;
-				Sleep(1500);
-				system("cls");
+				if (l_p_doct->rus == 1)
+				{
+					system("cls");
+					cout << "Сначала создайте доктора" << endl;
+					Sleep(1500);
+				}
+				else
+					if (l_p_doct->rus == 0)
+					{
+						system("cls");
+						cout << "First, create a doctor" << endl;
+						Sleep(1500);
+					}
 			}
 			else
 			{
-				do
+				if (l_p_doct->rus == 1)
 				{
 					system("cls");
 					pr_doctor->get_status();
 					pr_doctor->display_param();
 					pr_doctor->save_private();
-					cout << "'ESC' - Назад" << endl;
-					key2 = _getch();
-					switch (key2)
+					_getch();
+				}
+				else
+					if (l_p_doct->rus == 0)
 					{
+						system("cls");
+						pr_doctor->get_status();
+						pr_doctor->display_eng();
+						pr_doctor->save_private();
+						_getch();
 					}
-				} while (key2 != 27);
-				break;
 			}
 		}
+		l_p_doct->check();
 		break;
 		case'3':
 		{
 			if (pr_doctor->nums == 0)
 			{
-				system("cls");
-				cout << "\aУвольнять ещё некого" << endl;
-				Sleep(1500);
-				system("cls");
+				if (l_p_doct->rus == 1)
+				{
+					cout << "Увольнять ещё некого!" << endl;
+					Sleep(1500);
+				}
+				else
+					if (l_p_doct->rus == 0)
+					{
+						cout << "Dismiss more certain!" << endl;
+						Sleep(1500);
+					}
 			}
 			else
 			{
 				system("cls");
 				pr_doctor->clean();
-				cout << "Созданно" << endl;
-				Sleep(1500);
+				if (l_p_doct->rus == 1)
+				{
+					cout << "Успешно" << endl;
+					Sleep(1500);
+				}
+				else
+					if (l_p_doct->rus == 0)
+					{
+						cout << "Successfully" << endl;
+						Sleep(1500);
+					}
 			}
 		}
+		l_p_doct->check();
 		break;
 		case'4':
 		{
 			system("cls");
 			pat_p->main_menu_pat();
 		}
+		l_p_doct->check();
 		break;
 		case'5':
 		{
 			if (pr_doctor->age == 0)
 			{
-				system("cls");
-				cout << "\aСначала создайте врача" << endl;
-				Sleep(1500);
-				system("cls");
+				if (l_p_doct->rus == 1)
+				{
+					system("cls");
+					cout << "Сначала создайте доктора" << endl;
+					Sleep(1500);
+				}
+				else
+					if (l_p_doct->rus == 0)
+					{
+						system("cls");
+						cout << "First, create a doctor" << endl;
+						Sleep(1500);
+					}
 			}
 			else
 			{
@@ -442,6 +603,7 @@ void private_doctor::main_menu_pr_doctor()
 				Sleep(3000);
 			}
 		}
+		l_p_doct->check();
 		break;
 		}
 	} while (key1 != 27);

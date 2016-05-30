@@ -204,7 +204,16 @@ void doctor::Heal()
 										{
 											strcpy(heal, heal10);
 										}
-	cout << "Метод лечения: " << heal << endl;
+	
+	if (l_doct->rus == 1)
+	{
+		cout << "Метод лечения: " << heal << endl;
+	}
+	else
+		if (l_doct->rus == 0)
+		{
+			cout << "Health method: " << heal << endl;
+		}
 }
 
 void doctor::exam()
@@ -246,7 +255,6 @@ void doctor::exam()
 			else
 				if (r == 4 && r != 6)
 				{
-					
 					if (l_doct->rus == 1)
 					{
 						cout << "Квалификация уже повышенна до максимального уровня" << endl;

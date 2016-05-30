@@ -57,14 +57,14 @@ public:
 		strcpy(status, null_str);
 		strcpy(ag, null_str);
 	}
-	void get_name(string);
-	void get_status();
-	void get_age();
-	void display_param();
-	void main_menu_staff();
-	void clean();
+	virtual void get_name(string);
+	virtual void get_status();
+	virtual void get_age();
+	virtual void display_param();
+	virtual void main_menu_staff();
+	virtual void clean();
 	void main_private_staff();
-	void save_origin();
-	void save_private();
-	void display_eng();
+	virtual void save_origin();
+	virtual void save_private();
+	virtual void display_eng();
 };

@@ -1,5 +1,9 @@
+#pragma once
 #include "head_private_doctor.h"
+#include "lang.h"
 #include <fstream>
+
+lang* l_pr_d = new lang();
 
 void head_private_doctor::clean()
 {
@@ -23,7 +27,15 @@ void head_private_doctor::get_name()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_pr_d->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_pr_d->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -63,7 +75,15 @@ void head_private_doctor::get_age()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_pr_d->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_pr_d->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -102,7 +122,15 @@ void head_private_doctor::number()
 		ifstream f(filename);
 		if (!f.good())
 		{
-			cout << "Файл не открыт" << endl;
+			if (l_pr_d->rus == 1)
+			{
+				cout << "Файл не открыт" << endl;
+			}
+			else
+				if (l_pr_d->rus == 0)
+				{
+					cout << "File not open" << endl;
+				}
 		}
 		else
 		{	//Читаем содержимое файла в коллекцию
@@ -141,7 +169,15 @@ void head_private_doctor::get_status()
 	ifstream f(filename);
 	if (!f.good())
 	{
-		cout << "Файл не открыт" << endl;
+		if (l_pr_d->rus == 1)
+		{
+			cout << "Файл не открыт" << endl;
+		}
+		else
+			if (l_pr_d->rus == 0)
+			{
+				cout << "File not open" << endl;
+			}
 	}
 	else
 	{
@@ -182,13 +218,32 @@ void head_private_doctor::display_param()
 	cout << endl;
 }
 
+void head_private_doctor::display_eng()
+{
+	cout << endl;
+	cout << GetIniString("1", "answer_p_head", "ini_base/menu_list_eng.ini") << name << endl;
+	cout << GetIniString("2", "answer_p_head", "ini_base/menu_list_eng.ini") << status << endl;
+	cout << GetIniString("3", "answer_p_head", "ini_base/menu_list_eng.ini") << age << endl;
+	cout << GetIniString("4", "answer_p_head", "ini_base/menu_list_eng.ini") << num << endl;
+	cout << endl;
+	cout << GetIniString("9", "objects", "ini_base/menu_list_eng.ini") << count << endl;
+	cout << endl;
+}
+
 void head_private_doctor::save_private()
 {
 	ofstream fout(file_head_p, ios_base::out | ios_base::trunc);
 	if (!fout.good())
 	{
-		cout << "Файл поврежден" << endl;
-
+		if (l_pr_d->rus == 1)
+		{
+			cout << "Файл повреждён" << endl;
+		}
+		else
+			if (l_pr_d->rus == 0)
+			{
+				cout << "Bad file" << endl;
+			}
 	}
 	else
 	{
@@ -206,12 +261,13 @@ void head_private_doctor::main_p_head()
 	static head_private_doctor* head_P = new head_private_doctor();
 	text* text_p_head_doct = new text();
 
+	l_pr_d->check();
+
 	int key1, key2;
 	do
 	{
-		setlocale(0, "");
 		system("cls");
-		text_p_head_doct->main_p_head();
+		l_pr_d->main_pr_he(l_pr_d);
 		key1 = _getch();
 		switch (key1)
 		{
@@ -219,10 +275,17 @@ void head_private_doctor::main_p_head()
 		{
 			if (head_P->age != 0)
 			{
-				system("cls");
-				cout << "Для начала произведите очистку данных" << endl;
-				Sleep(1500);
-				system("cls");
+				if (l_pr_d->rus == 1)
+				{
+					cout << "Для начала произведите увольнение" << endl;
+					Sleep(1500);
+				}
+				else
+					if (l_pr_d->rus == 0)
+					{
+						cout << "To start make a dismissal" << endl;
+						Sleep(1500);
+					}
 			}
 			else
 			{
@@ -232,54 +295,94 @@ void head_private_doctor::main_p_head()
 				head_P->number();
 				head_P->get_status();
 				system("cls");
-				cout << "Успешно" << endl;
-				Sleep(1500);
+				if (l_pr_d->rus == 1)
+				{
+					cout << "Успешно" << endl;
+					Sleep(1500);
+				}
+				else
+					if (l_pr_d->rus == 0)
+					{
+						cout << "Successfully" << endl;
+						Sleep(1500);
+					}
 			}
 		}
+		l_pr_d->check();
 		break;
 		case'2':
 		{
 			if (head_P->age == 0)
 			{
-				system("cls");
-				cout << "\aСначала создайте врача" << endl;
-				Sleep(1500);
-				system("cls");
+				if (l_pr_d->rus == 1)
+				{
+					system("cls");
+					cout << "Сначала создайте доктора" << endl;
+					Sleep(1500);
+				}
+				else
+					if (l_pr_d->rus == 0)
+					{
+						system("cls");
+						cout << "First, create a doctor" << endl;
+						Sleep(1500);
+					}
 			}
 			else
 			{
-				do
+				if (l_pr_d->rus == 1)
 				{
 					system("cls");
 					head_P->display_param();
 					head_P->save_private();
-					cout << "'ESC' - Назад" << endl;
-					key2 = _getch();
-					switch (key2)
+					_getch();
+				}
+				else
+					if (l_pr_d->rus == 0)
 					{
+						system("cls");
+						head_P->display_eng();
+						head_P->save_private();
+						_getch();
 					}
-				} while (key2 != 27);
-				break;
 			}
 		}
+		l_pr_d->check();
 		break;
 		case'3':
 		{
 			if (head_P->age == 0)
 			{
-				system("cls");
-				cout << "\aСтирать ещё нечего" << endl;
-				Sleep(1500);
-				system("cls");
+				if (l_pr_d->rus == 1)
+				{
+					cout << "Увольнять ещё некого!" << endl;
+					Sleep(1500);
+				}
+				else
+					if (l_pr_d->rus == 0)
+					{
+						cout << "Dismiss more certain!" << endl;
+						Sleep(1500);
+					}
 			}
 			else
 			{
 				system("cls");
 				head_P->clean();
-				cout << "Успешно" << endl;
-				Sleep(1500);
+				if (l_pr_d->rus == 1)
+				{
+					cout << "Успешно" << endl;
+					Sleep(1500);
+				}
+				else
+					if (l_pr_d->rus == 0)
+					{
+						cout << "Successfully" << endl;
+						Sleep(1500);
+					}
 			}
 		}
+		l_pr_d->check();
 		break;
 		}
 	} while (key1 != 27);
